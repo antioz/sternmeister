@@ -270,9 +270,12 @@ footer .credits{opacity:.6;font-size:12px;max-width:70ch}
 .vc-t{margin-top:10px;font:500 21px/1.2 var(--sans);letter-spacing:-.02em}
 .vc-s{color:var(--sand);letter-spacing:3px}
 .vc p{margin:0;font:300 17px/1.5 var(--serif);color:var(--light)}
-.prog{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(28px,5vw,80px);align-items:start}
+.progs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(18px,2.5vw,40px);align-items:stretch}
+.prog{display:flex;flex-direction:column;gap:28px}
 .prog>*{min-width:0}
-.prog .photo{position:sticky;top:96px;aspect-ratio:4/5;max-height:640px}
+.prog .photo{position:relative;aspect-ratio:4/3;max-height:none}
+.prog>div:last-child{display:flex;flex-direction:column;flex:1}
+.prog .pill{align-self:flex-start;margin-top:auto}
 .prog .eyebrow{display:block;margin-bottom:12px}
 .prog h3{margin:0 0 14px;font:500 clamp(24px,2.4vw,34px)/1.12 var(--sans);letter-spacing:-.03em}
 .prog .p{margin:0;font:300 18px/1.55 var(--serif);color:var(--muted)}
@@ -325,7 +328,7 @@ footer{padding-bottom:calc(84px + env(safe-area-inset-bottom,0px))}
 /* заливка первого экрана — как в версии 1 */
 #top .shade{background:linear-gradient(180deg,rgba(38,51,31,.72) 0%,rgba(78,104,76,.38) 45%,rgba(41,44,41,.86) 100%),linear-gradient(rgba(41,44,41,.48),rgba(41,44,41,.48))}
 #hdr nav .lang{opacity:.7}
-@media (max-width:980px){.prog{grid-template-columns:1fr}.prog .photo{position:relative;top:auto;aspect-ratio:4/3}.career{grid-template-columns:1fr}.cd-facts{grid-template-columns:1fr 1fr 1fr}}
+@media (max-width:980px){.progs{grid-template-columns:1fr}.career{grid-template-columns:1fr}.cd-facts{grid-template-columns:1fr 1fr 1fr}}
 @media (max-width:760px){
   .hero{padding-bottom:96px}
   .cd-facts{grid-template-columns:1fr 1fr}
@@ -453,6 +456,7 @@ footer{padding-bottom:calc(84px + env(safe-area-inset-bottom,0px))}
       <div class="card" style="background:var(--cream)" data-reveal><h3>Бухгалтер (Finanzbuchhalter)</h3><p>Если вам нравится разбираться в цифрах и документах, присмотритесь к бухгалтерии. Здесь важны внимательность и системный подход, а со временем можно вырасти до Bilanzbuchhalter. Выход на рынок уже через 2–4 месяца после выпуска.</p></div>
       <div class="card" style="background:var(--cream)" data-reveal><h3>Медицинский администратор (Praxismanager)</h3><p>Если вам нравится помогать людям и организовывать процессы, вам подойдёт работа на ресепшене клиники: общение с пациентами, запись на приём и медицинские документы. Дефицит кадров в этой сфере позволяет быстро выйти на работу.</p></div>
     </div>
+    <div class="progs">
     <article class="prog">
       <div class="photo" data-reveal><img src="../media/buhgalter.jpg" alt="" style="object-position:62% 50%;"></div>
       <div data-reveal>
@@ -479,6 +483,7 @@ footer{padding-bottom:calc(84px + env(safe-area-inset-bottom,0px))}
         <a class="pill dark" href="#form">Программа курса администратора →</a>
       </div>
     </article>
+    </div>
   </div>
 </section>
 
