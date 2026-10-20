@@ -231,6 +231,39 @@ footer .credits{opacity:.6;font-size:12px;max-width:70ch}
 .h2.h2-s{font-size:clamp(28px,3vw,46px);line-height:1.08}
 .formcard{display:flex;flex-direction:column;gap:12px;padding:clamp(24px,3vw,40px);border-radius:var(--r);background:var(--cream);color:var(--ink)}
 .warmbg{background:var(--warm)}
+/* слайдеры: стрелки поверх края ленты */
+.slider{position:relative}
+.sl{position:absolute;z-index:3;transform:translateY(-50%);width:60px;height:60px;display:flex;align-items:center;justify-content:center;border-radius:50%;border:0;background:#fff;color:var(--ink);box-shadow:0 10px 28px rgba(0,0,0,.25);font:400 22px var(--sans);cursor:pointer;transition:opacity .25s,background .25s,color .25s}
+.sl:hover{background:var(--acc);color:var(--ink)}
+.sl-prev{left:-18px}.sl-next{right:-18px}
+.sl:disabled{opacity:0;pointer-events:none}
+@media (max-width:760px){.sl{width:46px;height:46px;font-size:18px}.sl-prev{left:-6px}.sl-next{right:-6px}}
+.team.track{grid-auto-columns:calc((100% - 54px) / 4);grid-template-columns:none}
+@media (max-width:1100px){.team.track{grid-auto-columns:calc((100% - 36px) / 3)}}
+@media (max-width:760px){.team.track{grid-auto-columns:62%}}
+.tc{scroll-snap-align:start}
+/* вебинар */
+.acc{color:var(--acc)}
+.web2{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:clamp(28px,5vw,80px);align-items:end}
+.web-l{display:flex;flex-direction:column;gap:22px}
+.web-l .h2{max-width:none}
+.dots{display:flex;flex-wrap:wrap;gap:10px 24px;margin-top:10px;font:500 13px var(--sans);letter-spacing:.12em}
+.dots span::before{content:"";display:inline-block;width:8px;height:8px;margin-right:9px;border-radius:50%;background:var(--acc);vertical-align:1px}
+.wt{margin:0;font:500 clamp(26px,2.6vw,38px)/1.15 var(--sans);letter-spacing:-.03em}
+.web2 .plines{max-width:560px}
+.web2 .pl span:first-child{font:500 26px/1 var(--sans);letter-spacing:-.02em;text-transform:none;color:#fff}
+.web2 .pill{align-self:flex-start}
+.web-ph{position:relative;align-self:stretch;min-height:520px;display:flex;align-items:flex-end;justify-content:center;overflow:hidden}
+.web-ph .circ{position:absolute;left:4%;right:4%;bottom:-18%;aspect-ratio:1;border-radius:50%;background:var(--slate)}
+.web-ph img{position:relative;width:min(78%,420px);height:auto}
+@media (max-width:980px){.web2{grid-template-columns:1fr}.web-ph{min-height:420px}}
+/* FAQ: заголовок слева, вопросы справа */
+.faqgrid{display:grid;grid-template-columns:minmax(0,.75fr) minmax(0,1.25fr);gap:clamp(28px,5vw,80px);align-items:start}
+.faqgrid>*{min-width:0}
+.faqh{position:sticky;top:110px}
+.faqgrid .faq{max-width:none}
+.faqgrid .blogp{margin-top:48px}
+@media (max-width:900px){.faqgrid{grid-template-columns:1fr}.faqh{position:static}}
 .ctacard{display:flex;align-items:center;justify-content:space-between;gap:28px 64px;padding:clamp(28px,4vw,56px) clamp(28px,4.5vw,64px);border-radius:var(--r);background:var(--slate);color:#fff}
 .ctacard h2{margin:0 0 16px;font:500 clamp(26px,2.8vw,42px)/1.1 var(--sans);letter-spacing:-.03em}
 .ctacard p{margin:0;max-width:56ch;font:300 clamp(17px,1.4vw,20px)/1.5 var(--serif);color:rgba(255,255,255,.88)}
@@ -443,8 +476,8 @@ footer{padding-bottom:calc(84px + env(safe-area-inset-bottom,0px))}
 <!-- 4 ОТЗЫВЫ: карточки v1 лентой -->
 <section class="sec" id="reviews">
   <div class="wrap stack">
-    <div class="headrow" data-reveal><div class="head"><h2 class="h2">Отзывы студентов и выпускников</h2></div>
-      <div class="arr"><button type="button" data-v="-1" data-t="revs" aria-label="Назад">←</button><button type="button" data-v="1" data-t="revs" aria-label="Вперёд">→</button></div></div>
+    <div class="head" data-reveal><h2 class="h2">Отзывы студентов и выпускников</h2></div>
+    <div class="slider">
     <div class="track revs" id="revs">
 <div data-reveal class="rv"><div class="rv-h"><img class="rv-av" src="../media/reviews/gyulnara.jpg" alt="Гюльнара" loading="lazy"><b>Гюльнара</b><span class="lbl">Студентка SternMeister</span></div><p>Меня зовут Гюльнара, и за моими плечами — путь, полный испытаний, но и важных открытий. Я мама двух замечательных двойняшек, я та которая никогда не сдаётся, даже когда кажется, что всё против неё. В Украине у меня была насыщенная профессиональная жизнь: высшее образование бухгалтера, работа бухгалтером, потом кассир-контролер, потом менеджером по продажам в Metro Cash &amp; Carry, а потом — собственный бизнес мой салон красоты в который было вложено ВСЕ!!! силы средства и душа. Но пандемия, а затем война перечеркнули всё...</p><div class="rv-more" hidden><p>Ради безопасности сыновей пришлось уехать в Германию. Первые месяцы были тяжёлыми: языковой барьер, тоска, ощущение, что жизнь остановилась. Чтобы выжить, устроилась на книжный склад — собирала заказы, хотя внутри понимала: так не может продолжаться вечно. Мои амбиции, образование и опыт твердили: «Ты способна на большее!» И тогда я подумала вернуться к истокам — бухгалтерии. Только подумала но не стала сразу искать курсы. Спустя пару часов открыла Instagram листая ленту мне попадается первой же реклама школы SternMeier. Сказала себе: «Это знак!» — и я записалась. И ни капли не жалею! Что меня вдохновляет в учёбе?</p><p>🔥 Подача материала — всё объясняют доступно, структурированно, без «воды».</p><p>💙 Преподаватели— неравнодушные, поддерживают, верят в студентов.</p><p>Правда, немецкий язык даётся пока сложнее всего — термины, документы, но я упорно работаю над этим. Сейчас я учусь, адаптирую украинский опыт под немецкие реалии и чувствую, как понемногу возвращаю себе уверенность. Впереди еще очень много всего, но я знаю что это новая глава моей жизни. Этот путь научил меня главному: даже после самых тяжёлых потерь можно начать заново. Главное — не бояться сделать первый шаг.</p></div><button type="button" class="rv-btn lnk">Прочитать отзыв полностью</button></div>
 <div data-reveal class="rv"><div class="rv-h"><img class="rv-av" src="../media/reviews/viktoriya.jpg" alt="Виктория" loading="lazy"><b>Виктория</b><span class="lbl">Студентка SternMeister</span></div><p>Привет! Меня зовут Виктория, мне 45 лет. Я мама двух детей и приехала в Германию из Украины в 2022 году. До этого более 20 лет я работала главным бухгалтером в разных компаниях — занималась всем: от повседневной бухгалтерии до подготовки годовой отчётности и налогов. После переезда я поначалу немного подрабатывала, но поняла, что очень хочу снова заниматься тем, что люблю и умею — бухгалтерией. Я начала искать курсы, которые могли бы помочь мне адаптировать мой опыт к немецкой системе. Очень важно было, чтобы обучение было понятным, с поддержкой, на русском языке, и...</p><div class="rv-more" hidden><p>…в то же время с ориентацией на реальные требования работодателей. Так я и нашла Штернмейстер — и почувствовала, что это то, что нужно. Больше всего мне нравится в обучении практическая направленность, а ещё то, как поддерживают преподаватели. Конечно, иногда бывает трудно, особенно с языком и новой терминологией — но это нормально. Главное — я снова чувствую, что двигаюсь к своей профессии.</p><p>Очень жду возможности применить знания в немецкой компании и снова стать уверенным специалистом — уже здесь, в Германии.</p></div><button type="button" class="rv-btn lnk">Прочитать отзыв полностью</button></div>
@@ -454,6 +487,8 @@ footer{padding-bottom:calc(84px + env(safe-area-inset-bottom,0px))}
 <div data-reveal class="rv"><div class="rv-h"><img class="rv-av" src="../media/reviews/irina.jpg" alt="Ирина" loading="lazy"><b>Ирина</b><span class="lbl">Студентка SternMeister</span></div><p>Я закончила экономический, работала бухгалтером 6 лет. Когда переехали в Германию, я была уверена, что смогу найти работу, но много есть подводных камней, работу найти не получалось, нужно знание програм и опыт на немецком рынке. Учусь уже пару месяцев и это именно то, что мне было нужно.</p></div>
 <div data-reveal class="rv"><div class="rv-h"><img class="rv-av" src="../media/reviews/anna.jpg" alt="Анна" loading="lazy"><b>Анна</b><span class="lbl">Студентка SternMeister</span></div><p>Обучаюсь уже несколько месяцев на курсе бухгалтерии, изначально переживала из-за немецкого (он у меня А2), но Sternmeister помогает и в этом плане: есть разговорный клуб, уроки по лексике и грамматике, здорово помогает. Сильные преподаватели, все очень на высоком качестве.</p></div>
     </div>
+    <button type="button" class="sl sl-prev" data-v="-1" data-t="revs" aria-label="Назад" style="top:50%">←</button><button type="button" class="sl sl-next" data-v="1" data-t="revs" aria-label="Вперёд" style="top:50%">→</button>
+    </div>
   </div>
 </section>
 
@@ -461,9 +496,9 @@ footer{padding-bottom:calc(84px + env(safe-area-inset-bottom,0px))}
 <section class="sec pine on-dark">
   <div class="wrap stack">
     <div class="head" data-reveal><h2 class="h2">Видеоинтервью со студентами</h2><p class="lead">Каково учиться в SternMeister? Посмотрите интервью со студентами и выпускниками: они рассказывают о занятиях, преподавателях и своём пути к работе в Германии.</p></div>
-    <div class="headrow" data-reveal><a class="pill" href="#reviews">Больше отзывов</a>
-      <div class="arr"><button type="button" data-v="-1" data-t="vtrack" aria-label="Назад">←</button><button type="button" data-v="1" data-t="vtrack" aria-label="Вперёд">→</button></div></div>
-    <div class="track vtrack" id="vtrack" data-reveal>
+    <div data-reveal><a class="pill" href="#reviews">Больше отзывов</a></div>
+    <div class="slider" data-reveal>
+    <div class="track vtrack" id="vtrack">
 <div class="vc"><button type="button" class="vc-ph" data-vimeo="1224541757" aria-label="Смотреть: Интервью с Марианной (6 мин)"><img src="../media/video/1224541757.jpg" alt="" loading="lazy"><span class="vc-play" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 4.5 L20 12 L7 19.5 Z"/></svg></span></button><div class="vc-t">Интервью с Марианной (6 мин)</div><div class="vc-s" aria-hidden="true">★★★★★</div><p>Всю жизнь в торговле — впервые осваивает профессию бухгалтера</p></div>
 <div class="vc"><button type="button" class="vc-ph" data-vimeo="1236550217" aria-label="Смотреть: Интервью с Еленой (11 мин)"><img src="../media/video/1236550217.jpg" alt="" loading="lazy"><span class="vc-play" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 4.5 L20 12 L7 19.5 Z"/></svg></span></button><div class="vc-t">Интервью с Еленой (11 мин)</div><div class="vc-s" aria-hidden="true">★★★★★</div><p>Из главного бухгалтера в Одессе в бухгалтеры в Германии</p></div>
 <div class="vc"><button type="button" class="vc-ph" data-vimeo="1237279364" aria-label="Смотреть: Интервью с Натальей (4 мин)"><img src="../media/video/1237279364.jpg" alt="" loading="lazy"><span class="vc-play" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 4.5 L20 12 L7 19.5 Z"/></svg></span></button><div class="vc-t">Интервью с Натальей (4 мин)</div><div class="vc-s" aria-hidden="true">★★★★★</div><p>Из Amazon в бухгалтерию: ведёт дела своего предприятия</p></div>
@@ -492,6 +527,8 @@ footer{padding-bottom:calc(84px + env(safe-area-inset-bottom,0px))}
 <div class="vc"><button type="button" class="vc-ph" data-vimeo="1226507632" aria-label="Смотреть: Интервью с Русланом (5 мин)"><img src="../media/video/1226507632.jpg" alt="" loading="lazy"><span class="vc-play" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 4.5 L20 12 L7 19.5 Z"/></svg></span></button><div class="vc-t">Интервью с Русланом (5 мин)</div><div class="vc-s" aria-hidden="true">★★★★★</div><p>Осваивает бухгалтерию, чтобы вести счета на своей работе</p></div>
 <div class="vc"><button type="button" class="vc-ph" data-vimeo="1225931042" aria-label="Смотреть: Интервью с Леонидом (10 мин)"><img src="../media/video/1225931042.jpg" alt="" loading="lazy"><span class="vc-play" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 4.5 L20 12 L7 19.5 Z"/></svg></span></button><div class="vc-t">Интервью с Леонидом (10 мин)</div><div class="vc-s" aria-hidden="true">★★★★★</div><p>Из балета — в бухгалтерию: нашёл работу ещё до конца курса</p></div>
     </div>
+    <button type="button" class="sl sl-prev" data-v="-1" data-t="vtrack" aria-label="Назад" style="top:34%">←</button><button type="button" class="sl sl-next" data-v="1" data-t="vtrack" aria-label="Вперёд" style="top:34%">→</button>
+    </div>
   </div>
 </section>
 
@@ -518,7 +555,8 @@ footer{padding-bottom:calc(84px + env(safe-area-inset-bottom,0px))}
 <section class="sec slate on-dark">
   <div class="wrap stack">
     <div class="head" data-reveal><h2 class="h2">Наши преподаватели</h2></div>
-    <div class="team">
+    <div class="slider">
+    <div class="track team" id="team">
 <div data-reveal class="tc"><div class="ph" style="aspect-ratio:4/5;"><img src="../media/team/01.jpg" alt="Наталья Панина-Руммель" loading="lazy"></div><b>Наталья Панина-Руммель</b><span>Dozent «Finanzbuchhaltung»</span></div>
 <div data-reveal class="tc"><div class="ph" style="aspect-ratio:4/5;"><img src="../media/team/02.jpg" alt="Алиса Нольте" loading="lazy"></div><b>Алиса Нольте</b><span>Dozent «Finanzbuchhaltung»</span></div>
 <div data-reveal class="tc"><div class="ph" style="aspect-ratio:4/5;"><img src="../media/team/03.jpg" alt="Татьяна Чернявски" loading="lazy"></div><b>Татьяна Чернявски</b><span>Dozent «Finanzbuchhaltung»</span></div>
@@ -535,6 +573,8 @@ footer{padding-bottom:calc(84px + env(safe-area-inset-bottom,0px))}
 <div data-reveal class="tc"><div class="ph" style="aspect-ratio:4/5;"><img src="../media/team/14.jpg" alt="Ирина Капустинская" loading="lazy"></div><b>Ирина Капустинская</b><span>Dozentin «Finanzbuchhaltung»</span></div>
 <div data-reveal class="tc"><div class="ph" style="aspect-ratio:4/5;"><img src="../media/team/15.jpg" alt="Алла Борхула" loading="lazy"></div><b>Алла Борхула</b><span>Dozentin «Finanzbuchhaltung»</span></div>
 <div data-reveal class="tc"><div class="ph" style="aspect-ratio:4/5;"><img src="../media/team/16.jpg" alt="Светлана Кейер" loading="lazy"></div><b>Светлана Кейер</b><span>Dozentin «Finanzbuchhaltung»</span></div>
+    </div>
+    <button type="button" class="sl sl-prev" data-v="-1" data-t="team" aria-label="Назад" style="top:40%">←</button><button type="button" class="sl sl-next" data-v="1" data-t="team" aria-label="Вперёд" style="top:40%">→</button>
     </div>
   </div>
 </section>
@@ -579,16 +619,19 @@ footer{padding-bottom:calc(84px + env(safe-area-inset-bottom,0px))}
   </div>
 </section>
 
-<!-- 13 ВЕБИНАР -->
-<section class="sec" id="webinar" style="background:var(--warm)">
-  <div class="wrap split" style="align-items:start">
-    <div class="txt" data-reveal><div class="eyebrow">Бесплатно · онлайн</div><h2 class="h2">Ближайший вебинар — регистрируйтесь</h2><p class="lead">Два часа с реальным бухгалтером из Германии: расскажем, как устроена работа в немецкой компании, как получить Bildungsgutschein и разберём живые кейсы выпускников</p></div>
-    <div class="webcard" data-reveal>
-      <div class="tags"><span>БЕСПЛАТНО</span><span>ОНЛАЙН</span><span>НА РУССКОМ</span></div>
-      <blockquote>Профессия, которую не убьёт ИИ: как стать бухгалтером в Германии за 7 месяцев</blockquote>
+<!-- 13 ВЕБИНАР: тёмный, акценты оранжевым, ведущая на зелёном круге — как на оригинале -->
+<section class="sec pine on-dark" id="webinar">
+  <div class="wrap web2">
+    <div class="web-l" data-reveal>
+      <div class="eyebrow">Бесплатно · онлайн</div>
+      <h2 class="h2">Ближайший вебинар — <span class="acc">регистрируйтесь</span></h2>
+      <p class="lead">Два часа с реальным бухгалтером из Германии: расскажем, как устроена работа в немецкой компании, как получить Bildungsgutschein и разберём живые кейсы выпускников</p>
+      <div class="dots"><span>БЕСПЛАТНО</span><span>ОНЛАЙН</span><span>НА РУССКОМ</span></div>
+      <p class="wt">Профессия, которую <span class="acc">не убьёт ИИ:</span> как стать бухгалтером в Германии за 7 месяцев</p>
       <div class="plines"><div class="pl"><span>19:00</span><span>сегодня</span></div><div class="pl"><span>2 часа</span><span>практической пользы</span></div></div>
-      <a class="pill dark" href="#form">Зарегистрироваться</a>
+      <a class="pill" href="#form">Зарегистрироваться</a>
     </div>
+    <div class="web-ph" data-reveal><div class="circ"></div><img src="../media/webinar.png" alt=""></div>
   </div>
 </section>
 
@@ -602,8 +645,9 @@ footer{padding-bottom:calc(84px + env(safe-area-inset-bottom,0px))}
 
 <!-- 15 ВОПРОСЫ -->
 <section class="sec" id="faq" style="padding-top:0">
-  <div class="wrap stack">
-    <div class="head" data-reveal><h2 class="h2">Частые вопросы (FAQ)</h2></div>
+  <div class="wrap faqgrid">
+    <div class="head faqh" data-reveal><h2 class="h2">Частые вопросы (FAQ)</h2></div>
+    <div>
     <div class="faq" id="faqList" data-reveal>
 <div class="fq"><button class="fq-h" aria-expanded="false">Сколько стоит обучение и есть ли рассрочка?<i></i></button><div class="fq-b">Стоимость обучения зависит от выбранной программы и формата — подробно расскажем на бесплатной консультации. Если вы зарегистрированы в Jobcenter или Agentur für Arbeit, обучение можно пройти бесплатно по Bildungsgutschein. При самостоятельной оплате действует скидка за единовременный платёж, а также доступна внутренняя рассрочка SternMeister на 5–7 месяцев.</div></div>
 <div class="fq"><button class="fq-h" aria-expanded="false">Кто может учиться бесплатно и как работает Bildungsgutschein?<i></i></button><div class="fq-b">Bildungsgutschein — ваучер на обучение от Jobcenter или Agentur für Arbeit. Если консультант одобрит его для выбранной программы, стоимость курса оплачивается из средств ведомства. Мы подскажем, какие документы подготовить.</div></div>
@@ -623,16 +667,6 @@ footer{padding-bottom:calc(84px + env(safe-area-inset-bottom,0px))}
       <p><b>Программы аккредитованы по AZAV</b><br>сам курс можно оплатить ваучером Bildungsgutschein</p>
       <p>Ситуации, с которыми сталкиваются бухгалтеры в Германии, разбираем в блоге: Kleinunternehmerregelung, бухгалтерия Gewerbe, зарплаты и другие важные вопросы</p>
     </div>
-  </div>
-</section>
-
-<!-- 16 ОСТАЛИСЬ ВОПРОСЫ -->
-<section class="sec" style="background:var(--warm)">
-  <div class="wrap price">
-    <div data-reveal>
-      <h2 class="h2">Остались вопросы?</h2>
-      <p class="note" style="color:var(--muted)">Запишитесь на бесплатную консультацию — подскажем, с чего начать</p>
-      <div style="margin-top:30px"><a class="pill dark" href="#form">Записаться</a></div>
     </div>
   </div>
 </section>
@@ -655,7 +689,7 @@ footer{padding-bottom:calc(84px + env(safe-area-inset-bottom,0px))}
         <input type="text" name="name" placeholder="Имя" autocomplete="name" aria-label="Имя">
         <input type="email" name="email" placeholder="E-mail" autocomplete="email" aria-label="E-mail">
         <label class="chk"><input type="checkbox" required><span>Я соглашаюсь с <a href="#contact">Политикой обработки персональных данных</a></span></label>
-        <button class="pill dark" type="submit">Записаться на консультацию и получить тестовый модуль в подарок</button>
+        <button class="pill dark" type="submit">Записаться и получить тестовый модуль в подарок</button>
       </form>
     </div>
   </div>
@@ -728,6 +762,13 @@ document.querySelectorAll('[data-reveal]').forEach(el => {
   const sib = [...el.parentElement.children].filter(x => x.hasAttribute('data-reveal'));
   el.style.setProperty('--d', Math.min(sib.indexOf(el), 4) * 0.08 + 's');
   io ? io.observe(el) : el.classList.add('in');
+});
+
+// стрелки слайдеров прячутся у краёв ленты
+document.querySelectorAll('.slider').forEach(sl => {
+  const t = sl.querySelector('.track'), [p, n] = sl.querySelectorAll('.sl');
+  const upd = () => { p.disabled = t.scrollLeft < 4; n.disabled = t.scrollLeft + t.clientWidth >= t.scrollWidth - 4; };
+  t.addEventListener('scroll', upd, { passive: true }); addEventListener('resize', upd); upd();
 });
 
 // шапка — как в v1: прозрачная на фото, плотная после первого экрана
