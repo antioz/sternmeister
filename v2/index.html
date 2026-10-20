@@ -1,287 +1,338 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ru">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>SternMeister – Курсы в Германии | Обучение с трудоустройством и поддержкой</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300&display=swap">
+<link rel="stylesheet" href="assets/fonts.css">
 <style>
-/* Версия 2: раскладка pokaz v1 «Балтика» (фото на весь экран, скругления 20 px, кнопки-пилюли, «текст + фото»,
-   факты строкой с перегородками, круглые плюсы в вопросах), палитра и шрифт SternMeister.
-   Тексты — те же, что в версии 1, слово в слово. */
+/* Версия 2: стили pokaz v1 «Балтика» один в один (template.html v1, строки 9–217), заменены только цвета на палитру SternMeister.
+   Ниже — дополнения для блоков, которых в v1 нет (форма, ленты отзывов и видео, программы, преподаватели, логотипы, переключатель версий), в тех же приёмах. */
+
 :root{
-  --cream:#f3ebde; --warm:#e9e0cf; --white:#ffffff; --ink:#292c29; --green:#4e684c; --sage:#a2b698; --deep:#26331f; --acc:#ff7000;
-  --muted:#5f625d; --line:rgba(41,44,41,.14); --light:rgba(243,235,222,.88); --lightLine:rgba(243,235,222,.22);
-  --sans:'Mulish',system-ui,-apple-system,"Segoe UI",sans-serif;
+  --cream:#f3ebde; --warm:#e8dfcd; --pine:#292c29; --slate:#4e684c; --sand:#a2b698; --ink:#292c29; --acc:#ff7000;
+  --muted:#5d605b; --line:rgba(41,44,41,.14); --light:rgba(243,235,222,.88); --lightLine:rgba(243,235,222,.22);
+  --sans:"Geist",system-ui,-apple-system,"Segoe UI",sans-serif; --serif:"Spectral",Georgia,"Times New Roman",serif;
   --padX:clamp(18px,5vw,80px); --padY:clamp(72px,9vw,140px); --max:1240px; --r:20px;
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{margin:0;background:var(--cream);color:var(--ink);font-family:var(--sans);font-size:18px;line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:hidden;hyphens:manual}
+body{margin:0;background:var(--cream);color:var(--ink);font-family:var(--sans);font-size:18px;line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:hidden}
 img{display:block;max-width:100%}
 a{color:inherit}
-button,input{font:inherit;color:inherit}
+button{font:inherit;color:inherit}
 [hidden]{display:none!important}
+.it{font-family:var(--serif);font-weight:300;font-style:italic}
 .wrap{max-width:var(--max);margin-inline:auto}
 .sec{padding:var(--padY) var(--padX)}
-.eyebrow{font:700 12px/1.4 var(--sans);letter-spacing:.16em;text-transform:uppercase;color:var(--green)}
-.on-dark .eyebrow{color:var(--sage)}
-.h2{margin:0;font:800 clamp(32px,4.4vw,64px)/1.04 var(--sans);letter-spacing:-.035em;text-wrap:balance;overflow-wrap:break-word}
-.lead{margin:0;font:300 clamp(19px,1.5vw,23px)/1.5 var(--sans);max-width:40ch;text-wrap:pretty}
+.eyebrow{font:500 12px/1.4 var(--sans);letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+.on-dark .eyebrow{color:var(--sand)}
+.h2{margin:0;font:500 clamp(34px,4.6vw,68px)/1.02 var(--sans);letter-spacing:-.04em;text-wrap:balance}
+.h2 .it{letter-spacing:-.01em}
+.lead{margin:0;font:300 clamp(19px,1.5vw,23px)/1.5 var(--serif);max-width:36ch;text-wrap:pretty}
 .on-dark{color:var(--cream)}
 .on-dark .lead{color:var(--light)}
-.pill{display:inline-flex;align-items:center;justify-content:center;gap:10px;text-decoration:none;padding:16px 30px;border-radius:999px;background:var(--acc);color:var(--ink);font:800 16px var(--sans);border:1px solid var(--acc);cursor:pointer;text-align:center;transition:background .25s,color .25s,border-color .25s}
-.pill:hover{background:var(--ink);border-color:var(--ink);color:var(--cream)}
-.on-dark .pill:hover,.onph .pill:hover{background:var(--cream);border-color:var(--cream);color:var(--ink)}
+.pill{display:inline-flex;align-items:center;gap:10px;text-decoration:none;padding:16px 30px;border-radius:999px;background:var(--cream);color:var(--ink);font:500 16px var(--sans);border:1px solid var(--cream);cursor:pointer;transition:background .25s,color .25s}
+.pill:hover{background:#fff}
+mark.todo{background:#ffe45c;color:#111;padding:.05em .25em;-webkit-box-decoration-break:clone;box-decoration-break:clone}
 .pill.dark{background:var(--ink);color:var(--cream);border-color:var(--ink)}
-.pill.dark:hover{background:var(--acc);border-color:var(--acc);color:var(--ink)}
+.pill.dark:hover{background:var(--pine)}
 .pill.ghost{background:transparent;color:inherit;border-color:currentColor}
-.pill.ghost:hover{background:var(--cream);color:var(--ink);border-color:var(--cream)}
-.pill.wide{width:100%}
-:focus-visible{outline:2px solid var(--acc);outline-offset:3px}
-.link{font-weight:700;text-decoration:underline;text-underline-offset:4px;text-decoration-color:var(--acc);text-decoration-thickness:1.5px}
+.pill.ghost:hover{background:var(--cream);color:var(--ink)}
+.pill:focus-visible,.link:focus-visible,.opt:focus-visible,.fq-h:focus-visible{outline:2px solid var(--acc);outline-offset:3px}
+.link{background:none;border:0;padding:0;cursor:pointer;text-decoration:underline;text-underline-offset:4px;text-decoration-color:var(--acc)}
 .bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-.shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(28,30,28,.35),rgba(28,30,28,.62))}
-.photo{position:relative;border-radius:var(--r);overflow:hidden;background:var(--warm)}
-.photo>img{width:100%;height:100%;object-fit:cover}
-.stack{display:flex;flex-direction:column;gap:clamp(34px,4vw,60px)}
-.head{display:flex;flex-direction:column;gap:18px;max-width:900px}
-.head .lead{max-width:56ch}
-.headrow{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:24px}
+.shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(28,30,28,.38),rgba(28,30,28,.52))}
+.photo{border-radius:var(--r);overflow:hidden;background:var(--warm)}
+.photo img{width:100%;height:100%;object-fit:cover}
 
-/* ---------- шапка ---------- */
+/* ---------- quiz ---------- */
+#quiz{position:fixed;inset:0;z-index:50;background:#1c1e1c;color:#fff;display:flex;flex-direction:column;overflow:hidden}
+#quiz .bg{filter:blur(14px) saturate(.9);transform:scale(1.08)}
+.qtop{position:relative;display:flex;justify-content:space-between;align-items:flex-start;gap:16px;padding:calc(22px + env(safe-area-inset-top,0px)) var(--padX) 0}
+.logo{display:flex;flex-direction:column;line-height:1;text-decoration:none;font:500 18px var(--sans);letter-spacing:-.02em}
+.logo .it{font-size:20px;letter-spacing:0}
+.qmeta{font:500 11px/1.6 var(--sans);letter-spacing:.14em;text-transform:uppercase;text-align:right;opacity:.85;max-width:52ch}
+.qbody{position:relative;flex:1;display:flex;align-items:center;justify-content:center;padding:20px var(--padX)}
+.qstep{width:100%;max-width:880px;display:flex;flex-direction:column;align-items:center;text-align:center;gap:clamp(20px,3vw,34px);animation:up .6s ease both}
+@keyframes up{from{opacity:.2;transform:translateY(12px)}to{opacity:1;transform:none}}
+.qh{margin:0;font:300 clamp(36px,5.4vw,76px)/1.04 var(--serif);letter-spacing:-.01em;text-wrap:balance}
+.qt{margin:0;font:300 clamp(17px,1.4vw,21px)/1.55 var(--serif);max-width:44ch;opacity:.92}
+.opts{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;width:100%}
+.opt{min-width:min(100%,240px);padding:16px 26px;border-radius:999px;border:1px solid rgba(255,255,255,.7);background:rgba(255,255,255,.04);color:#fff;cursor:pointer;font:500 16px var(--sans);display:flex;flex-direction:column;align-items:center;gap:4px;transition:background .2s,color .2s}
+.opt small{font:400 13px var(--sans);opacity:.75}
+.opt:hover{background:#fff;color:var(--ink)}
+.qfoot{position:relative;display:flex;justify-content:space-between;align-items:center;padding:0 var(--padX) calc(22px + env(safe-area-inset-bottom,0px));gap:12px;font-size:14px}
+.dots{display:flex;gap:8px}
+.dots i{width:7px;height:7px;border-radius:50%;background:rgba(255,255,255,.35)}
+.dots i.on{background:#fff}
+
+/* ---------- header ---------- */
 #hdr{position:fixed;top:0;left:0;right:0;z-index:20;display:flex;justify-content:space-between;align-items:center;gap:16px;padding:calc(16px + env(safe-area-inset-top,0px)) var(--padX) 16px;color:#fff;transition:background .3s,color .3s}
 #hdr.solid{background:rgba(243,235,222,.94);color:var(--ink);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
-.logo{display:flex;align-items:center;gap:10px;text-decoration:none;font:800 20px var(--sans);letter-spacing:-.01em}
-.logo svg{width:22px;height:22px;color:var(--acc)}
-#hdr nav{display:flex;align-items:center;gap:22px;font:700 12px var(--sans);letter-spacing:.1em;text-transform:uppercase}
-#hdr nav a{text-decoration:none;opacity:.92}
-#hdr nav .lang{opacity:.7}
+#hdr nav{display:flex;gap:26px;font:500 12px var(--sans);letter-spacing:.12em;text-transform:uppercase}
+#hdr nav a{text-decoration:none;opacity:.9}
 #hdr .pill{padding:10px 20px;font-size:14px}
-@media (max-width:1100px){#hdr nav .nl{display:none}}
+#hdr.solid .pill{background:var(--ink);color:var(--cream);border-color:var(--ink)}
 
-/* ---------- главный ---------- */
-#top{position:relative;min-height:min(100svh,980px);display:flex;align-items:flex-end;color:#fff;overflow:hidden}
-#top .shade{background:linear-gradient(180deg,rgba(28,30,28,.25) 0%,rgba(28,30,28,.35) 45%,rgba(28,30,28,.8) 100%)}
-.hero{position:relative;width:100%;padding:150px var(--padX) clamp(40px,6vw,72px)}
-.hero h1{margin:0 0 .35em;font:800 clamp(44px,7.4vw,124px)/.95 var(--sans);letter-spacing:-.045em;max-width:15ch;text-wrap:balance}
-.hero h1 em{display:block;font-style:normal;font-weight:300;letter-spacing:-.03em;color:var(--sage)}
-.hsub{margin:0 0 34px;font:300 clamp(19px,1.8vw,26px)/1.45 var(--sans);max-width:38ch}
+/* ---------- hero ---------- */
+#top{position:relative;min-height:min(100svh,940px);display:flex;align-items:flex-end;color:#fff;overflow:hidden}
+#top .bg{filter:blur(6px);transform:scale(1.04)}
+.hero{position:relative;width:100%;padding:140px var(--padX) clamp(40px,6vw,72px)}
+.hero .eyebrow{color:rgba(255,255,255,.85)}
+.hero h1{margin:.35em 0 .3em;font:500 clamp(48px,9vw,148px)/.92 var(--sans);letter-spacing:-.05em}
+.hero h1 .it{display:block;font-size:1.02em;letter-spacing:-.02em}
+.hsub{margin:0 0 34px;font:300 clamp(19px,1.8vw,26px)/1.45 var(--serif);max-width:34ch}
 .hrow{display:flex;flex-wrap:wrap;align-items:center;gap:14px 24px}
-.chip{display:inline-flex;align-items:center;gap:12px;padding:10px 18px;border-radius:999px;background:rgba(255,255,255,.94);color:var(--ink);text-decoration:none;font:700 15px var(--sans)}
+.chip{margin-top:34px;display:inline-flex;flex-wrap:wrap;gap:6px 12px;align-items:center;font:400 13px var(--sans);padding:9px 16px;border-radius:999px;background:rgba(28,30,28,.35);border:1px solid rgba(255,255,255,.25)}
+
+/* ---------- intro ---------- */
+.split{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(28px,5vw,80px);align-items:center}
+.split .txt{display:flex;flex-direction:column;gap:22px}
+.split .photo{aspect-ratio:4/5;max-height:640px}
+
+/* ---------- facts ---------- */
+.facts{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-top:1px solid var(--line)}
+.fact{padding:28px 22px 6px 0;display:flex;flex-direction:column;gap:10px}
+.fact + .fact{padding-left:22px;border-left:1px solid var(--line)}
+.fact b{font:500 clamp(26px,2.6vw,40px)/1.05 var(--sans);letter-spacing:-.03em;font-variant-numeric:tabular-nums}
+.fact span{font:300 16px/1.45 var(--serif);color:var(--muted)}
+
+/* ---------- game / cards ---------- */
+.cards{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px}
+.card{background:var(--warm);border-radius:var(--r);padding:26px 24px 28px;display:flex;flex-direction:column;gap:14px;min-height:220px}
+.card .n{font:500 13px var(--sans);letter-spacing:.14em;color:var(--muted)}
+.card h3{margin:0;font:500 22px/1.15 var(--sans);letter-spacing:-.02em}
+.card p{margin:0;font:300 17px/1.5 var(--serif)}
+.pine{background:var(--pine)}
+.list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 clamp(28px,5vw,80px)}
+.row{display:grid;grid-template-columns:56px 1fr;gap:14px;padding:26px 0;border-top:1px solid var(--lightLine)}
+.row .n{font:300 italic 28px var(--serif);color:var(--sand)}
+.row h3{margin:0 0 6px;font:500 21px/1.2 var(--sans);letter-spacing:-.02em}
+.row p{margin:0;font:300 17px/1.5 var(--serif);color:var(--light)}
+
+/* ---------- triptych ---------- */
+.trip{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(18px,3vw,40px)}
+.tr{padding-top:24px;border-top:1px solid var(--line);display:flex;flex-direction:column;gap:10px;position:relative}
+.tr .big{font:300 italic clamp(56px,6vw,96px)/.9 var(--serif);color:var(--slate)}
+.tr h3{margin:0;font:500 22px/1.2 var(--sans);letter-spacing:-.02em}
+.tr .when{font:500 12px var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.tr p{margin:0;font:300 17px/1.5 var(--serif)}
+.tr.here{border-top:2px solid var(--acc)}
+.tr.here .big{color:var(--acc)}
+.here-tag{position:absolute;top:24px;right:0;font:500 11px var(--sans);letter-spacing:.16em;text-transform:uppercase;color:var(--acc)}
+
+/* ---------- do ---------- */
+.do{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(28px,5vw,80px);align-items:stretch}
+.do .photo{min-height:420px}
+.dolist{display:flex;flex-direction:column}
+.doi{padding:24px 0;border-top:1px solid var(--line);display:grid;grid-template-columns:44px 1fr;gap:12px}
+.doi .n{font:300 italic 24px var(--serif);color:var(--slate)}
+.doi h3{margin:0 0 4px;font:500 21px/1.2 var(--sans);letter-spacing:-.02em}
+.doi p{margin:0;font:300 17px/1.5 var(--serif);color:var(--muted)}
+
+/* ---------- change ---------- */
+.slate{background:var(--slate)}
+.chg{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(18px,3vw,48px)}
+.chg div{padding-top:22px;border-top:1px solid var(--lightLine);display:flex;flex-direction:column;gap:12px}
+.chg h3{margin:0;font:300 italic 30px/1.1 var(--serif);color:var(--sand)}
+.chg p{margin:0;font:300 19px/1.5 var(--serif);color:var(--light)}
+
+/* ---------- bring ---------- */
+.bring{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,5vw,80px);align-items:center}
+.bring blockquote{margin:0;font:300 italic clamp(26px,3vw,42px)/1.25 var(--serif);letter-spacing:-.01em;text-wrap:balance}
+.bring .photo{aspect-ratio:5/4}
+
+/* ---------- host ---------- */
+.host{display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(28px,5vw,80px);align-items:center}
+.host .photo{aspect-ratio:4/5;max-height:600px}
+.host h2{margin:0}
+.host p{margin:0;font:300 20px/1.55 var(--serif);max-width:44ch}
+.tags{display:flex;flex-wrap:wrap;gap:8px}
+.tags span{font:400 14px var(--sans);padding:7px 14px;border:1px solid var(--line);border-radius:999px}
+
+/* ---------- price ---------- */
+.price{display:grid;grid-template-columns:1fr;gap:clamp(28px,5vw,80px);align-items:end}
+.price .sum{font:500 clamp(64px,9vw,136px)/.9 var(--sans);letter-spacing:-.05em;font-variant-numeric:tabular-nums}
+.price .note{font:300 20px/1.5 var(--serif);color:var(--light);margin:14px 0 0}
+.plines{display:flex;flex-direction:column}
+.pl{display:grid;grid-template-columns:140px 1fr;gap:12px;padding:16px 0;border-top:1px solid var(--lightLine);font:300 18px/1.45 var(--serif)}
+.pl span:first-child{font:500 12px/1.9 var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--sand)}
+
+/* ---------- faq ---------- */
+.faq{max-width:900px}
+.fq{border-top:1px solid var(--line)}
+.fq:last-child{border-bottom:1px solid var(--line)}
+.fq-h{width:100%;display:flex;justify-content:space-between;align-items:center;gap:20px;padding:22px 0;background:none;border:0;cursor:pointer;text-align:left;font:500 20px/1.3 var(--sans);letter-spacing:-.01em}
+.fq-h i{flex:none;width:28px;height:28px;border-radius:50%;border:1px solid var(--line);position:relative;font-style:normal}
+.fq-h i::before,.fq-h i::after{content:"";position:absolute;left:50%;top:50%;width:11px;height:1px;background:currentColor;transform:translate(-50%,-50%)}
+.fq-h i::after{transform:translate(-50%,-50%) rotate(90deg);transition:transform .25s}
+.fq.open .fq-h i::after{transform:translate(-50%,-50%) rotate(0)}
+.fq-b{display:none;padding:0 0 24px;font:300 19px/1.55 var(--serif);max-width:60ch;color:var(--muted)}
+.fq.open .fq-b{display:block}
+
+/* ---------- cta / footer ---------- */
+#register{position:relative;min-height:min(86svh,760px);display:flex;align-items:center;justify-content:center;text-align:center;color:#fff;overflow:hidden}
+#register .bg{filter:blur(5px);transform:scale(1.04)}
+#register .inner{position:relative;padding:var(--padY) var(--padX);display:flex;flex-direction:column;align-items:center;gap:30px}
+#register h2{margin:0;font:300 clamp(36px,5vw,76px)/1.06 var(--serif);letter-spacing:-.01em;max-width:20ch;text-wrap:balance}
+footer{background:var(--ink);color:var(--light);padding:44px var(--padX) calc(44px + env(safe-area-inset-bottom,0px));font:400 14px/1.6 var(--sans)}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:18px 40px}
+footer .credits{opacity:.6;font-size:12px;max-width:70ch}
+
+.stack{display:flex;flex-direction:column;gap:clamp(34px,4vw,60px)}
+.head{display:flex;flex-direction:column;gap:18px;max-width:900px}
+
+.split>*,.facts>*,.cards>*,.list>*,.row>*,.trip>*,.do>*,.doi>*,.chg>*,.bring>*,.host>*,.price>*,.hero,.head{min-width:0}
+.h2,.hero h1,#register h2{overflow-wrap:break-word;hyphens:manual}
+@media (max-width:980px){
+  .cards{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .facts{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .fact:nth-child(3){padding-left:0;border-left:0}
+  #hdr nav{display:none}
+}
+@media (max-width:760px){
+  body{font-size:17px}
+  .split,.do,.bring,.host,.price,.list,.trip,.chg{grid-template-columns:1fr}
+  .cards{grid-template-columns:1fr}
+  .card{min-height:0}
+  .split .photo,.host .photo{aspect-ratio:4/3}
+  .do .photo{min-height:260px}
+  .pl{grid-template-columns:1fr;gap:2px}
+  .facts{grid-template-columns:1fr 1fr}
+  .opt{min-width:100%}
+  .facts{grid-template-columns:1fr}
+  .fact + .fact{padding-left:0;border-left:0;border-top:1px solid var(--line)}
+  .fact{padding:18px 0}
+  #hdr .pill{padding:8px 14px;font-size:13px}
+  .chip{border-radius:18px}
+}
+/* ---------- motion: сдержанно, фоны неподвижны ---------- */
+@keyframes rise{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:none}}
+#top.enter .hero h1 .it{animation:rise 1s cubic-bezier(.2,.7,.2,1) .1s both}
+#top.enter .hero h1 .ln{display:block;animation:rise 1s cubic-bezier(.2,.7,.2,1) .25s both}
+#top.enter .hsub{animation:rise 1s cubic-bezier(.2,.7,.2,1) .5s both}
+.js [data-reveal]{opacity:0;transform:translateY(24px);transition:opacity .9s ease var(--d,0s),transform 1s cubic-bezier(.2,.7,.2,1) var(--d,0s)}
+.js [data-reveal].in{opacity:1;transform:none}
+.photo[data-reveal]{transform:none}
+.photo[data-reveal] img{transform:scale(1.06);transition:transform 1.6s cubic-bezier(.2,.7,.2,1)}
+.photo[data-reveal].in img{transform:none}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+
+/* ---------- дополнения в приёмах v1 ---------- */
+.dekra{position:absolute;top:calc(84px + env(safe-area-inset-top,0px));right:var(--padX);width:clamp(80px,7vw,112px);height:auto;filter:drop-shadow(0 8px 20px rgba(0,0,0,.25))}
+.chip{text-decoration:none;color:#fff}
+.chip svg{flex:none}
 .chip .st{color:#f6c343;letter-spacing:2px}
-.chip b{font-size:18px;font-weight:800}
-.dekra{position:absolute;top:calc(84px + env(safe-area-inset-top,0px));right:var(--padX);width:clamp(84px,8vw,120px);height:auto;filter:drop-shadow(0 8px 20px rgba(0,0,0,.25))}
-
-/* ---------- консультация: отсчёт + форма ---------- */
-.split{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,5vw,80px);align-items:center}
-.split>*{min-width:0}
-.cd{border-radius:var(--r);overflow:hidden;background:var(--white)}
-.cd-h{display:flex;justify-content:space-between;gap:16px;padding:20px 28px;background:var(--green);color:#fff;font:600 19px var(--sans)}
-.cd-h b{font-weight:800;font-variant-numeric:tabular-nums}
-.cd-b{padding:22px 28px 26px}
-.cd-b>span{font:600 18px var(--sans)}
-.cd-n{display:flex;align-items:flex-end;gap:clamp(22px,3vw,44px);margin-top:10px}
-.cd-n div{display:flex;flex-direction:column}
-.cd-n strong{font:800 clamp(44px,4.6vw,68px)/1 var(--sans);letter-spacing:-.02em;font-variant-numeric:tabular-nums}
-.cd-n small{font-size:16px;color:var(--muted)}
-.card-f{display:flex;flex-direction:column;gap:14px;padding:clamp(24px,3vw,40px);border-radius:var(--r);background:var(--white);color:var(--ink)}
-.card-f .fh{margin:0 0 6px;font:800 clamp(20px,1.7vw,25px)/1.3 var(--sans);letter-spacing:-.01em;text-wrap:pretty}
-.card-f input[type=tel],.card-f input[type=text],.card-f input[type=email]{width:100%;padding:16px 22px;border:1px solid rgba(41,44,41,.3);border-radius:999px;background:#fff;color:var(--ink);font-size:17px}
-.card-f input::placeholder{color:rgba(41,44,41,.55)}
-.card-f input:focus{outline:2px solid var(--green);outline-offset:1px}
-.chk{display:flex;gap:12px;align-items:flex-start;font-size:15px;line-height:1.45;cursor:pointer}
-.chk input{flex:none;width:20px;height:20px;margin:1px 0 0;accent-color:var(--green)}
-.chk a{color:#c25400;text-decoration:none}
-
-/* ---------- факты (AZAV) ---------- */
-.serts{display:grid;grid-template-columns:1fr 1fr;gap:18px;padding:clamp(18px,2vw,28px);border-radius:var(--r);background:var(--warm)}
+.chip b{font-weight:500}
+.cd-facts{grid-template-columns:repeat(3,minmax(0,1fr))}
+.cd-facts .fact b{font-size:clamp(34px,3.6vw,56px)}
+.cd-facts .fact b span{font:inherit;color:inherit;letter-spacing:inherit}
+.h2.h2-s{font-size:clamp(28px,3vw,46px);line-height:1.08}
+.formcard{display:flex;flex-direction:column;gap:12px;padding:clamp(24px,3vw,40px);border-radius:var(--r);background:var(--cream);color:var(--ink)}
+.warmbg{background:var(--warm)}
+.cards.cards2{grid-template-columns:repeat(2,minmax(0,1fr))}
+@media (max-width:760px){.cards.cards2{grid-template-columns:1fr}}
+.formcard input[type=tel],.formcard input[type=text],.formcard input[type=email]{width:100%;padding:16px 24px;border:1px solid var(--line);border-radius:999px;background:#fff;color:var(--ink);font:400 17px var(--sans)}
+.formcard input::placeholder{color:var(--muted)}
+.formcard input:focus{outline:2px solid var(--acc);outline-offset:2px}
+.chk{display:flex;gap:12px;align-items:flex-start;font:300 16px/1.45 var(--serif);cursor:pointer}
+.chk input{flex:none;width:20px;height:20px;margin:2px 0 0;accent-color:var(--slate)}
+.chk a{color:#c25400;text-decoration:underline;text-decoration-color:var(--acc);text-underline-offset:3px}
+.formcard .pill{justify-content:center;width:100%;text-align:center}
+.serts{display:grid;grid-template-columns:1fr 1fr;gap:16px;padding:clamp(18px,2vw,28px);aspect-ratio:auto!important;max-height:none!important}
 .serts img{width:100%;height:auto;border-radius:10px}
-
-/* ---------- отзывы и видео: ленты ---------- */
+.headrow{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:24px}
+.arr{display:flex;gap:10px}
+.arr button{width:52px;height:52px;display:flex;align-items:center;justify-content:center;border-radius:50%;border:1px solid currentColor;background:transparent;font:400 20px var(--sans);cursor:pointer;transition:background .2s,color .2s}
+.arr button:hover{background:var(--ink);color:var(--cream);border-color:var(--ink)}
+.on-dark .arr button:hover{background:var(--cream);color:var(--ink);border-color:var(--cream)}
 .track{display:grid;grid-auto-flow:column;gap:18px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;padding-bottom:4px}
 .track::-webkit-scrollbar{display:none}
 .revs{grid-auto-columns:calc((100% - 36px) / 3);align-items:start}
 .vtrack{grid-auto-columns:calc((100% - 18px) / 2)}
 @media (max-width:1100px){.revs{grid-auto-columns:calc((100% - 18px) / 2)}}
 @media (max-width:760px){.revs,.vtrack{grid-auto-columns:86%}}
-.arr{display:flex;gap:10px}
-.arr button{width:52px;height:52px;display:flex;align-items:center;justify-content:center;border-radius:50%;border:1px solid currentColor;background:transparent;font-size:20px;cursor:pointer;transition:background .2s,color .2s}
-.arr button:hover{background:var(--cream);color:var(--ink);border-color:var(--cream)}
-.rv{scroll-snap-align:start;display:flex;flex-direction:column;gap:14px;padding:28px 26px 30px;border-radius:var(--r);background:rgba(255,255,255,.08);border:1px solid var(--lightLine)}
-.rv-h{display:flex;flex-direction:column;gap:2px}
-.rv-h b{font:800 24px var(--sans)}
-.rv-h .lbl{font:700 12px var(--sans);letter-spacing:.12em;text-transform:uppercase;color:var(--sage)}
-.rv p{margin:0;font-size:16px;line-height:1.55;color:var(--light);text-wrap:pretty}
+.rv{scroll-snap-align:start;background:var(--warm);border-radius:var(--r);padding:26px 24px 28px;display:flex;flex-direction:column;gap:14px}
+.rv-h{display:flex;flex-direction:column;gap:6px}
+.rv-h b{font:500 22px/1.15 var(--sans);letter-spacing:-.02em}
+.rv-h .lbl{font:500 12px/1.4 var(--sans);letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+.rv p{margin:0;font:300 17px/1.5 var(--serif)}
 .rv-more{display:flex;flex-direction:column;gap:12px}
-.rv-btn{align-self:flex-start;padding:0;border:0;background:none;color:var(--cream);cursor:pointer;font-size:16px}
-.lnk{font-weight:700;text-decoration:underline;text-decoration-color:var(--acc);text-decoration-thickness:1.5px;text-underline-offset:4px}
+.rv-btn{align-self:flex-start;padding:0;border:0;background:none;cursor:pointer;font:500 16px var(--sans);text-decoration:underline;text-underline-offset:4px;text-decoration-color:var(--acc)}
 .vc{scroll-snap-align:start;display:flex;flex-direction:column;gap:8px}
 .vc-ph{position:relative;display:block;width:100%;aspect-ratio:16/9;padding:0;border:0;border-radius:var(--r);background:#000;cursor:pointer;overflow:hidden}
 .vc-ph img,.vc-ph iframe{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border:0}
-.vc-play{position:absolute;left:16px;bottom:16px;width:56px;height:56px;display:flex;align-items:center;justify-content:center;border-radius:50%;background:var(--acc);color:var(--ink);transition:transform .25s}
+.vc-play{position:absolute;left:16px;bottom:16px;width:56px;height:56px;display:flex;align-items:center;justify-content:center;border-radius:50%;background:var(--cream);color:var(--ink);transition:transform .25s}
 .vc-play svg{width:20px;height:20px;margin-left:3px}
 .vc-ph:hover .vc-play{transform:scale(1.08)}
 @media (max-width:760px){.vc-play{left:auto;right:8px;bottom:8px;width:40px;height:40px}.vc-play svg{width:15px;height:15px}}
-.vc-t{margin-top:10px;font:800 20px var(--sans)}
-.vc-s{color:var(--acc);letter-spacing:3px}
-.vc p{margin:0;font-size:16px;color:var(--light)}
-
-/* ---------- программы ---------- */
-.duo{display:grid;grid-template-columns:1fr 1fr;gap:18px}
-.duo>*{min-width:0}
-.card{display:flex;flex-direction:column;gap:14px;padding:28px 28px 30px;border-radius:var(--r);background:var(--warm)}
-.card h3{margin:0;font:800 24px/1.15 var(--sans);letter-spacing:-.02em}
-.card p{margin:0;font-size:17px;line-height:1.5;color:var(--muted)}
-.card.fill{background:var(--green);color:var(--cream)}
-.card.fill p{color:var(--light)}
-.pg{display:flex;flex-direction:column;border-radius:var(--r);overflow:hidden;background:var(--white)}
-.pg-ph{position:relative;aspect-ratio:4/3;overflow:hidden;background:var(--ink);color:#fff}
-.pg-ph>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-.pg-ph::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(28,30,28,.15) 0%,rgba(28,30,28,.1) 30%,rgba(28,30,28,.88) 100%)}
-.pg-tag{position:absolute;z-index:1;left:22px;top:22px;padding:8px 16px;border-radius:999px;background:var(--cream);color:var(--ink);font:700 12px var(--sans);letter-spacing:.1em;text-transform:uppercase}
-.pg-sal{position:absolute;z-index:1;left:24px;right:24px;bottom:22px;display:flex;flex-direction:column;gap:6px}
-.pg-sal strong{font:800 clamp(28px,2.8vw,40px)/1 var(--sans);letter-spacing:-.02em}
-.pg-sal span{font-size:15px;line-height:1.4;color:rgba(255,255,255,.9)}
-.pg-b{display:flex;flex-direction:column;gap:20px;padding:clamp(22px,2.4vw,34px);flex:1}
-.pg-b h3{margin:0;font:800 clamp(22px,2vw,28px)/1.15 var(--sans);letter-spacing:-.015em}
-.pg-b>p{margin:0;font-size:17px;color:var(--muted);text-wrap:pretty}
-.facts4{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--line)}
-.facts4 div{display:flex;flex-direction:column;gap:4px;padding:14px 16px 14px 0;border-bottom:1px solid var(--line)}
-.facts4 div:nth-child(even){padding-left:16px;border-left:1px solid var(--line)}
-.facts4 .lbl{font:700 11px var(--sans);letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
-.facts4 b{font-size:17px}
-.ticks{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:10px}
-.ticks li{display:grid;grid-template-columns:24px minmax(0,1fr);gap:10px;font-size:16px;line-height:1.45}
-.ticks li::before{content:"✓";display:flex;align-items:center;justify-content:center;width:22px;height:22px;border-radius:50%;background:var(--green);color:#fff;font-size:12px}
-.pg-b .pill{margin-top:auto}
-
-/* ---------- полосы с кнопкой ---------- */
-.band{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:24px 60px}
-.band .h2{max-width:14ch}
-.band>div{display:flex;flex-direction:column;align-items:flex-start;gap:24px;max-width:520px}
-.band p{margin:0;font:300 clamp(19px,1.6vw,23px)/1.5 var(--sans)}
-.greenbg{background:var(--green)}
-.sagebg{background:var(--sage)}
-.inkbg{background:var(--ink)}
-.warmbg{background:var(--warm)}
-
-/* ---------- как проходит обучение ---------- */
-.do{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(28px,5vw,80px);align-items:stretch}
-.do>*{min-width:0}
-.do .photo{min-height:420px}
-.dolist{display:flex;flex-direction:column}
-.doi{padding:24px 0;border-top:1px solid var(--line);display:grid;grid-template-columns:44px 1fr;gap:12px}
-.doi>span{font:300 italic 26px var(--sans);color:var(--green)}
-.doi h3{margin:0 0 4px;font:800 20px/1.25 var(--sans);letter-spacing:-.01em}
-.doi p{margin:0;font-size:17px;line-height:1.5;color:var(--muted)}
-.note{margin:0;padding:22px 26px;border-radius:var(--r);background:var(--white);font:300 clamp(19px,1.5vw,22px)/1.5 var(--sans)}
-
-/* ---------- преподаватели ---------- */
-.team{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:28px 18px}
+.vc-t{margin-top:10px;font:500 21px/1.2 var(--sans);letter-spacing:-.02em}
+.vc-s{color:var(--sand);letter-spacing:3px}
+.vc p{margin:0;font:300 17px/1.5 var(--serif);color:var(--light)}
+.prog{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(28px,5vw,80px);align-items:start}
+.prog>*{min-width:0}
+.prog .photo{position:sticky;top:96px;aspect-ratio:4/5;max-height:640px}
+.prog .eyebrow{display:block;margin-bottom:12px}
+.prog h3{margin:0 0 14px;font:500 clamp(24px,2.4vw,34px)/1.12 var(--sans);letter-spacing:-.03em}
+.prog .p{margin:0;font:300 18px/1.55 var(--serif);color:var(--muted)}
+.sal{display:flex;flex-direction:column;gap:6px;padding:22px 0;margin:22px 0 0;border-top:1px solid var(--line)}
+.sal b{font:500 clamp(30px,3vw,44px)/1.05 var(--sans);letter-spacing:-.03em}
+.sal span{font:300 16px/1.45 var(--serif);color:var(--muted)}
+.prog .plines{margin:0 0 22px}
+.prog .pl{border-top:1px solid var(--line)}
+.prog .pl span:first-child{color:var(--muted)}
+.prog .tags{margin:0 0 22px}
+.prog .tags span{font:400 14px/1.35 var(--sans)}
+.team{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:30px 18px}
 @media (max-width:1100px){.team{grid-template-columns:repeat(3,minmax(0,1fr))}}
-@media (max-width:700px){.team{grid-template-columns:repeat(2,minmax(0,1fr))}}
-.tc{display:flex;flex-direction:column;gap:4px}
-.tc .ph{position:relative;margin-bottom:12px;border-radius:var(--r);overflow:hidden;background:#3a3d3a}
+@media (max-width:760px){.team{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.tc{display:flex;flex-direction:column;gap:4px;min-width:0}
+.tc .ph{position:relative;margin-bottom:12px;border-radius:var(--r);overflow:hidden;background:var(--warm)}
 .tc .ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-.tc b{font-size:18px;line-height:1.25}
-.tc span{font-size:14px;color:var(--light);opacity:.85}
-@media (max-width:380px){.tc b{font-size:16px}.tc span{font-size:12px}}
-
-/* ---------- на фото ---------- */
-.onph{position:relative;color:#fff;overflow:hidden}
-.onph .inner{position:relative;padding:var(--padY) var(--padX)}
-.career{display:grid;grid-template-columns:1fr minmax(0,460px);gap:clamp(28px,5vw,80px);align-items:center}
+.tc b{font:500 19px/1.2 var(--sans);letter-spacing:-.02em}
+.tc span{font:300 15px/1.4 var(--serif);color:var(--light)}
+@media (max-width:380px){.tc b{font-size:16px}.tc span{font-size:13px}}
+.career{display:grid;grid-template-columns:1fr minmax(0,440px);gap:clamp(28px,5vw,80px);align-items:center;text-align:left}
 .career>*{min-width:0}
-.career h2{margin:0 0 20px;font:800 clamp(36px,5vw,76px)/1.04 var(--sans);letter-spacing:-.035em;text-wrap:balance}
-.career p{margin:0;font:300 clamp(19px,1.8vw,26px)/1.45 var(--sans);max-width:30ch}
-
-/* ---------- шаги трудоустройства ---------- */
-.list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 clamp(28px,5vw,80px)}
-.list>*{min-width:0}
-.row{display:grid;grid-template-columns:56px 1fr;gap:14px;padding:26px 0;border-top:1px solid var(--lightLine)}
-.row>span{font:300 italic 30px var(--sans);color:var(--sage)}
-.row h3{margin:0 0 6px;font:800 21px/1.2 var(--sans);letter-spacing:-.015em}
-.row p{margin:0;font-size:17px;line-height:1.5;color:var(--light)}
-
-/* ---------- партнёры ---------- */
+#career{position:relative;color:#fff;overflow:hidden}
+#career .bg{filter:blur(5px);transform:scale(1.04)}
+#career .inner{position:relative;padding:var(--padY) var(--padX)}
+#career h2{margin:0 0 20px;font:300 clamp(36px,5vw,76px)/1.06 var(--serif);letter-spacing:-.01em;text-wrap:balance}
+#career p{margin:0;font:300 clamp(19px,1.8vw,26px)/1.45 var(--serif);max-width:30ch}
 .logos{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:14px}
 .logos img{width:100%;height:auto;border-radius:12px;mix-blend-mode:multiply}
 @media (max-width:1100px){.logos{grid-template-columns:repeat(3,minmax(0,1fr))}}
 @media (max-width:600px){.logos{grid-template-columns:repeat(2,minmax(0,1fr))}}
-
-/* ---------- вебинар ---------- */
-.web{display:flex;flex-direction:column;gap:24px;padding:clamp(24px,3.2vw,44px);border-radius:var(--r);background:var(--white);color:var(--ink)}
-.web .tags{display:flex;flex-wrap:wrap;gap:8px}
-.web .tags span{padding:8px 14px;border-radius:999px;background:var(--cream);font:700 12px var(--sans);letter-spacing:.12em}
-.web .wt{margin:0;font:800 clamp(24px,2.4vw,34px)/1.15 var(--sans);letter-spacing:-.02em;text-transform:uppercase}
-.web .wt span{display:block;font-weight:300;text-transform:none}
-.facts{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--line)}
-.fact{padding:20px 22px 6px 0;display:flex;flex-direction:column;gap:6px}
-.fact + .fact{padding-left:22px;border-left:1px solid var(--line)}
-.fact b{font:800 clamp(28px,2.6vw,40px)/1.05 var(--sans);letter-spacing:-.03em;font-variant-numeric:tabular-nums}
-.fact span{font-size:16px;color:var(--muted)}
-.web .pill{align-self:flex-start}
-
-/* ---------- FAQ ---------- */
-.faq{max-width:900px}
-.qa{border-top:1px solid var(--line)}
-.qa:last-child{border-bottom:1px solid var(--line)}
-.qa button{width:100%;display:flex;justify-content:space-between;align-items:center;gap:20px;padding:22px 0;background:none;border:0;cursor:pointer;text-align:left;font:700 20px/1.3 var(--sans);letter-spacing:-.01em}
-.qa .pm{flex:none;width:32px;height:32px;display:flex;align-items:center;justify-content:center;border-radius:50%;border:1px solid var(--line);font-size:18px;font-weight:400}
-.qa .ans{margin:0;padding:0 0 24px;font-size:18px;line-height:1.55;max-width:62ch;color:var(--muted)}
-.blog{display:flex;flex-direction:column;gap:14px;max-width:900px;padding:26px 28px;border-radius:var(--r);background:var(--warm)}
-.blog p{margin:0;font:300 19px/1.5 var(--sans)}
-.blog b{font-weight:800}
-
-/* ---------- заявка ---------- */
+.webcard{display:flex;flex-direction:column;gap:22px;padding:clamp(24px,3vw,40px);border-radius:var(--r);background:var(--cream)}
+.webcard blockquote{margin:0;font:300 italic clamp(24px,2.6vw,36px)/1.25 var(--serif);letter-spacing:-.01em;text-wrap:balance}
+.webcard .pl{border-top:1px solid var(--line)}
+.webcard .pl span:first-child{font:500 clamp(24px,2.2vw,32px)/1 var(--sans);letter-spacing:-.03em;text-transform:none;color:var(--ink)}
+.webcard .pill{align-self:flex-start}
+.blogp{display:flex;flex-direction:column;gap:14px;max-width:900px}
+.blogp p{margin:0;font:300 19px/1.55 var(--serif);color:var(--muted)}
+.blogp b{font:500 19px var(--sans);color:var(--ink);letter-spacing:-.01em}
 .contacts{display:flex;flex-direction:column}
-.contacts p{margin:0;padding:16px 0;border-top:1px solid var(--lightLine);font:300 clamp(19px,1.6vw,23px)/1.4 var(--sans)}
-.contacts p a{text-decoration:none}
-
-/* ---------- финал / подвал ---------- */
-#final{min-height:min(80svh,720px);display:flex;align-items:center;justify-content:center;text-align:center}
-#final .inner{display:flex;flex-direction:column;align-items:center;gap:28px}
-#final h2{margin:0;font:800 clamp(40px,6vw,96px)/1.02 var(--sans);letter-spacing:-.04em}
-#final p{margin:0;font:300 clamp(19px,1.8vw,26px)/1.45 var(--sans);max-width:34ch}
-footer{background:var(--ink);color:var(--light);padding:44px var(--padX) calc(90px + env(safe-area-inset-bottom,0px));font:400 14px/1.7 var(--sans)}
-footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:18px 40px}
-footer a{color:#fff}
-
-/* ---------- переключатель версий ---------- */
-.vsw{position:fixed;z-index:60;left:50%;bottom:calc(14px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);display:flex;gap:4px;padding:4px;background:rgba(41,44,41,.92);backdrop-filter:blur(8px);border-radius:999px;box-shadow:0 8px 24px rgba(0,0,0,.18);font:700 12px/1 var(--sans);letter-spacing:.08em;text-transform:uppercase}
+.contacts p{margin:0;padding:16px 0;border-top:1px solid var(--lightLine);font:300 20px/1.45 var(--serif);color:var(--light)}
+.contacts a{text-decoration:none}
+#register .inner p{margin:0;font:300 clamp(19px,1.8vw,26px)/1.45 var(--serif);max-width:34ch}
+footer{padding-bottom:calc(84px + env(safe-area-inset-bottom,0px))}
+.vsw{position:fixed;z-index:60;left:50%;bottom:calc(14px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);display:flex;gap:4px;padding:4px;background:rgba(41,44,41,.92);backdrop-filter:blur(8px);border-radius:999px;box-shadow:0 8px 24px rgba(0,0,0,.18);font:500 12px/1 var(--sans);letter-spacing:.12em;text-transform:uppercase}
 .vsw a{padding:10px 16px;border-radius:999px;color:rgba(255,255,255,.75);text-decoration:none;white-space:nowrap}
 .vsw a:hover{color:#fff}
-.vsw a[aria-current]{background:var(--acc);color:var(--ink)}
-
-@media (max-width:980px){
-  .split,.do,.career{grid-template-columns:1fr}
-  .do .photo{min-height:300px}
-}
+.vsw a[aria-current]{background:var(--cream);color:var(--ink)}
+.hero h1 .ln{display:block}
+#hdr nav .lang{opacity:.7}
+@media (max-width:980px){.prog{grid-template-columns:1fr}.prog .photo{position:relative;top:auto;aspect-ratio:4/3}.career{grid-template-columns:1fr}.cd-facts{grid-template-columns:1fr 1fr 1fr}}
 @media (max-width:760px){
-  body{font-size:17px}
-  .duo,.list{grid-template-columns:1fr}
-  #hdr .pill{padding:8px 14px;font-size:13px}
-  #hdr nav{gap:12px}
-  #hdr nav .lang{display:none}
-  .hero{padding-top:200px;padding-bottom:84px}
-  .hero h1{font-size:10.4vw}
-  .dekra{top:calc(74px + env(safe-area-inset-top,0px));width:76px}
-  .cd-h{padding:14px 20px;font-size:17px}.cd-b{padding:16px 20px 20px}
-  .facts4 div:nth-child(even){padding-left:12px}
-  .headrow .arr{order:2}
+  .hero{padding-bottom:96px}
+  .cd-facts{grid-template-columns:1fr 1fr}
+  .cd-facts .fact:first-child{grid-column:1 / -1}
+  .cd-facts .fact + .fact{border-top:1px solid var(--line)}
+  .cd-facts .fact:nth-child(3){padding-left:18px;border-left:1px solid var(--line)}
+  .dekra{width:72px;top:calc(70px + env(safe-area-inset-top,0px))}
 }
-@media (max-width:400px){.logo{font-size:17px;gap:7px}.logo svg{width:18px;height:18px}#hdr .pill{padding:8px 12px;font-size:12px}}
-@media (max-width:420px){.facts4{grid-template-columns:1fr}.facts4 div:nth-child(even){padding-left:0;border-left:0}}
-/* ---------- движение: сдержанно, фоны неподвижны ---------- */
-@keyframes rise{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:none}}
-#top .hero>*{animation:rise 1s cubic-bezier(.2,.7,.2,1) both}
-#top .hero>*:nth-child(2){animation-delay:.2s}#top .hero>*:nth-child(3){animation-delay:.4s}
-.js [data-reveal]{opacity:0;transform:translateY(24px);transition:opacity .9s ease var(--d,0s),transform 1s cubic-bezier(.2,.7,.2,1) var(--d,0s)}
-.js [data-reveal].in{opacity:1;transform:none}
-@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}.js [data-reveal]{opacity:1;transform:none}}
+@media (max-width:400px){.logo{font-size:16px}#hdr .pill{padding:8px 12px;font-size:12px}}
 </style>
 <script>document.documentElement.classList.add('js')</script>
 </head>
@@ -289,64 +340,58 @@ footer a{color:#fff}
 <nav class="vsw" aria-label="Версии страницы"><a href=".././">Версия 1</a><a href="../v2/" aria-current="page">Версия 2</a></nav>
 
 <header id="hdr">
-  <a class="logo" href="#top" aria-label="SternMeister"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 1.5l2.6 7.1 7.4.3-5.8 4.6 2 7.3L12 16.6l-6.2 4.2 2-7.3L2 8.9l7.4-.3z"/></svg>SternMeister</a>
-  <nav aria-label="Меню">
-    <a class="nl" href="#learn">Обучение</a><a class="nl" href="#reviews">Отзывы</a><a class="nl" href="#program">Программы</a><a class="nl" href="#webinar">Вебинар</a><a class="nl" href="#blog">Блог</a>
-    <a class="nl" href="#contact">Контакты</a><span class="lang"><b>RU</b> · DE · UA</span>
-    <a class="pill" href="#form">Консультация</a>
+  <a class="logo" href="#top" style="flex-direction:row;align-items:center;gap:8px;">SternMeister</a>
+  <nav>
+    <a href="#learn">Обучение</a><a href="#reviews">Отзывы</a><a href="#program">Программы</a><a href="#webinar">Вебинар</a><a href="#blog">Блог</a><a href="#contact">Контакты</a><span class="lang"><b>RU</b> · DE · UA</span>
   </nav>
+  <a class="pill" href="#form">Консультация</a>
 </header>
 
-<!-- 1 ГЛАВНЫЙ: фото на весь экран -->
+<!-- 1 ГЛАВНЫЙ: фото на весь экран, как в v1 -->
 <section id="top">
-  <img class="bg" src="../media/studentka.jpg" alt="" style="object-position:60% 30%;">
+  <img class="bg" src="../media/studentka.jpg" alt="" style="object-position:55% 30%;">
   <div class="shade"></div>
   <img class="dekra" src="../media/dekra-azav.png" alt="Trägerzulassung gemäß AZAV — DEKRA geprüft">
   <div class="hero wrap" id="learn">
-    <h1>онлайн-академия для русскоязычных <em>в&nbsp;Германии</em></h1>
+    <h1><span class="it">онлайн-академия</span><span class="ln">для русскоязычных в&nbsp;Германии</span></h1>
     <p class="hsub">Освойте профессию бухгалтера или администратора клиники за 4-7 месяцев. Помогаем с трудоустройством, опыт работы не требуется.</p>
-    <div class="hrow">
-      <a class="chip" href="#reviews" aria-label="Google Reviews 5,0"><svg width="22" height="22" viewBox="0 0 48 48" aria-hidden="true"><path fill="#EA4335" d="M24 9.5c3.5 0 6.6 1.2 9.1 3.6l6.8-6.8C35.8 2.4 30.3 0 24 0 14.6 0 6.6 5.4 2.7 13.3l7.9 6.1C12.5 13.6 17.8 9.5 24 9.5z"/><path fill="#4285F4" d="M46.1 24.5c0-1.6-.1-3.1-.4-4.5H24v9h12.4c-.5 2.9-2.2 5.3-4.6 6.9l7.7 6c4.5-4.2 6.6-10.3 6.6-17.4z"/><path fill="#FBBC05" d="M10.5 28.6c-.5-1.4-.8-3-.8-4.6s.3-3.2.8-4.6l-7.9-6.1C1 16.6 0 20.2 0 24s1 7.4 2.7 10.7l7.8-6.1z"/><path fill="#34A853" d="M24 48c6.5 0 11.9-2.1 15.9-5.8l-7.7-6c-2.2 1.5-5 2.3-8.2 2.3-6.2 0-11.5-4.2-13.4-9.9l-7.9 6.1C6.6 42.6 14.6 48 24 48z"/></svg><span>Reviews ↗</span><b>5,0</b><span class="st" aria-hidden="true">★★★★★</span></a>
-    </div>
+    <a class="chip" href="#reviews" aria-label="Google Reviews 5,0"><svg width="20" height="20" viewBox="0 0 48 48" aria-hidden="true"><path fill="#EA4335" d="M24 9.5c3.5 0 6.6 1.2 9.1 3.6l6.8-6.8C35.8 2.4 30.3 0 24 0 14.6 0 6.6 5.4 2.7 13.3l7.9 6.1C12.5 13.6 17.8 9.5 24 9.5z"/><path fill="#4285F4" d="M46.1 24.5c0-1.6-.1-3.1-.4-4.5H24v9h12.4c-.5 2.9-2.2 5.3-4.6 6.9l7.7 6c4.5-4.2 6.6-10.3 6.6-17.4z"/><path fill="#FBBC05" d="M10.5 28.6c-.5-1.4-.8-3-.8-4.6s.3-3.2.8-4.6l-7.9-6.1C1 16.6 0 20.2 0 24s1 7.4 2.7 10.7l7.8-6.1z"/><path fill="#34A853" d="M24 48c6.5 0 11.9-2.1 15.9-5.8l-7.7-6c-2.2 1.5-5 2.3-8.2 2.3-6.2 0-11.5-4.2-13.4-9.9l-7.9 6.1C6.6 42.6 14.6 48 24 48z"/></svg><span>Reviews ↗</span><b>5,0</b><span class="st" aria-hidden="true">★★★★★</span></a>
   </div>
 </section>
 
-<!-- 2 КОНСУЛЬТАЦИЯ: отсчёт + форма -->
-<section class="sec warmbg" id="consult">
-  <div class="wrap split">
-    <div class="cd" data-reveal>
-      <div class="cd-h"><span>Старт потока</span><b>26.10.2026</b></div>
-      <div class="cd-b">
-        <span>До старта осталось:</span>
-        <div class="cd-n" id="cd" data-to="2026-10-26T08:00:00Z">
-          <div><strong data-k="d">06</strong><small>дней</small></div>
-          <div><strong><span data-k="h">01</span>:<span data-k="m">58</span>:<span data-k="s">35</span></strong><small>часов</small></div>
-        </div>
-      </div>
+<!-- 2 ОТСЧЁТ И ФОРМА -->
+<section class="sec" id="consult">
+  <div class="wrap stack">
+    <div class="facts cd-facts" id="cd" data-to="2026-10-26T08:00:00Z" data-reveal>
+      <div class="fact"><span class="eyebrow">Старт потока</span><b>26.10.2026</b></div>
+      <div class="fact"><span class="eyebrow">До старта осталось:</span><b data-k="d">06</b><span>дней</span></div>
+      <div class="fact"><span class="eyebrow">&nbsp;</span><b><span data-k="h">01</span>:<span data-k="m">58</span>:<span data-k="s">35</span></b><span>часов</span></div>
     </div>
-    <form class="card-f" data-form data-reveal>
-      <p class="fh">Запишитесь на бесплатную консультацию — расскажем о программе, формате и финансировании</p>
-      <input type="tel" name="phone" placeholder="Контактный телефон" autocomplete="tel" aria-label="Контактный телефон" required>
-      <input type="text" name="name" placeholder="Имя" autocomplete="name" aria-label="Имя">
-      <input type="email" name="email" placeholder="E-mail" autocomplete="email" aria-label="E-mail">
-      <label class="chk"><input type="checkbox" required><span>Отправляя заявку, вы соглашаетесь с <a href="#contact">политикой обработки персональных данных</a></span></label>
-      <button class="pill dark wide" type="submit">Оставить заявку</button>
-    </form>
+    <div class="split">
+      <div class="txt" data-reveal><h2 class="h2 h2-s">Запишитесь на бесплатную консультацию — расскажем о программе, формате и финансировании</h2></div>
+      <form class="formcard warmbg" data-form data-reveal>
+        <input type="tel" name="phone" placeholder="Контактный телефон" autocomplete="tel" aria-label="Контактный телефон" required>
+        <input type="text" name="name" placeholder="Имя" autocomplete="name" aria-label="Имя">
+        <input type="email" name="email" placeholder="E-mail" autocomplete="email" aria-label="E-mail">
+        <label class="chk"><input type="checkbox" required><span>Отправляя заявку, вы соглашаетесь с <a href="#contact">политикой обработки персональных данных</a></span></label>
+        <button class="pill dark" type="submit">Оставить заявку</button>
+      </form>
+    </div>
   </div>
 </section>
 
 <!-- 3 AZAV -->
-<section class="sec">
+<section class="sec" style="padding-top:0">
   <div class="wrap split">
-    <div class="head" data-reveal><h2 class="h2">SternMeister — образовательный центр с допуском AZAV</h2><p class="lead">Мы поможем подготовить документы для вашего консультанта, и если вам одобрят Bildungsgutschein, обучение оплатит Jobcenter или Agentur für Arbeit.</p></div>
-    <div class="serts" data-reveal><img src="../media/sert-1.png" alt="Сертификат AZAV"><img src="../media/sert-2.png" alt="Приложение к сертификату AZAV"></div>
+    <div class="txt" data-reveal><h2 class="h2">SternMeister — образовательный центр с допуском AZAV</h2><p class="lead">Мы поможем подготовить документы для вашего консультанта, и если вам одобрят Bildungsgutschein, обучение оплатит Jobcenter или Agentur für Arbeit.</p></div>
+    <div class="photo serts" data-reveal><img src="../media/sert-1.png" alt="Сертификат AZAV"><img src="../media/sert-2.png" alt="Приложение к сертификату AZAV"></div>
   </div>
 </section>
 
-<!-- 4 ОТЗЫВЫ -->
-<section class="sec greenbg on-dark" id="reviews">
+<!-- 4 ОТЗЫВЫ: карточки v1 лентой -->
+<section class="sec" id="reviews" style="background:var(--cream);padding-top:0">
   <div class="wrap stack">
-    <div class="headrow" data-reveal><h2 class="h2">Отзывы студентов и выпускников</h2>
+    <div class="headrow" data-reveal><div class="head"><h2 class="h2">Отзывы студентов и выпускников</h2></div>
       <div class="arr"><button type="button" data-v="-1" data-t="revs" aria-label="Назад">←</button><button type="button" data-v="1" data-t="revs" aria-label="Вперёд">→</button></div></div>
     <div class="track revs" id="revs">
 <div data-reveal class="rv"><div class="rv-h"><b>Гюльнара</b><span class="lbl">Студентка SternMeister</span></div><p>Меня зовут Гюльнара, и за моими плечами — путь, полный испытаний, но и важных открытий. Я мама двух замечательных двойняшек, я та которая никогда не сдаётся, даже когда кажется, что всё против неё. В Украине у меня была насыщенная профессиональная жизнь: высшее образование бухгалтера, работа бухгалтером, потом кассир-контролер, потом менеджером по продажам в Metro Cash &amp; Carry, а потом — собственный бизнес мой салон красоты в который было вложено ВСЕ!!! силы средства и душа. Но пандемия, а затем война перечеркнули всё...</p><div class="rv-more" hidden><p>Ради безопасности сыновей пришлось уехать в Германию. Первые месяцы были тяжёлыми: языковой барьер, тоска, ощущение, что жизнь остановилась. Чтобы выжить, устроилась на книжный склад — собирала заказы, хотя внутри понимала: так не может продолжаться вечно. Мои амбиции, образование и опыт твердили: «Ты способна на большее!» И тогда я подумала вернуться к истокам — бухгалтерии. Только подумала но не стала сразу искать курсы. Спустя пару часов открыла Instagram листая ленту мне попадается первой же реклама школы SternMeier. Сказала себе: «Это знак!» — и я записалась. И ни капли не жалею! Что меня вдохновляет в учёбе?</p><p>🔥 Подача материала — всё объясняют доступно, структурированно, без «воды».</p><p>💙 Преподаватели— неравнодушные, поддерживают, верят в студентов.</p><p>Правда, немецкий язык даётся пока сложнее всего — термины, документы, но я упорно работаю над этим. Сейчас я учусь, адаптирую украинский опыт под немецкие реалии и чувствую, как понемногу возвращаю себе уверенность. Впереди еще очень много всего, но я знаю что это новая глава моей жизни. Этот путь научил меня главному: даже после самых тяжёлых потерь можно начать заново. Главное — не бояться сделать первый шаг.</p></div><button type="button" class="rv-btn lnk">Прочитать отзыв полностью</button></div>
@@ -361,7 +406,7 @@ footer a{color:#fff}
 </section>
 
 <!-- 5 ВИДЕОИНТЕРВЬЮ -->
-<section class="sec inkbg on-dark">
+<section class="sec pine on-dark">
   <div class="wrap stack">
     <div class="head" data-reveal><div class="eyebrow">Видеоинтервью</div><h2 class="h2">Видеоинтервью со студентами</h2><p class="lead">Каково учиться в SternMeister? Посмотрите интервью со студентами и выпускниками: они рассказывают о занятиях, преподавателях и своём пути к работе в Германии.</p></div>
     <div class="headrow" data-reveal><a class="pill" href="#reviews">Больше отзывов</a>
@@ -399,71 +444,74 @@ footer a{color:#fff}
 </section>
 
 <!-- 6 ДВЕ ПРОГРАММЫ -->
-<section class="sec" id="program">
+<section class="sec" id="program" style="background:var(--warm)">
   <div class="wrap stack">
     <div class="head" data-reveal><div class="eyebrow">Две программы — одна цель</div><h2 class="h2">Бухгалтерия или работа в клинике: что вам ближе?</h2><p class="lead">Для старта не нужен немецкий Ausbildung или опыт работы в офисе. Выберите направление по интересам:</p></div>
-    <div class="duo">
-      <div class="card" data-reveal><h3>Бухгалтер</h3><p>Если вам нравится разбираться в цифрах и документах, присмотритесь к бухгалтерии. Здесь важны внимательность и системный подход, а со временем можно вырасти до Bilanzbuchhalter. Выход на рынок уже через 2–4 месяца после выпуска.</p></div>
-      <div class="card fill" data-reveal><h3>Медицинский администратор</h3><p>Если вам нравится помогать людям и организовывать процессы, вам подойдёт работа на ресепшене клиники: общение с пациентами, запись на приём и медицинские документы. Дефицит кадров в этой сфере позволяет быстро выйти на работу.</p></div>
+    <div class="cards cards2">
+      <div class="card" style="background:var(--cream)" data-reveal><span class="n">01</span><h3>Бухгалтер</h3><p>Если вам нравится разбираться в цифрах и документах, присмотритесь к бухгалтерии. Здесь важны внимательность и системный подход, а со временем можно вырасти до Bilanzbuchhalter. Выход на рынок уже через 2–4 месяца после выпуска.</p></div>
+      <div class="card" style="background:var(--cream)" data-reveal><span class="n">02</span><h3>Медицинский администратор</h3><p>Если вам нравится помогать людям и организовывать процессы, вам подойдёт работа на ресепшене клиники: общение с пациентами, запись на приём и медицинские документы. Дефицит кадров в этой сфере позволяет быстро выйти на работу.</p></div>
     </div>
-    <div class="duo">
-      <article class="pg" data-reveal>
-        <div class="pg-ph"><img src="../media/buhgalter.jpg" alt="" style="object-position:62% 50%;"><span class="pg-tag">Программа · 7 месяцев</span>
-          <div class="pg-sal"><strong>от 3 500 €/мес</strong><span>Зарплата после обучения — от 3 500 €, с ростом до 4 500 € на позиции Bilanzbuchhalter</span></div></div>
-        <div class="pg-b">
-          <h3>Курс «Бухгалтер в Германии» · Finanzbuchhalter:in</h3>
-          <p>Бухгалтерия в Германии — для тех, кто хочет освоить новую профессию или применить прежний опыт после переезда. На курсе вы разберётесь в немецком учёте и потренируетесь работать с документами и профессиональными программами.</p>
-          <div class="facts4"><div><span class="lbl">Длительность</span><b>7 месяцев</b></div><div><span class="lbl">Формат</span><b>Онлайн</b></div><div><span class="lbl">Сертификат</span><b>DEKRA · Weiterbildung</b></div><div><span class="lbl">Финансирование</span><b>Bildungsgutschein</b></div></div>
-          <ul class="ticks"><li>Практика в DATEV и Lexware</li><li>бухгалтерские документы и налоговая отчетность</li><li>Возможность Home Office после первого года</li><li>150 часов профильного немецкого + AI-тренажёр собеседований</li></ul>
-          <p>Начать можно и без опыта работы в офисе. Мы объясняем основы, постепенно переходим к практике и помогаем разобраться в требованиях немецкого рынка труда.</p>
-          <a class="pill dark" href="#form">Программа курса бухгалтера →</a>
-        </div>
-      </article>
-      <article class="pg" data-reveal>
-        <div class="pg-ph"><img src="../media/klinika.jpg" alt="" style="object-position:50% 45%;"><span class="pg-tag">Программа · 6 месяцев</span>
-          <div class="pg-sal"><strong>от 3 000 €/мес</strong><span>Зарплата медицинского администратора в Германии после обучения— с возможностью карьерного роста и роста дохода</span></div></div>
-        <div class="pg-b">
-          <h3>Курс «Администратор медицинской практики» / Mitarbeiter: in für die Rezeption und Praxisempfang</h3>
-          <p>Научитесь организовывать приём в медицинском праксисе: записывать пациентов, вести документы и помогать команде с повседневными задачами. Медицинское образование для начала обучения не требуется.</p>
-          <div class="facts4"><div><span class="lbl">Длительность</span><b>6 месяцев</b></div><div><span class="lbl">Формат</span><b>Онлайн</b></div><div><span class="lbl">Сертификат</span><b>DEKRA · Weiterbildung</b></div><div><span class="lbl">Финансирование</span><b>Bildungsgutschein</b></div></div>
-          <ul class="ticks"><li>Работа с медицинскими документами и цифровыми сервисами</li><li>Организация приёма и общение с пациентами</li><li>Основы расчётов, защиты данных и управления качеством в медицинской практике</li><li>Профессиональный немецкий и подготовка к собеседованию</li></ul>
-          <p>Подойдёт тем, кому нравится общаться с людьми, помогать пациентам и хочется работать в стабильной сфере здравоохранения.</p>
-          <a class="pill dark" href="#form">Программа курса администратора →</a>
-        </div>
-      </article>
+    <article class="prog">
+      <div class="photo" data-reveal><img src="../media/buhgalter.jpg" alt="" style="object-position:62% 50%;"></div>
+      <div data-reveal>
+        <span class="eyebrow">Программа · 7 месяцев</span>
+        <h3>Курс «Бухгалтер в Германии» · Finanzbuchhalter:in</h3>
+        <p class="p">Бухгалтерия в Германии — для тех, кто хочет освоить новую профессию или применить прежний опыт после переезда. На курсе вы разберётесь в немецком учёте и потренируетесь работать с документами и профессиональными программами.</p>
+        <div class="sal"><b>от 3 500 €/мес</b><span>Зарплата после обучения — от 3 500 €, с ростом до 4 500 € на позиции Bilanzbuchhalter</span></div>
+        <div class="plines"><div class="pl"><span>Длительность</span><span>7 месяцев</span></div><div class="pl"><span>Формат</span><span>Онлайн</span></div><div class="pl"><span>Сертификат</span><span>DEKRA · Weiterbildung</span></div><div class="pl"><span>Финансирование</span><span>Bildungsgutschein</span></div></div>
+        <div class="tags"><span>Практика в DATEV и Lexware</span><span>бухгалтерские документы и налоговая отчетность</span><span>Возможность Home Office после первого года</span><span>150 часов профильного немецкого + AI-тренажёр собеседований</span></div>
+        <p class="p" style="margin-bottom:28px">Начать можно и без опыта работы в офисе. Мы объясняем основы, постепенно переходим к практике и помогаем разобраться в требованиях немецкого рынка труда.</p>
+        <a class="pill dark" href="#form">Программа курса бухгалтера →</a>
+      </div>
+    </article>
+    <article class="prog">
+      <div class="photo" data-reveal><img src="../media/klinika.jpg" alt="" style="object-position:50% 45%;"></div>
+      <div data-reveal>
+        <span class="eyebrow">Программа · 6 месяцев</span>
+        <h3>Курс «Администратор медицинской практики» / Mitarbeiter: in für die Rezeption und Praxisempfang</h3>
+        <p class="p">Научитесь организовывать приём в медицинском праксисе: записывать пациентов, вести документы и помогать команде с повседневными задачами. Медицинское образование для начала обучения не требуется.</p>
+        <div class="sal"><b>от 3 000 €/мес</b><span>Зарплата медицинского администратора в Германии после обучения— с возможностью карьерного роста и роста дохода</span></div>
+        <div class="plines"><div class="pl"><span>Длительность</span><span>6 месяцев</span></div><div class="pl"><span>Формат</span><span>Онлайн</span></div><div class="pl"><span>Сертификат</span><span>DEKRA · Weiterbildung</span></div><div class="pl"><span>Финансирование</span><span>Bildungsgutschein</span></div></div>
+        <div class="tags"><span>Работа с медицинскими документами и цифровыми сервисами</span><span>Организация приёма и общение с пациентами</span><span>Основы расчётов, защиты данных и управления качеством в медицинской практике</span><span>Профессиональный немецкий и подготовка к собеседованию</span></div>
+        <p class="p" style="margin-bottom:28px">Подойдёт тем, кому нравится общаться с людьми, помогать пациентам и хочется работать в стабильной сфере здравоохранения.</p>
+        <a class="pill dark" href="#form">Программа курса администратора →</a>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- 7 НЕ ЗНАЕТЕ, КАКОЙ КУРС ВЫБРАТЬ: блок «Участие» v1 -->
+<section class="sec pine on-dark">
+  <div class="wrap price">
+    <div data-reveal>
+      <h2 class="h2" style="max-width:16ch">Не знаете, какой курс выбрать?</h2>
+      <p class="note" style="max-width:52ch">Запишитесь на 15-минутную консультацию: специалист расскажет о программах, формате обучения и финансировании и поможет разобраться, что подходит вам.</p>
+      <div style="margin-top:30px"><a class="pill" href="#form">ОСТАВИТЬ ЗАЯВКУ</a></div>
     </div>
   </div>
 </section>
 
-<!-- 7 НЕ ЗНАЕТЕ, КАКОЙ КУРС ВЫБРАТЬ -->
-<section class="sec sagebg">
-  <div class="wrap band" data-reveal>
-    <h2 class="h2">Не знаете, какой курс выбрать?</h2>
-    <div><p>Запишитесь на 15-минутную консультацию: специалист расскажет о программах, формате обучения и финансировании и поможет разобраться, что подходит вам.</p><a class="pill dark" href="#form">ОСТАВИТЬ ЗАЯВКУ</a></div>
-  </div>
-</section>
-
-<!-- 8 КАК ПРОХОДИТ ОБУЧЕНИЕ -->
-<section class="sec">
+<!-- 8 КАК ПРОХОДИТ ОБУЧЕНИЕ: блок «На игре» v1 -->
+<section class="sec" id="do">
   <div class="wrap stack">
     <div class="head" data-reveal><h2 class="h2">Как проходит обучение в SternMeister?</h2><p class="lead">На занятиях вы разбираете теорию и сразу применяете её на практике. Преподаватели и кураторы помогают дойти до конца программы и подготовиться к поиску работы.</p></div>
     <div class="do">
       <div class="photo" data-reveal><img src="../media/ofis.jpg" alt=""></div>
       <div class="dolist">
-        <div class="doi" data-reveal><span>1</span><div><h3>Преподаватели с практическим опытом в Германии</h3><p>Они показывают, как устроена работа в профессии, и разбирают задачи, с которыми можно столкнуться после курса.</p></div></div>
-        <div class="doi" data-reveal><span>2</span><div><h3>Для будущих бухгалтеров: практика в DATEV и Lexware на учебных задачах</h3><p>Для будущих администраторов клиники: практика в CGM TURBOMED, медицинская документация, организация приёма и цифровой офис.</p></div></div>
-        <div class="doi" data-reveal><span>3</span><div><h3>Реальная помощь в трудоустройстве</h3><p>Адаптируем резюме под немецкие стандарты, проведём тренировочные собеседования</p></div></div>
-        <div class="doi" data-reveal><span>4</span><div><h3>Объясняем материал на русском и постепенно вводим профессиональный немецкий:</h3><p>термины, документы и общение на работе. Отдельный блок для подготовки к собеседованию на немецком языке.</p></div></div>
-        <div class="doi" data-reveal><span>5</span><div><h3>Персональный куратор поможет с организационными вопросами во время учёбы и поддержит в трудный момент</h3></div></div>
-        <div class="doi" data-reveal><span>6</span><div><h3>Проекты для вашего портфолио</h3><p>Создадите собственные проекты, которые сможете показать работодателю и добавить в резюме</p></div></div>
+        <div class="doi" data-reveal><span class="n">1</span><div><h3>Преподаватели с практическим опытом в Германии</h3><p>Они показывают, как устроена работа в профессии, и разбирают задачи, с которыми можно столкнуться после курса.</p></div></div>
+        <div class="doi" data-reveal><span class="n">2</span><div><h3>Для будущих бухгалтеров: практика в DATEV и Lexware на учебных задачах</h3><p>Для будущих администраторов клиники: практика в CGM TURBOMED, медицинская документация, организация приёма и цифровой офис.</p></div></div>
+        <div class="doi" data-reveal><span class="n">3</span><div><h3>Реальная помощь в трудоустройстве</h3><p>Адаптируем резюме под немецкие стандарты, проведём тренировочные собеседования</p></div></div>
+        <div class="doi" data-reveal><span class="n">4</span><div><h3>Объясняем материал на русском и постепенно вводим профессиональный немецкий:</h3><p>термины, документы и общение на работе. Отдельный блок для подготовки к собеседованию на немецком языке.</p></div></div>
+        <div class="doi" data-reveal><span class="n">5</span><div><h3>Персональный куратор поможет с организационными вопросами во время учёбы и поддержит в трудный момент</h3></div></div>
+        <div class="doi" data-reveal><span class="n">6</span><div><h3>Проекты для вашего портфолио</h3><p>Создадите собственные проекты, которые сможете показать работодателю и добавить в резюме</p></div></div>
       </div>
     </div>
-    <p class="note" data-reveal>На практических заданиях вы соберёте примеры работ, о которых сможете рассказать на собеседовании и добавить в портфолио.</p>
+    <div class="bring" style="grid-template-columns:1fr" data-reveal><blockquote>На практических заданиях вы соберёте примеры работ, о которых сможете рассказать на собеседовании и добавить в портфолио.</blockquote></div>
   </div>
 </section>
 
 <!-- 9 ПРЕПОДАВАТЕЛИ -->
-<section class="sec inkbg on-dark">
+<section class="sec slate on-dark">
   <div class="wrap stack">
     <div class="head" data-reveal><h2 class="h2">Наши преподаватели</h2></div>
     <div class="team">
@@ -487,32 +535,32 @@ footer a{color:#fff}
   </div>
 </section>
 
-<!-- 10 НАЧНИТЕ КАРЬЕРУ: фото + форма -->
-<section class="onph">
+<!-- 10 НАЧНИТЕ КАРЬЕРУ: финальный экран v1 с формой -->
+<section id="career">
   <img class="bg" src="../media/klinika.jpg" alt="" style="object-position:50% 45%;">
-  <div class="shade" style="background:linear-gradient(90deg,rgba(28,30,28,.82) 0%,rgba(28,30,28,.55) 55%,rgba(28,30,28,.35) 100%);"></div>
+  <div class="shade"></div>
   <div class="inner"><div class="wrap career">
     <div data-reveal><h2>Начните карьеру в Германии</h2><p>Выберите направление, которое вам ближе, и узнайте, как проходит обучение</p></div>
-    <form class="card-f" data-form data-reveal>
+    <form class="formcard" data-form data-reveal>
       <input type="tel" name="phone" placeholder="Контактный телефон" autocomplete="tel" aria-label="Контактный телефон" required>
       <input type="text" name="name" placeholder="Имя" autocomplete="name" aria-label="Имя">
       <input type="email" name="email" placeholder="E-mail" autocomplete="email" aria-label="E-mail">
       <label class="chk"><input type="checkbox" required><span>Я соглашаюсь с <a href="#contact">Политикой обработки персональных данных</a></span></label>
-      <button class="pill wide" type="submit">Отправить</button>
+      <button class="pill dark" type="submit">Отправить</button>
     </form>
   </div></div>
 </section>
 
-<!-- 11 ТРУДОУСТРОЙСТВО -->
-<section class="sec greenbg on-dark">
+<!-- 11 ТРУДОУСТРОЙСТВО: строки v1 «Что нового» -->
+<section class="sec pine on-dark">
   <div class="wrap stack">
     <div class="head" data-reveal><h2 class="h2">Помогаем подготовиться к поиску работы: от резюме до собеседования</h2><p class="lead">Сопровождаем до выхода на работу в Германии</p></div>
     <div class="list">
-      <div class="row" data-reveal><span>1</span><div><h3>Резюме под немецкий рынок</h3><p>поможем описать ваш опыт и подготовить сопроводительное письмо.</p></div></div>
-      <div class="row" data-reveal><span>2</span><div><h3>Собеседования</h3><p>потренируем ответы на типичные вопросы.</p></div></div>
-      <div class="row" data-reveal><span>3</span><div><h3>Практика</h3><p>разберём рабочие задачи на курсе.</p></div></div>
-      <div class="row" data-reveal><span>4</span><div><h3>Поиск вакансий</h3><p>покажем, где искать и как откликаться.</p></div></div>
-      <div class="row" data-reveal><span>5</span><div><h3>После выпуска</h3><p>подскажем следующий шаг, если понадобится помощь.</p></div></div>
+      <div class="row" data-reveal><span class="n">1</span><div><h3>Резюме под немецкий рынок</h3><p>поможем описать ваш опыт и подготовить сопроводительное письмо.</p></div></div>
+      <div class="row" data-reveal><span class="n">2</span><div><h3>Собеседования</h3><p>потренируем ответы на типичные вопросы.</p></div></div>
+      <div class="row" data-reveal><span class="n">3</span><div><h3>Практика</h3><p>разберём рабочие задачи на курсе.</p></div></div>
+      <div class="row" data-reveal><span class="n">4</span><div><h3>Поиск вакансий</h3><p>покажем, где искать и как откликаться.</p></div></div>
+      <div class="row" data-reveal><span class="n">5</span><div><h3>После выпуска</h3><p>подскажем следующий шаг, если понадобится помощь.</p></div></div>
     </div>
   </div>
 </section>
@@ -528,45 +576,45 @@ footer a{color:#fff}
 </section>
 
 <!-- 13 ВЕБИНАР -->
-<section class="sec warmbg" id="webinar">
-  <div class="wrap split">
-    <div class="head" data-reveal><div class="eyebrow">Бесплатно · онлайн</div><h2 class="h2">Ближайший вебинар — регистрируйтесь</h2><p class="lead">Два часа с реальным бухгалтером из Германии: расскажем, как устроена работа в немецкой компании, как получить Bildungsgutschein и разберём живые кейсы выпускников</p></div>
-    <div class="web" data-reveal>
+<section class="sec" id="webinar" style="background:var(--warm)">
+  <div class="wrap split" style="align-items:start">
+    <div class="txt" data-reveal><div class="eyebrow">Бесплатно · онлайн</div><h2 class="h2">Ближайший вебинар — регистрируйтесь</h2><p class="lead">Два часа с реальным бухгалтером из Германии: расскажем, как устроена работа в немецкой компании, как получить Bildungsgutschein и разберём живые кейсы выпускников</p></div>
+    <div class="webcard" data-reveal>
       <div class="tags"><span>БЕСПЛАТНО</span><span>ОНЛАЙН</span><span>НА РУССКОМ</span></div>
-      <p class="wt">Профессия, которую не убьёт ИИ: <span>как стать бухгалтером в Германии за 7 месяцев</span></p>
-      <div class="facts"><div class="fact"><b>19:00</b><span>сегодня</span></div><div class="fact"><b>2 часа</b><span>практической пользы</span></div></div>
-      <a class="pill" href="#form">Зарегистрироваться</a>
+      <blockquote>Профессия, которую не убьёт ИИ: как стать бухгалтером в Германии за 7 месяцев</blockquote>
+      <div class="plines"><div class="pl"><span>19:00</span><span>сегодня</span></div><div class="pl"><span>2 часа</span><span>практической пользы</span></div></div>
+      <a class="pill dark" href="#form">Зарегистрироваться</a>
     </div>
   </div>
 </section>
 
-<!-- 14 КТО МЫ -->
+<!-- 14 КТО МЫ: блок «С чем приезжать» v1 -->
 <section class="sec">
-  <div class="wrap split">
-    <div class="head" data-reveal><div class="eyebrow">Как устроено обучение?</div><h2 class="h2">Кто мы</h2><p class="lead">SternMeister — онлайн-академия для русскоязычных в Германии. Мы обучаем двум перспективным офисным профессиям: бухгалтер (Finanzbuchhalter) и медицинский администратор (Praxismanager).</p></div>
-    <div class="photo" data-reveal style="aspect-ratio:4/3;"><img src="../media/buhgalter.jpg" alt="" style="object-position:62% 50%;"></div>
+  <div class="wrap bring">
+    <div class="stack" style="gap:22px" data-reveal><div class="eyebrow">Как устроено обучение?</div><h2 class="h2">Кто мы</h2><blockquote>SternMeister — онлайн-академия для русскоязычных в Германии. Мы обучаем двум перспективным офисным профессиям: бухгалтер (Finanzbuchhalter) и медицинский администратор (Praxismanager).</blockquote></div>
+    <div class="photo" data-reveal><img src="../media/buhgalter.jpg" alt="" style="object-position:62% 50%;"></div>
   </div>
 </section>
 
-<!-- 15 FAQ -->
-<section class="sec" style="padding-top:0;">
+<!-- 15 ВОПРОСЫ -->
+<section class="sec" id="faq" style="padding-top:0">
   <div class="wrap stack">
     <div class="head" data-reveal><h2 class="h2">Частые вопросы (FAQ)</h2></div>
-    <div class="faq" id="faq" data-reveal>
-<div class="qa"><button type="button" aria-expanded="false" aria-controls="qa0"><span>Сколько стоит обучение и есть ли рассрочка?</span><span class="pm" aria-hidden="true">+</span></button><p class="ans" id="qa0" hidden>Стоимость обучения зависит от выбранной программы и формата — подробно расскажем на бесплатной консультации. Если вы зарегистрированы в Jobcenter или Agentur für Arbeit, обучение можно пройти бесплатно по Bildungsgutschein. При самостоятельной оплате действует скидка за единовременный платёж, а также доступна внутренняя рассрочка SternMeister на 5–7 месяцев.</p></div>
-<div class="qa"><button type="button" aria-expanded="false" aria-controls="qa1"><span>Кто может учиться бесплатно и как работает Bildungsgutschein?</span><span class="pm" aria-hidden="true">+</span></button><p class="ans" id="qa1" hidden>Bildungsgutschein — ваучер на обучение от Jobcenter или Agentur für Arbeit. Если консультант одобрит его для выбранной программы, стоимость курса оплачивается из средств ведомства. Мы подскажем, какие документы подготовить.</p></div>
-<div class="qa"><button type="button" aria-expanded="false" aria-controls="qa2"><span>Когда ближайший старт и сколько длится курс?</span><span class="pm" aria-hidden="true">+</span></button><p class="ans" id="qa2" hidden>Курс «Бухгалтер» длится 7 месяцев, «Медицинский администратор» — 6 месяцев, обучение полностью онлайн. Новые потоки стартуют регулярно; точную дату ближайшего набора и число мест в группе уточняйте на консультации.</p></div>
-<div class="qa"><button type="button" aria-expanded="false" aria-controls="qa3"><span>Как проходит обучение и можно ли совмещать с работой?</span><span class="pm" aria-hidden="true">+</span></button><p class="ans" id="qa3" hidden>Занятия идут онлайн на русском языке: живые уроки вечером, в среднем по 2 часа 3 раза в неделю, а записи всех уроков доступны в личном кабинете 24/7. Поэтому курс реально совмещать с работой — на полную ставку или Teilzeit.</p></div>
-<div class="qa"><button type="button" aria-expanded="false" aria-controls="qa4"><span>Нужен ли немецкий язык? Достаточно ли уровня A2?</span><span class="pm" aria-hidden="true">+</span></button><p class="ans" id="qa4" hidden>Достаточно уровня A2. Обучение идёт на русском языке, а профильный немецкий вынесен в отдельный блок: 150 часов бухгалтерской или медицинской лексики плюс AI-тренажёр собеседований. К выпуску вы уверенно проходите собеседование на уровне A2–B1.</p></div>
-<div class="qa"><button type="button" aria-expanded="false" aria-controls="qa5"><span>Подойдёт ли курс, если нет опыта и я не работал(а) в Excel или DATEV?</span><span class="pm" aria-hidden="true">+</span></button><p class="ans" id="qa5" hidden>Да. Программа рассчитана на старт с нуля: мы даём и основы бухгалтерии, и работу в программах (DATEV, Lexware, Google Tabellen) с первых занятий. Опыт в Excel или бухгалтерии не нужен — многие выпускники пришли из совершенно других сфер.</p></div>
-<div class="qa"><button type="button" aria-expanded="false" aria-controls="qa6"><span>Какие программы освою и идёт ли обучение DATEV на русском?</span><span class="pm" aria-hidden="true">+</span></button><p class="ans" id="qa6" hidden>На курсе вы работаете в DATEV и Lexware — программах, в которых ведут учёт немецкие компании, а также в Google Tabellen и AI-инструментах. Занятия и задания объясняем на русском языке, практика идёт на образовательных версиях (мы — партнёр DATEV и Lexware), сами программы на немецком — так вы сразу привыкаете к рабочей среде.</p></div>
-<div class="qa"><button type="button" aria-expanded="false" aria-controls="qa7"><span>Какой сертификат я получу и признают ли его работодатели?</span><span class="pm" aria-hidden="true">+</span></button><p class="ans" id="qa7" hidden>После курса вы получаете сертификат Weiterbildung от DEKRA — он действителен по всей Германии, и его ценят работодатели. Для работы бухгалтером экзамен IHK необязателен; при желании к нему можно готовиться отдельно после курса.</p></div>
-<div class="qa"><button type="button" aria-expanded="false" aria-controls="qa8"><span>Помогаете ли с трудоустройством после курса?</span><span class="pm" aria-hidden="true">+</span></button><p class="ans" id="qa8" hidden>Да. Карьерный центр адаптирует резюме под немецкие стандарты, проводит тренировочные собеседования и остаётся на связи, пока вы не найдёте работу. В среднем выпускники трудоустраиваются за 2–4 месяца после окончания обучения.</p></div>
-<div class="qa"><button type="button" aria-expanded="false" aria-controls="qa9"><span>Подойдёт ли курс украинцам со статусом §24?</span><span class="pm" aria-hidden="true">+</span></button><p class="ans" id="qa9" hidden>Да, у нас учится много украинцев. Обучение на русском снимает языковой барьер на старте, а оплатить курс через Bildungsgutschein можно и со статусом §24.</p></div>
-<div class="qa"><button type="button" aria-expanded="false" aria-controls="qa10"><span>Смогу ли после курса вести бухгалтерию своего Gewerbe самостоятельно?</span><span class="pm" aria-hidden="true">+</span></button><p class="ans" id="qa10" hidden>Да — вы сможете вести повседневную бухгалтерию Gewerbe или Kleinunternehmen: выставлять счета, готовить данные и работать в DATEV Unternehmen Online, передавая отчётность своему Steuerberater. Частые ситуации (Kleinunternehmerregelung, НДС) разбираем в блоге.</p></div>
-<div class="qa"><button type="button" aria-expanded="false" aria-controls="qa11"><span>Что делать, если будет сложно учиться?</span><span class="pm" aria-hidden="true">+</span></button><p class="ans" id="qa11" hidden>У каждого студента есть персональный куратор и группа поддержки — вы не останетесь одни. Записи всех уроков доступны в кабинете, поэтому материал можно пересматривать в своём темпе.</p></div>
+    <div class="faq" id="faqList" data-reveal>
+<div class="fq"><button class="fq-h" aria-expanded="false">Сколько стоит обучение и есть ли рассрочка?<i></i></button><div class="fq-b">Стоимость обучения зависит от выбранной программы и формата — подробно расскажем на бесплатной консультации. Если вы зарегистрированы в Jobcenter или Agentur für Arbeit, обучение можно пройти бесплатно по Bildungsgutschein. При самостоятельной оплате действует скидка за единовременный платёж, а также доступна внутренняя рассрочка SternMeister на 5–7 месяцев.</div></div>
+<div class="fq"><button class="fq-h" aria-expanded="false">Кто может учиться бесплатно и как работает Bildungsgutschein?<i></i></button><div class="fq-b">Bildungsgutschein — ваучер на обучение от Jobcenter или Agentur für Arbeit. Если консультант одобрит его для выбранной программы, стоимость курса оплачивается из средств ведомства. Мы подскажем, какие документы подготовить.</div></div>
+<div class="fq"><button class="fq-h" aria-expanded="false">Когда ближайший старт и сколько длится курс?<i></i></button><div class="fq-b">Курс «Бухгалтер» длится 7 месяцев, «Медицинский администратор» — 6 месяцев, обучение полностью онлайн. Новые потоки стартуют регулярно; точную дату ближайшего набора и число мест в группе уточняйте на консультации.</div></div>
+<div class="fq"><button class="fq-h" aria-expanded="false">Как проходит обучение и можно ли совмещать с работой?<i></i></button><div class="fq-b">Занятия идут онлайн на русском языке: живые уроки вечером, в среднем по 2 часа 3 раза в неделю, а записи всех уроков доступны в личном кабинете 24/7. Поэтому курс реально совмещать с работой — на полную ставку или Teilzeit.</div></div>
+<div class="fq"><button class="fq-h" aria-expanded="false">Нужен ли немецкий язык? Достаточно ли уровня A2?<i></i></button><div class="fq-b">Достаточно уровня A2. Обучение идёт на русском языке, а профильный немецкий вынесен в отдельный блок: 150 часов бухгалтерской или медицинской лексики плюс AI-тренажёр собеседований. К выпуску вы уверенно проходите собеседование на уровне A2–B1.</div></div>
+<div class="fq"><button class="fq-h" aria-expanded="false">Подойдёт ли курс, если нет опыта и я не работал(а) в Excel или DATEV?<i></i></button><div class="fq-b">Да. Программа рассчитана на старт с нуля: мы даём и основы бухгалтерии, и работу в программах (DATEV, Lexware, Google Tabellen) с первых занятий. Опыт в Excel или бухгалтерии не нужен — многие выпускники пришли из совершенно других сфер.</div></div>
+<div class="fq"><button class="fq-h" aria-expanded="false">Какие программы освою и идёт ли обучение DATEV на русском?<i></i></button><div class="fq-b">На курсе вы работаете в DATEV и Lexware — программах, в которых ведут учёт немецкие компании, а также в Google Tabellen и AI-инструментах. Занятия и задания объясняем на русском языке, практика идёт на образовательных версиях (мы — партнёр DATEV и Lexware), сами программы на немецком — так вы сразу привыкаете к рабочей среде.</div></div>
+<div class="fq"><button class="fq-h" aria-expanded="false">Какой сертификат я получу и признают ли его работодатели?<i></i></button><div class="fq-b">После курса вы получаете сертификат Weiterbildung от DEKRA — он действителен по всей Германии, и его ценят работодатели. Для работы бухгалтером экзамен IHK необязателен; при желании к нему можно готовиться отдельно после курса.</div></div>
+<div class="fq"><button class="fq-h" aria-expanded="false">Помогаете ли с трудоустройством после курса?<i></i></button><div class="fq-b">Да. Карьерный центр адаптирует резюме под немецкие стандарты, проводит тренировочные собеседования и остаётся на связи, пока вы не найдёте работу. В среднем выпускники трудоустраиваются за 2–4 месяца после окончания обучения.</div></div>
+<div class="fq"><button class="fq-h" aria-expanded="false">Подойдёт ли курс украинцам со статусом §24?<i></i></button><div class="fq-b">Да, у нас учится много украинцев. Обучение на русском снимает языковой барьер на старте, а оплатить курс через Bildungsgutschein можно и со статусом §24.</div></div>
+<div class="fq"><button class="fq-h" aria-expanded="false">Смогу ли после курса вести бухгалтерию своего Gewerbe самостоятельно?<i></i></button><div class="fq-b">Да — вы сможете вести повседневную бухгалтерию Gewerbe или Kleinunternehmen: выставлять счета, готовить данные и работать в DATEV Unternehmen Online, передавая отчётность своему Steuerberater. Частые ситуации (Kleinunternehmerregelung, НДС) разбираем в блоге.</div></div>
+<div class="fq"><button class="fq-h" aria-expanded="false">Что делать, если будет сложно учиться?<i></i></button><div class="fq-b">У каждого студента есть персональный куратор и группа поддержки — вы не останетесь одни. Записи всех уроков доступны в кабинете, поэтому материал можно пересматривать в своём темпе.</div></div>
     </div>
-    <div class="blog" id="blog" data-reveal>
+    <div class="blogp" id="blog" data-reveal>
       <p><b>Обучение бухгалтерии с нуля</b> идёт на русском языке<br>от основ немецкого учёта и практики в DATEV и Lexware до готового резюме и первой работы в Германии</p>
       <p><b>Программы аккредитованы по AZAV</b><br>сам курс можно оплатить ваучером Bildungsgutschein</p>
       <p>Ситуации, с которыми сталкиваются бухгалтеры в Германии, разбираем в блоге: Kleinunternehmerregelung, бухгалтерия Gewerbe, зарплаты и другие важные вопросы</p>
@@ -575,19 +623,22 @@ footer a{color:#fff}
 </section>
 
 <!-- 16 ОСТАЛИСЬ ВОПРОСЫ -->
-<section class="sec sagebg">
-  <div class="wrap band" data-reveal>
-    <h2 class="h2">Остались вопросы?</h2>
-    <div><p>Запишитесь на бесплатную консультацию — подскажем, с чего начать</p><a class="pill dark" href="#form">Записаться</a></div>
+<section class="sec slate on-dark">
+  <div class="wrap price">
+    <div data-reveal>
+      <h2 class="h2">Остались вопросы?</h2>
+      <p class="note">Запишитесь на бесплатную консультацию — подскажем, с чего начать</p>
+      <div style="margin-top:30px"><a class="pill" href="#form">Записаться</a></div>
+    </div>
   </div>
 </section>
 
 <!-- 17 ЗАЯВКА И КОНТАКТЫ -->
-<section class="sec inkbg on-dark" id="form">
+<section class="sec pine on-dark" id="form">
   <div class="wrap stack">
     <div class="head" data-reveal><h2 class="h2">Оставьте заявку на обучение в SternMeister</h2><p class="lead">специалист ответит на вопросы о программе и поступлении</p></div>
-    <div class="split" style="align-items:start;">
-      <div id="contact" data-reveal><div class="eyebrow" style="margin-bottom:14px;">Контакты:</div>
+    <div class="split" style="align-items:start">
+      <div id="contact" data-reveal><div class="eyebrow" style="margin-bottom:14px">Контакты:</div>
         <div class="contacts">
           <p><a href="mailto:hello@sternmeister.de">hello@sternmeister.de</a></p>
           <p><a href="tel:+4915209560138">+49 152 0956 0138</a></p>
@@ -595,21 +646,21 @@ footer a{color:#fff}
           <p>Rankestraße 26<br>10789 Berlin, Germany</p>
         </div>
       </div>
-      <form class="card-f" data-form data-reveal>
+      <form class="formcard" data-form data-reveal>
         <input type="tel" name="phone" placeholder="Телефон" autocomplete="tel" aria-label="Телефон" required>
         <input type="text" name="name" placeholder="Имя" autocomplete="name" aria-label="Имя">
         <input type="email" name="email" placeholder="E-mail" autocomplete="email" aria-label="E-mail">
         <label class="chk"><input type="checkbox" required><span>Я соглашаюсь с <a href="#contact">Политикой обработки персональных данных</a></span></label>
-        <button class="pill wide" type="submit">Записаться на консультацию и получить тестовый модуль в подарок</button>
+        <button class="pill dark" type="submit">Записаться на консультацию и получить тестовый модуль в подарок</button>
       </form>
     </div>
   </div>
 </section>
 
-<!-- 18 ГОТОВЫ НАЧАТЬ -->
-<section class="onph" id="final">
-  <img class="bg" src="../media/ofis.jpg" alt="" style="object-position:50% 50%;">
-  <div class="shade" style="background:rgba(28,30,28,.66);"></div>
+<!-- 18 ГОТОВЫ НАЧАТЬ: финал v1 -->
+<section id="register">
+  <img class="bg" src="../media/ofis.jpg" alt="">
+  <div class="shade"></div>
   <div class="inner">
     <h2 data-reveal>Готовы начать?</h2>
     <p data-reveal>Бесплатно проконсультируем и подберём оптимальный формат обучения специально для вас</p>
@@ -620,7 +671,7 @@ footer a{color:#fff}
 <footer>
   <div class="wrap">
     <div>По всем вопросам · <a href="mailto:hello@sternmeister.de">hello@sternmeister.de</a> · <a href="tel:+4915209560138">+4915209560138</a> · <a href="https://t.me/sternmeister_bot">@sternmeister_bot</a></div>
-    <div style="opacity:.75;">Datenschutzerklärung · Impressum · Allgemeine Geschäftsbedingungen (AGB) · Блог SternMeister</div>
+    <div class="credits">Datenschutzerklärung · Impressum · Allgemeine Geschäftsbedingungen (AGB) · Блог SternMeister</div>
   </div>
 </footer>
 
@@ -640,28 +691,20 @@ footer a{color:#fff}
 })();
 
 // отзывы: «Прочитать отзыв полностью»
-document.querySelectorAll('.rv-btn').forEach(b => b.addEventListener('click', () => {
-  const m = b.previousElementSibling; m.hidden = false; b.remove();
-}));
+document.querySelectorAll('.rv-btn').forEach(b => b.addEventListener('click', () => { b.previousElementSibling.hidden = false; b.remove(); }));
 
-// видео: лента со стрелками, плеер Vimeo по клику
-const vt = document.getElementById('vtrack');
+// ленты со стрелками, плеер Vimeo по клику
 document.querySelectorAll('[data-v]').forEach(b => b.addEventListener('click', () => { const t = document.getElementById(b.dataset.t); t.scrollBy({ left: Number(b.dataset.v) * t.clientWidth, behavior: 'smooth' }); }));
-vt.addEventListener('click', e => {
+document.getElementById('vtrack').addEventListener('click', e => {
   const ph = e.target.closest('.vc-ph'); if (!ph || ph.querySelector('iframe')) return;
   ph.innerHTML = '<iframe src="https://player.vimeo.com/video/' + ph.dataset.vimeo + '?autoplay=1" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="Видеоинтервью"></iframe>';
 });
 
-// FAQ: одновременно открыт один ответ
-const faqBox = document.getElementById('faq');
-faqBox.addEventListener('click', e => {
-  const btn = e.target.closest('button'); if (!btn) return;
-  const open = btn.getAttribute('aria-expanded') !== 'true';
-  faqBox.querySelectorAll('.qa').forEach(it => {
-    const b = it.querySelector('button'), on = open && b === btn;
-    b.setAttribute('aria-expanded', on); b.querySelector('.pm').textContent = on ? '−' : '+';
-    it.querySelector('.ans').hidden = !on;
-  });
+// вопросы — как в v1: плюс поворачивается в минус
+document.getElementById('faqList').addEventListener('click', e => {
+  const b = e.target.closest('.fq-h'); if (!b) return;
+  const it = b.parentElement, o = !it.classList.contains('open');
+  it.classList.toggle('open', o); b.setAttribute('aria-expanded', o);
 });
 
 // формы — демо: заявка уходит письмом на hello@sternmeister.de
@@ -673,17 +716,17 @@ document.querySelectorAll('[data-form]').forEach(f => f.addEventListener('submit
   location.href = 'mailto:hello@sternmeister.de?subject=' + encodeURIComponent('Заявка') + '&body=' + encodeURIComponent(body);
 }));
 
-// появление блоков при прокрутке; соседи — с небольшой задержкой
-const io = 'IntersectionObserver' in window ? new IntersectionObserver(es => es.forEach(e => {
+// появление при прокрутке, как в v1
+const io = 'IntersectionObserver' in window && !matchMedia('(prefers-reduced-motion: reduce)').matches ? new IntersectionObserver(es => es.forEach(e => {
   if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
-}), { threshold: 0.08, rootMargin: '0px 0px -40px 0px' }) : null;
+}), { rootMargin: '0px 0px -8% 0px', threshold: .12 }) : null;
 document.querySelectorAll('[data-reveal]').forEach(el => {
   const sib = [...el.parentElement.children].filter(x => x.hasAttribute('data-reveal'));
   el.style.setProperty('--d', Math.min(sib.indexOf(el), 4) * 0.08 + 's');
   io ? io.observe(el) : el.classList.add('in');
 });
 
-// шапка: прозрачная на фото, плотная после первого экрана
+// шапка — как в v1: прозрачная на фото, плотная после первого экрана
 const hdr = document.getElementById('hdr');
 const hdrTick = () => hdr.classList.toggle('solid', scrollY > innerHeight * .7);
 addEventListener('scroll', hdrTick, { passive: true }); hdrTick();
