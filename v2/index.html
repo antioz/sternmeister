@@ -274,6 +274,9 @@ footer .credits{opacity:.6;font-size:12px;max-width:70ch}
 .prog{display:flex;flex-direction:column;gap:28px}
 .prog>*{min-width:0}
 .prog .photo{position:relative;aspect-ratio:4/3;max-height:none}
+.prog .photo::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(28,30,28,0) 40%,rgba(28,30,28,.82) 100%)}
+.prog .photo .sal{position:absolute;z-index:1;left:clamp(18px,2vw,28px);right:clamp(18px,2vw,28px);bottom:clamp(16px,2vw,26px);margin:0;padding:0;border:0;color:#fff}
+.prog .photo .sal span{color:rgba(255,255,255,.9)}
 .prog>div:last-child{display:flex;flex-direction:column;flex:1}
 .prog .pill{align-self:flex-start;margin-top:auto}
 .prog .eyebrow{display:block;margin-bottom:12px}
@@ -451,19 +454,18 @@ footer{padding-bottom:calc(84px + env(safe-area-inset-bottom,0px))}
 <!-- 6 ДВЕ ПРОГРАММЫ -->
 <section class="sec" id="program" style="background:var(--warm)">
   <div class="wrap stack">
-    <div class="head" data-reveal><h2 class="h2">Мы обучаем двум перспективным офисным профессиям: бухгалтер (Finanzbuchhalter) и медицинский администратор (Praxismanager).</h2><p class="lead">Обучение на русском языке + 150 часов профильной лексики</p></div>
+    <div class="head" data-reveal><h2 class="h2">Обучение на русском языке + 150 часов профильной лексики</h2></div>
     <div class="cards cards2">
       <div class="card" style="background:var(--cream)" data-reveal><h3>Бухгалтер (Finanzbuchhalter)</h3><p>Если вам нравится разбираться в цифрах и документах, присмотритесь к бухгалтерии. Здесь важны внимательность и системный подход, а со временем можно вырасти до Bilanzbuchhalter. Выход на рынок уже через 2–4 месяца после выпуска.</p></div>
       <div class="card" style="background:var(--cream)" data-reveal><h3>Медицинский администратор (Praxismanager)</h3><p>Если вам нравится помогать людям и организовывать процессы, вам подойдёт работа на ресепшене клиники: общение с пациентами, запись на приём и медицинские документы. Дефицит кадров в этой сфере позволяет быстро выйти на работу.</p></div>
     </div>
     <div class="progs">
     <article class="prog">
-      <div class="photo" data-reveal><img src="../media/buhgalter.jpg" alt="" style="object-position:62% 50%;"></div>
+      <div class="photo" data-reveal><img src="../media/buhgalter.jpg" alt="" style="object-position:62% 50%;"><div class="sal"><b>от 3 500 €/мес</b><span>Зарплата после обучения — от 3 500 €, с ростом до 4 500 € на позиции Bilanzbuchhalter</span></div></div>
       <div data-reveal>
         <span class="eyebrow">Программа · 7 месяцев</span>
         <h3>Курс «Бухгалтер в Германии» · Finanzbuchhalter:in</h3>
         <p class="p">Бухгалтерия в Германии — для тех, кто хочет освоить новую профессию или применить прежний опыт после переезда. На курсе вы разберётесь в немецком учёте и потренируетесь работать с документами и профессиональными программами.</p>
-        <div class="sal"><b>от 3 500 €/мес</b><span>Зарплата после обучения — от 3 500 €, с ростом до 4 500 € на позиции Bilanzbuchhalter</span></div>
         <div class="plines"><div class="pl"><span>Длительность</span><span>7 месяцев</span></div><div class="pl"><span>Формат</span><span>Онлайн</span></div><div class="pl"><span>Сертификат</span><span>DEKRA · Weiterbildung</span></div><div class="pl"><span>Финансирование</span><span>Bildungsgutschein</span></div></div>
         <div class="tags"><span>Практика в DATEV и Lexware</span><span>бухгалтерские документы и налоговая отчетность</span><span>Возможность Home Office после первого года</span><span>150 часов профильного немецкого + AI-тренажёр собеседований</span></div>
         <p class="p" style="margin-bottom:28px">Начать можно и без опыта работы в офисе. Мы объясняем основы, постепенно переходим к практике и помогаем разобраться в требованиях немецкого рынка труда.</p>
@@ -471,12 +473,11 @@ footer{padding-bottom:calc(84px + env(safe-area-inset-bottom,0px))}
       </div>
     </article>
     <article class="prog">
-      <div class="photo" data-reveal><img src="../media/klinika.jpg" alt="" style="object-position:50% 45%;"></div>
+      <div class="photo" data-reveal><img src="../media/klinika.jpg" alt="" style="object-position:50% 45%;"><div class="sal"><b>от 3 000 €/мес</b><span>Зарплата медицинского администратора в Германии после обучения— с возможностью карьерного роста и роста дохода</span></div></div>
       <div data-reveal>
         <span class="eyebrow">Программа · 6 месяцев</span>
         <h3>Курс «Администратор медицинской практики» / Mitarbeiter: in für die Rezeption und Praxisempfang</h3>
         <p class="p">Научитесь организовывать приём в медицинском праксисе: записывать пациентов, вести документы и помогать команде с повседневными задачами. Медицинское образование для начала обучения не требуется.</p>
-        <div class="sal"><b>от 3 000 €/мес</b><span>Зарплата медицинского администратора в Германии после обучения— с возможностью карьерного роста и роста дохода</span></div>
         <div class="plines"><div class="pl"><span>Длительность</span><span>6 месяцев</span></div><div class="pl"><span>Формат</span><span>Онлайн</span></div><div class="pl"><span>Сертификат</span><span>DEKRA · Weiterbildung</span></div><div class="pl"><span>Финансирование</span><span>Bildungsgutschein</span></div></div>
         <div class="tags"><span>Работа с медицинскими документами и цифровыми сервисами</span><span>Организация приёма и общение с пациентами</span><span>Основы расчётов, защиты данных и управления качеством в медицинской практике</span><span>Профессиональный немецкий и подготовка к собеседованию</span></div>
         <p class="p" style="margin-bottom:28px">Подойдёт тем, кому нравится общаться с людьми, помогать пациентам и хочется работать в стабильной сфере здравоохранения.</p>
