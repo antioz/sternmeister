@@ -231,6 +231,12 @@ footer .credits{opacity:.6;font-size:12px;max-width:70ch}
 .h2.h2-s{font-size:clamp(28px,3vw,46px);line-height:1.08}
 .formcard{display:flex;flex-direction:column;gap:12px;padding:clamp(24px,3vw,40px);border-radius:var(--r);background:var(--cream);color:var(--ink)}
 .warmbg{background:var(--warm)}
+.ctacard{display:flex;align-items:center;justify-content:space-between;gap:28px 64px;padding:clamp(28px,4vw,56px) clamp(28px,4.5vw,64px);border-radius:var(--r);background:var(--slate);color:#fff}
+.ctacard h2{margin:0 0 16px;font:500 clamp(26px,2.8vw,42px)/1.1 var(--sans);letter-spacing:-.03em}
+.ctacard p{margin:0;max-width:56ch;font:300 clamp(17px,1.4vw,20px)/1.5 var(--serif);color:rgba(255,255,255,.88)}
+.ctacard .pill{flex:none;padding:18px 22px 18px 32px;gap:16px}
+.pill-ar{flex:none}
+@media (max-width:760px){.ctacard{flex-direction:column;align-items:flex-start}}
 .cards.cards2{grid-template-columns:repeat(2,minmax(0,1fr))}
 @media (max-width:760px){.cards.cards2{grid-template-columns:1fr}}
 .formcard input[type=tel],.formcard input[type=text],.formcard input[type=email]{width:100%;padding:16px 24px;border:1px solid var(--line);border-radius:999px;background:#fff;color:var(--ink);font:400 17px var(--sans)}
@@ -272,26 +278,25 @@ footer .credits{opacity:.6;font-size:12px;max-width:70ch}
 .vc-t{margin-top:10px;font:500 21px/1.2 var(--sans);letter-spacing:-.02em}
 .vc-s{color:var(--sand);letter-spacing:3px}
 .vc p{margin:0;font:300 17px/1.5 var(--serif);color:var(--light)}
-.progs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(18px,2.5vw,40px);align-items:stretch}
-.prog{display:flex;flex-direction:column;gap:28px}
+.progs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:clamp(18px,2.5vw,40px);row-gap:0}
+.prog{display:grid;grid-row:span 7;grid-template-rows:subgrid;row-gap:22px;align-content:start}
 .prog>*{min-width:0}
 .prog .photo{position:relative;aspect-ratio:4/3;max-height:none}
 .prog .photo::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(28,30,28,0) 40%,rgba(28,30,28,.82) 100%)}
 .prog .photo .sal{position:absolute;z-index:1;left:clamp(18px,2vw,28px);right:clamp(18px,2vw,28px);bottom:clamp(16px,2vw,26px);margin:0;padding:0;border:0;color:#fff}
 .prog .photo .sal span{color:rgba(255,255,255,.9)}
-.prog>div:last-child{display:flex;flex-direction:column;flex:1}
-.prog .pill{align-self:flex-start;margin-top:auto}
+.prog .pill{align-self:end;justify-self:start}
 .prog .eyebrow{display:block;margin-bottom:12px}
-.prog h3{margin:0 0 14px;font:500 clamp(24px,2.4vw,34px)/1.12 var(--sans);letter-spacing:-.03em}
+.prog h3{margin:0;font:500 clamp(24px,2.4vw,34px)/1.12 var(--sans);letter-spacing:-.03em}
 .prog .p{margin:0;font:300 18px/1.55 var(--serif);color:var(--muted)}
 .sal{display:flex;flex-direction:column;gap:6px;padding:22px 0;margin:22px 0 0;border-top:1px solid var(--line)}
 .sal b{font:500 clamp(30px,3vw,44px)/1.05 var(--sans);letter-spacing:-.03em}
 .sal span{font:300 16px/1.45 var(--serif);color:var(--muted)}
-.prog .plines{margin:0 0 22px}
+.prog .plines{margin:0}
 .prog .pl{border-top:1px solid var(--line)}
 .prog .pl span:first-child{color:var(--muted)}
-.prog .tags{margin:0 0 22px}
-.prog .tags span{font:400 14px/1.35 var(--sans)}
+.prog .tags{margin:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;align-content:start}
+.prog .tags span{display:flex;align-items:center;font:400 14px/1.35 var(--sans);padding:10px 16px;border-radius:16px}
 .team{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:30px 18px}
 @media (max-width:1100px){.team{grid-template-columns:repeat(3,minmax(0,1fr))}}
 @media (max-width:760px){.team{grid-template-columns:repeat(2,minmax(0,1fr))}}
@@ -333,7 +338,7 @@ footer{padding-bottom:calc(84px + env(safe-area-inset-bottom,0px))}
 /* заливка первого экрана — как в версии 1 */
 #top .shade{background:linear-gradient(180deg,rgba(38,51,31,.72) 0%,rgba(78,104,76,.38) 45%,rgba(41,44,41,.86) 100%),linear-gradient(rgba(41,44,41,.48),rgba(41,44,41,.48))}
 #hdr nav .lang{opacity:.7}
-@media (max-width:980px){.progs{grid-template-columns:1fr}.career{grid-template-columns:1fr}.cd-facts{grid-template-columns:1fr 1fr 1fr}}
+@media (max-width:980px){.progs{grid-template-columns:1fr;row-gap:56px}.prog{grid-row:auto;grid-template-rows:none}.career{grid-template-columns:1fr}.cd-facts{grid-template-columns:1fr 1fr 1fr}}
 @media (max-width:760px){
   .hero{padding-bottom:96px}
   .cd-facts{grid-template-columns:1fr 1fr}
@@ -403,41 +408,34 @@ footer{padding-bottom:calc(84px + env(safe-area-inset-bottom,0px))}
   <div class="wrap stack">
     <div class="head" data-reveal><h2 class="h2">Обучение на русском языке + 150 часов профильной лексики</h2></div>
     <div class="progs">
-    <article class="prog">
-      <div class="photo" data-reveal><img src="../media/buhgalter.jpg" alt="" style="object-position:62% 50%;"><div class="sal"><span>Зарплата после обучения — от 3 500 €, с ростом до 4 500 € на позиции Bilanzbuchhalter</span><b>от 3 500 €/мес</b></div></div>
-      <div data-reveal>
-        <span class="eyebrow">Программа · 7 месяцев</span>
+    <article class="prog" data-reveal>
+      <div class="photo"><img src="../media/buhgalter.jpg" alt="" style="object-position:62% 50%;"><div class="sal"><span>Зарплата после обучения</span><b>от 3 500 €/мес</b></div></div>
         <h3>Курс «Бухгалтер в Германии» · Finanzbuchhalter:in</h3>
         <p class="p">Бухгалтерия в Германии — для тех, кто хочет освоить новую профессию или применить прежний опыт после переезда. На курсе вы разберётесь в немецком учёте и потренируетесь работать с документами и профессиональными программами.</p>
         <div class="plines"><div class="pl"><span>Длительность</span><span>7 месяцев</span></div><div class="pl"><span>Формат</span><span>Онлайн</span></div><div class="pl"><span>Сертификат</span><span>DEKRA · Weiterbildung</span></div><div class="pl"><span>Финансирование</span><span>Bildungsgutschein</span></div></div>
         <div class="tags"><span>Практика в DATEV и Lexware</span><span>бухгалтерские документы и налоговая отчетность</span><span>Возможность Home Office после первого года</span><span>150 часов профильного немецкого + AI-тренажёр собеседований</span></div>
-        <p class="p" style="margin-bottom:28px">Начать можно и без опыта работы в офисе. Мы объясняем основы, постепенно переходим к практике и помогаем разобраться в требованиях немецкого рынка труда.</p>
+        <p class="p">Начать можно и без опыта работы в офисе. Мы объясняем основы, постепенно переходим к практике и помогаем разобраться в требованиях немецкого рынка труда.</p>
         <a class="pill dark" href="#form">Программа курса бухгалтера →</a>
-      </div>
     </article>
-    <article class="prog">
-      <div class="photo" data-reveal><img src="../media/klinika.jpg" alt="" style="object-position:50% 45%;"><div class="sal"><span>Зарплата медицинского администратора в Германии после обучения— с возможностью карьерного роста и роста дохода</span><b>от 3 000 €/мес</b></div></div>
-      <div data-reveal>
-        <span class="eyebrow">Программа · 6 месяцев</span>
+    <article class="prog" data-reveal>
+      <div class="photo"><img src="../media/klinika.jpg" alt="" style="object-position:50% 45%;"><div class="sal"><span>Зарплата после обучения</span><b>от 3 000 €/мес</b></div></div>
         <h3>Курс «Администратор медицинской практики» / Mitarbeiter: in für die Rezeption und Praxisempfang</h3>
         <p class="p">Научитесь организовывать приём в медицинском праксисе: записывать пациентов, вести документы и помогать команде с повседневными задачами. Медицинское образование для начала обучения не требуется.</p>
         <div class="plines"><div class="pl"><span>Длительность</span><span>6 месяцев</span></div><div class="pl"><span>Формат</span><span>Онлайн</span></div><div class="pl"><span>Сертификат</span><span>DEKRA · Weiterbildung</span></div><div class="pl"><span>Финансирование</span><span>Bildungsgutschein</span></div></div>
         <div class="tags"><span>Работа с медицинскими документами и цифровыми сервисами</span><span>Организация приёма и общение с пациентами</span><span>Основы расчётов, защиты данных и управления качеством в медицинской практике</span><span>Профессиональный немецкий и подготовка к собеседованию</span></div>
-        <p class="p" style="margin-bottom:28px">Подойдёт тем, кому нравится общаться с людьми, помогать пациентам и хочется работать в стабильной сфере здравоохранения.</p>
+        <p class="p">Подойдёт тем, кому нравится общаться с людьми, помогать пациентам и хочется работать в стабильной сфере здравоохранения.</p>
         <a class="pill dark" href="#form">Программа курса администратора →</a>
-      </div>
     </article>
     </div>
   </div>
 </section>
 
-<!-- 7 НЕ ЗНАЕТЕ, КАКОЙ КУРС ВЫБРАТЬ: блок «Участие» v1 -->
-<section class="sec pine on-dark">
-  <div class="wrap price">
-    <div data-reveal>
-      <h2 class="h2" style="max-width:16ch">Не знаете, какой курс выбрать?</h2>
-      <p class="note" style="max-width:52ch">Запишитесь на 15-минутную консультацию: специалист расскажет о программах, формате обучения и финансировании и поможет разобраться, что подходит вам.</p>
-      <div style="margin-top:30px"><a class="pill" href="#form">ОСТАВИТЬ ЗАЯВКУ</a></div>
+<!-- 7 НЕ ЗНАЕТЕ, КАКОЙ КУРС ВЫБРАТЬ: карточка — текст слева, кнопка справа -->
+<section class="sec" style="background:var(--warm);padding-top:clamp(48px,6vw,88px);padding-bottom:clamp(48px,6vw,88px)">
+  <div class="wrap">
+    <div class="ctacard" data-reveal>
+      <div><h2>Не знаете, какой курс выбрать?</h2><p>Запишитесь на 15-минутную консультацию: специалист расскажет о программах, формате обучения и финансировании и поможет разобраться, что подходит вам.</p></div>
+      <a class="pill dark" href="#form">ОСТАВИТЬ ЗАЯВКУ <svg class="pill-ar" width="26" height="26" viewBox="0 0 26 26" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="13" cy="13" r="11.5"/><path d="M8 13h10M14 9l4 4-4 4"/></svg></a>
     </div>
   </div>
 </section>
