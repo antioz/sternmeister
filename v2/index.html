@@ -249,6 +249,14 @@ mark.demo{background:#ffe45c;color:#111;padding:.05em .3em;-webkit-box-decoratio
 .bl-l u{text-decoration-color:var(--acc);text-underline-offset:4px;color:var(--ink)}
 .bl-l:hover u{color:var(--acc)}
 #register h2{max-width:24ch}
+#register{min-height:min(90svh,820px)}
+.fmeta{position:absolute;left:0;right:0;bottom:0;display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px 40px;padding:22px var(--padX) calc(22px + env(safe-area-inset-bottom,0px));border-top:1px solid rgba(255,255,255,.18);font:400 14px/1.6 var(--sans);color:rgba(255,255,255,.75);text-align:left}
+.fmeta a{color:#fff}
+.partners.sec{padding-top:clamp(36px,4vw,56px);padding-bottom:clamp(36px,4vw,56px)}
+.partners .stack{gap:20px}
+.partners .h2{font-size:clamp(24px,2.2vw,34px)}
+.partners .logos{max-width:980px}
+#register .inner{padding-bottom:120px}
 .azsplit{grid-template-columns:1.35fr .65fr}
 .azsplit .lead{max-width:none}
 .azh span{display:block;white-space:nowrap}
@@ -422,7 +430,6 @@ footer{padding-bottom:calc(84px + env(safe-area-inset-bottom,0px))}
 <script>document.documentElement.classList.add('js')</script>
 </head>
 <body>
-<nav class="vsw" aria-label="Версии страницы"><a href="../">Версия 1</a><a href="../v2/" aria-current="page">Версия 2</a></nav>
 
 <header id="hdr">
   <a class="logo" href="#top" style="flex-direction:row;align-items:center;gap:8px;">SternMeister</a>
@@ -480,7 +487,7 @@ footer{padding-bottom:calc(84px + env(safe-area-inset-bottom,0px))}
     <div class="progs">
     <article class="prog" data-reveal>
       <div class="photo"><img src="../media/buhgalter.jpg" alt="" style="object-position:62% 50%;"><h3 class="ph-t">Курс «Бухгалтер в Германии» <span class="de">Finanzbuchhalter:in</span></h3><div class="sal"><span>Зарплата после обучения</span><b>от 3 500 €/мес</b></div></div>
-        <p class="p">Вы разберётесь в немецком учёте и научитесь работать в профессиональных программах. Начнем с основ, постепенно перейдем к практике и разберемся в требованиях немецкого рынка труда. Персональный куратор поможет во время учёбы и поддержит в трудный момент.</p>
+        <p class="p">Вы разберётесь в учёте и научитесь работать в профессиональных программах. Начнем с основ, постепенно перейдем к практике и разберемся в требованиях немецкого рынка труда. Персональный куратор поможет во время учёбы и поддержит в трудный момент.</p>
         <div class="plines"><div class="pl"><span>Длительность</span><span>7 месяцев</span></div><div class="pl"><span>Формат</span><span>Онлайн</span></div><div class="pl"><span>Сертификат</span><span>DEKRA · Weiterbildung</span></div><div class="pl"><span>Финансирование</span><span>Bildungsgutschein</span></div></div>
         <div class="tags"><span>Практика в DATEV и Lexware</span><span>Бухгалтерские документы</span><span>Налоговая отчетность</span><span>150 часов профильного немецкого</span><span>AI-тренажёр собеседований</span></div>
         <p class="p">Для тех, кто хочет освоить новую профессию или применить свой опыт на новом рынке</p>
@@ -587,9 +594,9 @@ footer{padding-bottom:calc(84px + env(safe-area-inset-bottom,0px))}
 </section>
 
 <!-- 12 ПАРТНЁРЫ -->
-<section class="sec" style="background:var(--warm)">
+<section class="sec partners" style="background:var(--warm)">
   <div class="wrap stack">
-    <div class="head" data-reveal><h2 class="h2">Наши партнёры</h2><p class="lead" style="max-width:none"><mark class="demo">В чем-то это очень важно для вас</mark></p></div>
+    <div class="head" data-reveal><h2 class="h2">Наши партнёры</h2></div>
     <div class="logos" data-reveal>
       <img src="../media/partners/1.png" alt="Партнёр 1" loading="lazy"><img src="../media/partners/2.png" alt="Партнёр 2" loading="lazy"><img src="../media/partners/3.png" alt="Партнёр 3" loading="lazy"><img src="../media/partners/4.png" alt="Партнёр 4" loading="lazy"><img src="../media/partners/5.png" alt="Партнёр 5" loading="lazy"><img src="../media/partners/6.png" alt="Партнёр 6" loading="lazy">
     </div>
@@ -663,8 +670,8 @@ footer{padding-bottom:calc(84px + env(safe-area-inset-bottom,0px))}
       <h2 class="h2">Приходите на <span class="acc">бесплатный вебинар</span></h2>
       <p class="lead"><span class="wl">Два часа с реальным бухгалтером из Германии:</span> <span class="wl">расскажем, как устроена работа в немецкой компании,</span> <span class="wl">как получить Bildungsgutschein</span> <span class="wl">и разберём живые кейсы выпускников</span></p>
       <div class="dots"><span>БЕСПЛАТНО</span><span>ОНЛАЙН</span><span>НА РУССКОМ</span></div>
-      <p class="wt">Профессия, которую <span class="acc">не убьёт ИИ:</span> как стать бухгалтером в Германии за 7 месяцев</p>
       <div class="plines"><div class="pl"><span>19:00</span><span>сегодня</span></div><div class="pl"><span>2 часа</span><span>практической пользы</span></div></div>
+      <p class="wt">Профессия, которую <span class="acc">не убьёт ИИ:</span> как стать бухгалтером в Германии за 7 месяцев</p>
       <a class="pill" href="#form">Зарегистрироваться</a>
     </div>
     <div class="web-ph"><div class="circ"></div><img src="../media/webinar.png" alt=""></div>
@@ -730,14 +737,12 @@ footer{padding-bottom:calc(84px + env(safe-area-inset-bottom,0px))}
   <div class="inner">
     <h2 data-reveal>SternMeister GmbH — образовательный центр, аккредитованный DEKRA</h2>
   </div>
-</section>
-
-<footer>
-  <div class="wrap">
+  <div class="fmeta">
     <div>По всем вопросам · <a href="mailto:hello@sternmeister.de">hello@sternmeister.de</a> · <a href="tel:+4915209560138">+4915209560138</a> · <a href="https://t.me/sternmeister_bot">@sternmeister_bot</a></div>
     <div class="credits">Datenschutzerklärung · Impressum · Allgemeine Geschäftsbedingungen (AGB) · Блог SternMeister</div>
   </div>
-</footer>
+</section>
+
 
 <script>
 // отсчёт до старта потока

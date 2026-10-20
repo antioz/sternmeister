@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>SternMeister – Курсы в Германии | Обучение с трудоустройством и поддержкой</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@200;300;400;500&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* Версия 2: дизайн pokaz v2 «Будущее» (Inter Tight 200–500 + JetBrains Mono, прямые углы, тонкие рамки, моно-метки прописными,
+   градиент первого экрана, огромные цифры 200). Цвета — SternMeister: тил v2 → зелёный #4e684c / #26331f, чёрный → #292c29,
+   светлые #EDEDEA/#F4F4F2 → белый #ffffff и светло-шалфейный #eef2ec (без бежевого), мятный акцент → оранжевый #ff7000. Тексты — как в версии 1. */
+:root{
+  --fs:18px;--lh:1.6;--tw:680px;--tr:0.12em;--sec:140px;--side:64px;--gap:24px;--ov:0.3;
+  --ink:#292c29;--deep:#26331f;--green:#4e684c;--cream:#ffffff;--paper:#eef2ec;--muted:#8f948c;--accent:#ff7000;
+  --line-d:rgba(41,44,41,.16);--line-l:rgba(255,255,255,.2);
+  --f-sans:'Inter Tight',system-ui,sans-serif;--f-mono:'JetBrains Mono',ui-monospace,monospace}
+@media (max-width:760px){:root{--side:20px;--sec:77px;--gap:16px}}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+html,body{overflow-x:hidden;overflow-x:clip}
+body{margin:0;background:var(--ink);color:var(--cream);font-family:var(--f-sans);font-size:var(--fs);line-height:var(--lh);-webkit-font-smoothing:antialiased;hyphens:manual}
+a{color:inherit}
+a:hover{color:var(--accent)}
+button,input{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+section{padding:var(--sec) var(--side)}
+.light{background:var(--cream);color:var(--ink)}
+.paper{background:var(--paper);color:var(--ink)}
+.dark{background:var(--ink);color:var(--cream)}
+.deep{background:linear-gradient(180deg,var(--deep) 0%,var(--green) 100%);color:var(--cream)}
+.mono{font-family:var(--f-mono);font-size:12px;letter-spacing:var(--tr);text-transform:uppercase;line-height:1.6}
+.muted{color:var(--muted)}
+.h2{margin:0;font-weight:300;font-size:clamp(36px,4.6vw,68px);line-height:1.02;letter-spacing:-0.03em;text-wrap:balance}
+.h2x{margin:0;font-weight:200;font-size:clamp(52px,8vw,140px);line-height:.92;letter-spacing:-0.045em;text-wrap:balance}
+.azh span{display:block;white-space:nowrap}
+.h2.azh{font-size:clamp(32px,3.9vw,56px)}
+@media (max-width:760px){.azh span{white-space:normal}}
+@media (min-width:1100px){.hbot .hl{display:block;white-space:nowrap}}
+@media (min-width:900px){.nw900{white-space:nowrap}}
+.hl1{display:block}
+.prog h3 .de{display:block;margin-top:6px;font-weight:200;font-size:.72em;letter-spacing:-.01em;color:var(--muted)}
+mark.demo{background:#ffe45c;color:#111;padding:.05em .3em}
+.webbox{background:var(--ink);color:var(--cream);padding:clamp(28px,5vw,80px);--line-d:var(--line-l)}
+.webbox .mono{color:var(--muted)}
+@media (min-width:1100px){.webbox .wl{display:block}}
+@media (max-width:420px){#final h2{font-size:32px}}
+.blogbar{padding:22px var(--side);border-top:1px solid var(--line-d);border-bottom:1px solid var(--line-d);background:var(--cream)}
+.bl-l{display:block;text-decoration:none;font-size:16px;line-height:1.55;color:var(--ink);font-weight:300}
+.bl-l u{text-decoration-color:var(--accent);text-underline-offset:4px}
+.big{font-size:calc(var(--fs) * 1.2);line-height:1.5;font-weight:300}
+@media (max-width:600px){.h2x{font-size:11vw}}
+@media (max-width:400px){.h2{font-size:30px}}
+@media (max-width:420px){.kv.kv div{grid-template-columns:1fr;gap:4px}}
+p{text-wrap:pretty}
+.btn{display:inline-flex;align-items:center;justify-content:center;padding:20px 40px;background:var(--ink);color:var(--cream);border:0;text-decoration:none;font-family:var(--f-mono);font-size:12px;letter-spacing:var(--tr);text-transform:uppercase;cursor:pointer;text-align:center;transition:background .25s,color .25s}
+.btn:hover{background:var(--green);color:var(--cream)}
+.btn.lt{background:var(--cream);color:var(--ink)}
+.btn.lt:hover{background:var(--accent);color:var(--ink)}
+.cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,440px),1fr));gap:clamp(28px,6vw,120px);align-items:start}
+.head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:32px;margin-bottom:clamp(40px,5vw,80px)}
+.head>div:not(.arr){display:flex;flex-direction:column;gap:20px;max-width:1000px}
+.frame{border:1px solid var(--line-d)}
+.dark .frame,.deep .frame{border-color:var(--line-l)}
+
+/* первый экран */
+#top{position:relative;min-height:100vh;min-height:100dvh;display:flex;flex-direction:column;padding:0;background:linear-gradient(165deg,var(--green) 0%,var(--deep) 55%,var(--ink) 100%);color:var(--cream);overflow:hidden}
+#top .bgimg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:60% 30%}
+#top .shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(38,51,31,.72) 0%,rgba(78,104,76,.38) 45%,rgba(41,44,41,.86) 100%)}
+#top .ov{position:absolute;inset:0;background:var(--ink);opacity:.48}
+.tbar{position:relative;display:flex;justify-content:space-between;align-items:flex-start;gap:24px;padding:28px var(--side) 0}
+.tbar img{width:clamp(70px,6vw,96px);height:auto}
+.tnav{display:flex;flex-wrap:wrap;gap:8px 26px;padding-top:18px;font-size:11px}
+.tnav a{text-decoration:none}
+.tnav span{opacity:.6}.tnav b{font-weight:500}
+@media (max-width:1100px){.tnav{display:none}}
+.hmid{position:relative;flex:1;display:flex;flex-direction:column;justify-content:center;padding:56px var(--side)}
+.hmid h1{margin:0;text-align:center;font-weight:200;font-size:clamp(48px,8.6vw,156px);line-height:.95;letter-spacing:-0.045em;text-wrap:balance}
+.logo{flex:none;padding-top:16px;font-family:var(--f-mono);font-size:13px;font-weight:500;letter-spacing:.42em;text-transform:uppercase;text-decoration:none}
+.dekra{justify-self:end;width:clamp(72px,6vw,96px);height:auto}
+@media (max-width:420px){.logo{font-size:11px;letter-spacing:.24em}.tbar .btn{padding:14px 16px;font-size:11px}}
+.hbot{position:relative;display:grid;grid-template-columns:1fr minmax(0,1.4fr) 1fr;align-items:end;gap:24px 40px;padding:0 var(--side) 84px}
+.hbot p{margin:0;text-align:center;font-size:calc(var(--fs) * .95);line-height:1.5;font-weight:300;text-wrap:balance}
+.gr{display:inline-flex;align-items:center;gap:10px;justify-self:start;text-decoration:none;font-family:var(--f-mono);font-size:12px;letter-spacing:.08em}
+.gr .st{color:#f6c343;letter-spacing:2px}
+@media (max-width:760px){.hbot{grid-template-columns:1fr;padding-bottom:96px}.hbot p{text-align:left}.hmid h1{font-size:12.5vw;text-align:left}.dekra{justify-self:start;width:72px}}
+@media (prefers-reduced-motion:no-preference){
+@keyframes rise{from{opacity:0;transform:translateY(.35em)}to{opacity:1;transform:none}}
+.hmid h1{animation:rise .9s cubic-bezier(.2,.7,.2,1) both}
+.hbot{animation:rise .9s cubic-bezier(.2,.7,.2,1) .8s both}
+}
+
+/* отсчёт и форма */
+.count{display:flex;justify-content:space-between;align-items:flex-start;gap:24px}
+.count .n{display:flex;gap:clamp(20px,4vw,72px);align-items:flex-end;flex-wrap:wrap}
+.count .n div{display:flex;flex-direction:column;gap:8px}
+.count strong{font-weight:200;font-size:clamp(64px,13vw,220px);line-height:.82;letter-spacing:-0.05em;font-variant-numeric:tabular-nums}
+.arrow{font-weight:200;font-size:clamp(56px,10vw,170px);line-height:.8}
+.form{display:flex;flex-direction:column;gap:14px;max-width:var(--tw)}
+.form input[type=tel],.form input[type=text],.form input[type=email]{width:100%;padding:18px 18px;border:1px solid rgba(41,44,41,.4);border-radius:0;background:transparent;color:var(--ink);font-size:17px}
+.dark .form input,.deep .form input{border-color:rgba(255,255,255,.4);color:var(--cream)}
+.form input::placeholder{color:var(--muted)}
+.form input:focus{outline:2px solid var(--accent);outline-offset:1px}
+.chk{display:flex;gap:12px;align-items:flex-start;font-size:14px;line-height:1.5;cursor:pointer}
+.chk input{flex:none;width:18px;height:18px;margin:2px 0 0;accent-color:var(--green)}
+.chk a{text-decoration:underline;text-decoration-color:var(--accent);text-underline-offset:3px}
+.form .btn{align-self:flex-start;margin-top:8px}
+.wide{position:relative;margin-top:clamp(48px,6vw,104px);width:100%;aspect-ratio:21/9;min-height:300px;overflow:hidden;background:var(--deep);color:var(--cream)}
+.wide img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.wide .ov{position:absolute;inset:0;background:var(--ink);opacity:var(--ov)}
+.corners{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:space-between;padding:clamp(14px,2vw,28px);font-family:var(--f-mono);font-size:11px;letter-spacing:var(--tr);text-transform:uppercase}
+.corners div{display:flex;justify-content:space-between;align-items:flex-start;gap:16px}
+.corners img{position:static;width:clamp(64px,6vw,96px);height:auto}
+
+/* сертификаты */
+.serts{display:grid;grid-template-columns:1fr 1fr;gap:var(--gap)}
+.serts img{width:100%;height:auto;display:block;border:1px solid var(--line-d)}
+
+/* ленты */
+.track{display:grid;grid-auto-flow:column;gap:var(--gap);overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none}
+.track::-webkit-scrollbar{display:none}
+.revs{grid-auto-columns:calc((100% - 2 * var(--gap)) / 3);align-items:stretch}
+.vtrack{grid-auto-columns:calc((100% - var(--gap)) / 2)}
+@media (max-width:1100px){.revs{grid-auto-columns:calc((100% - var(--gap)) / 2)}}
+@media (max-width:760px){.revs,.vtrack{grid-auto-columns:86%}}
+.arr{display:flex;gap:0}
+.arr button{width:56px;height:56px;display:flex;align-items:center;justify-content:center;border:1px solid currentColor;background:transparent;font-family:var(--f-mono);font-size:16px;cursor:pointer;transition:background .25s,color .25s}
+.arr button+button{border-left:0}
+.arr button:hover{background:var(--cream);color:var(--ink)}
+.light .arr button:hover,.paper .arr button:hover{background:var(--ink);color:var(--cream)}
+.rv{scroll-snap-align:start;display:flex;flex-direction:column;gap:18px;padding:clamp(24px,3vw,40px);border:1px solid var(--line-l)}
+.rv-h{display:flex;flex-direction:column;gap:6px}
+.rv-h b{font-weight:400;font-size:clamp(24px,2.2vw,32px);letter-spacing:-0.015em;line-height:1.1}
+.rv-h .lbl{font-family:var(--f-mono);font-size:11px;letter-spacing:var(--tr);text-transform:uppercase;color:var(--muted)}
+.rv p{margin:0;font-size:16px;line-height:1.6;font-weight:300}
+.rv-h{position:relative;padding-right:76px;min-height:60px}
+.rv-av{position:absolute;right:0;top:0;width:60px;height:60px;border-radius:50%;object-fit:cover}
+.light .rv,.paper .rv{border-color:var(--line-d)}
+.light .frame,.paper .frame{border-color:var(--line-d)}
+.rv-more{display:flex;flex-direction:column;gap:12px}
+.rv-more[hidden]{display:none}
+.rv-btn{align-self:flex-start;margin-top:auto;padding:0;border:0;background:none;cursor:pointer;font-family:var(--f-mono);font-size:12px;letter-spacing:var(--tr);text-transform:uppercase;text-decoration:underline;text-decoration-color:var(--accent);text-underline-offset:5px}
+.vc{scroll-snap-align:start;display:flex;flex-direction:column;gap:10px}
+.vc-ph{position:relative;display:block;width:100%;aspect-ratio:16/9;padding:0;border:0;background:#000;cursor:pointer;overflow:hidden}
+.vc-ph img,.vc-ph iframe{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border:0}
+.vc-play{position:absolute;left:0;bottom:0;width:64px;height:64px;display:flex;align-items:center;justify-content:center;background:var(--cream);color:var(--ink);transition:background .25s}
+.vc-play svg{width:20px;height:20px;margin-left:3px}
+.vc-ph:hover .vc-play{background:var(--accent)}
+@media (max-width:760px){.vc-play{left:auto;right:0;width:44px;height:44px}.vc-play svg{width:15px;height:15px}}
+.vc-t b{font-weight:600}
+.vc-t{margin-top:12px;font-weight:300;font-size:clamp(20px,1.8vw,26px);letter-spacing:-0.015em}
+.vc-s{font-family:var(--f-mono);font-size:12px;letter-spacing:.2em;color:var(--accent)}
+.vc p{margin:0;font-weight:300;color:var(--muted)}
+
+/* программы */
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,520px),1fr));gap:var(--gap)}
+.card{display:flex;flex-direction:column;gap:20px;padding:clamp(24px,3vw,44px);border:1px solid var(--line-d)}
+.card h3{margin:0;font-weight:400;font-size:clamp(24px,2.2vw,32px);letter-spacing:-0.015em;line-height:1.15}
+.card p{margin:0}
+.card.inv{background:var(--ink);color:var(--cream);border-color:var(--ink)}
+.prog{display:flex;flex-direction:column;border:1px solid var(--line-d)}
+.prog .pic{position:relative;aspect-ratio:16/10;overflow:hidden;background:var(--deep)}
+.prog .pic img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.prog .pic .ov{position:absolute;inset:0;background:linear-gradient(180deg,rgba(41,44,41,.15) 0%,rgba(41,44,41,.85) 100%)}
+.prog .pic .corners{color:var(--cream)}
+.prog .pic strong{font-family:var(--f-sans);font-weight:200;font-size:clamp(36px,4vw,60px);line-height:1;letter-spacing:-0.04em;text-transform:none}
+.prog .body{display:flex;flex-direction:column;gap:22px;padding:clamp(24px,3vw,44px);flex:1}
+.prog h3{margin:0;font-weight:400;font-size:clamp(24px,2.2vw,32px);letter-spacing:-0.015em;line-height:1.15}
+.prog p{margin:0}
+.kv{border-bottom:1px solid var(--line-d)}
+.kv div{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.6fr);gap:12px 24px;padding:16px 0;border-top:1px solid var(--line-d)}
+.kv span:first-child{font-family:var(--f-mono);font-size:11px;letter-spacing:var(--tr);text-transform:uppercase;padding-top:.35em}
+.ticks{border-bottom:1px solid var(--line-d)}
+.ticks p{display:grid;grid-template-columns:44px minmax(0,1fr);gap:12px;margin:0;padding:14px 0;border-top:1px solid var(--line-d)}
+.ticks p span{font-family:var(--f-mono);font-size:12px;letter-spacing:.08em;padding-top:.2em}
+.prog .btn{align-self:flex-start;margin-top:auto}
+
+/* тёмная вставка */
+.inset{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:32px 48px;padding:clamp(28px,5vw,88px);background:var(--ink);color:var(--cream)}
+.inset .mono{flex:1 1 200px;max-width:320px;color:var(--muted)}
+.inset p{flex:3 1 520px;margin:0;text-align:right;text-transform:uppercase;font-weight:300;font-size:clamp(18px,2vw,30px);line-height:1.32;letter-spacing:.01em}
+.inset .btn{margin-left:auto}
+
+/* как проходит обучение */
+.do{display:flex;flex-wrap:wrap;align-items:flex-start;gap:clamp(40px,6vw,120px)}
+.do .list{flex:1 1 560px;min-width:0}
+.rows{border-bottom:1px solid var(--line-d)}
+.dark .rows,.deep .rows{border-color:var(--line-l)}
+.row{display:grid;grid-template-columns:56px minmax(0,1fr);gap:16px;padding:28px 0;border-top:1px solid var(--line-d)}
+.dark .row,.deep .row{border-color:var(--line-l)}
+.row>span{font-family:var(--f-mono);font-size:12px;letter-spacing:.08em;padding-top:.55em}
+.row h3{margin:0 0 6px;font-weight:400;font-size:calc(var(--fs) * 1.22);line-height:1.4;letter-spacing:-0.01em}
+.row p{margin:0;font-weight:300;color:inherit;opacity:.8}
+.do .tall{flex:1 1 340px;position:sticky;top:32px;aspect-ratio:3/4;max-height:86vh;overflow:hidden;background:var(--deep)}
+.do .tall img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.do .tall .ov{position:absolute;inset:0;background:var(--ink);opacity:var(--ov)}
+@media (max-width:900px){.do .tall{position:relative;top:auto;aspect-ratio:4/3}}
+
+/* строки «label — текст» */
+.lrows{border-bottom:1px solid var(--line-l)}
+.lrow{display:flex;flex-wrap:wrap;gap:16px 40px;padding:32px 0;border-top:1px solid var(--line-l)}
+.lrow .mono{flex:1 1 240px;color:var(--muted);padding-top:.35em}
+.lrow p{flex:3 1 520px;margin:0;font-size:calc(var(--fs) * 1.15);font-weight:300}
+.lrow strong{font-weight:500}
+.light .lrows,.light .lrow,.paper .lrows,.paper .lrow{border-color:var(--line-d)}
+
+/* преподаватели */
+.team{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(28px,3vw,44px) var(--gap)}
+@media (max-width:1100px){.team{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media (max-width:760px){.team{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.tc{display:flex;flex-direction:column;gap:6px;min-width:0}
+.tc .ph{position:relative;margin-bottom:12px;overflow:hidden;background:var(--deep)}
+.tc .ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.05) brightness(.95)}
+.tc b{font-weight:400;font-size:19px;line-height:1.25;letter-spacing:-0.01em}
+.tc span{font-family:var(--f-mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);line-height:1.5}
+@media (max-width:380px){.tc b{font-size:16px}.tc span{font-size:10px}}
+
+/* логотипы */
+.logos{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));border-left:1px solid var(--line-d);border-top:1px solid var(--line-d)}
+.logos img{width:100%;height:auto;display:block;padding:18px;border-right:1px solid var(--line-d);border-bottom:1px solid var(--line-d)}
+@media (max-width:1100px){.logos{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media (max-width:600px){.logos{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
+/* вебинар */
+.price{display:flex;flex-wrap:wrap;align-items:flex-start;justify-content:space-between;gap:40px clamp(40px,6vw,120px)}
+.price .sum{white-space:nowrap;margin-left:-0.05em;font-weight:200;font-size:clamp(64px,11vw,200px);line-height:.9;letter-spacing:-0.05em}
+.tags{display:flex;flex-wrap:wrap;gap:0}
+.tags span{padding:10px 14px;border:1px solid var(--line-l);margin:0 -1px -1px 0}
+
+/* FAQ */
+.faqw{display:flex;flex-wrap:wrap;align-items:flex-start;gap:32px clamp(40px,6vw,120px)}
+.faqw .h2{flex:1 1 340px}
+.faqw .qlist{flex:2 1 560px;min-width:0}
+#faq{border-bottom:1px solid var(--line-d)}
+.qa{border-top:1px solid var(--line-d)}
+.qa button{width:100%;display:flex;justify-content:space-between;align-items:baseline;gap:24px;padding:24px 0;background:none;border:0;cursor:pointer;text-align:left;color:var(--ink)}
+.qa button:hover{color:var(--green)}
+.qa button>span:first-child{font-size:calc(var(--fs) * 1.15);line-height:1.4;font-weight:400}
+.qa .pm{flex:none;font-family:var(--f-mono);font-size:20px;line-height:1}
+.qa .ans{margin:0;padding:0 0 28px;max-width:var(--tw)}
+.qa .ans[hidden]{display:none}
+.blog{display:flex;flex-direction:column;gap:14px;margin-top:clamp(40px,5vw,72px);padding-top:24px;border-top:1px solid var(--line-d);max-width:var(--tw);font-size:15px;line-height:1.6}
+.blog p{margin:0}
+
+/* финал */
+#final{position:relative;min-height:88vh;display:flex;flex-direction:column;justify-content:flex-end;background:var(--deep);color:var(--cream);overflow:hidden}
+#final>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+#final .shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(38,51,31,.55) 0%,rgba(41,44,41,.9) 100%)}
+#final .ov{position:absolute;inset:0;background:var(--ink);opacity:var(--ov)}
+#final .in2{position:relative;display:flex;flex-direction:column;gap:clamp(28px,4vw,56px)}
+#final h2{overflow-wrap:break-word;margin:0;max-width:1200px;font-weight:200;font-size:clamp(40px,6.4vw,108px);line-height:.98;letter-spacing:-0.04em;text-wrap:balance}
+#final .bar{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:24px;padding-top:24px;border-top:1px solid rgba(255,255,255,.3)}
+#final .bar p{margin:0;max-width:560px;font-weight:300}
+footer{background:var(--ink);color:var(--cream);padding:clamp(40px,5vw,80px) var(--side) 0;overflow:hidden}
+footer .meta{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px 40px;font-family:var(--f-mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;line-height:1.8;color:var(--muted)}
+footer .meta a{color:var(--cream)}
+footer .giant{margin:clamp(24px,4vw,64px) 0 -0.2em -0.06em;font-weight:200;font-size:16.5vw;line-height:.8;letter-spacing:-0.07em;white-space:nowrap}
+
+/* переключатель версий */
+.vsw{position:fixed;z-index:60;left:50%;bottom:calc(14px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);display:flex;background:var(--ink);border:1px solid rgba(255,255,255,.3);font-family:var(--f-mono);font-size:11px;letter-spacing:var(--tr);text-transform:uppercase}
+.vsw a{padding:12px 16px;color:rgba(255,255,255,.7);text-decoration:none;white-space:nowrap}
+.vsw a:hover{color:var(--cream)}
+.vsw a[aria-current]{background:var(--cream);color:var(--ink)}
+
+/* появление */
+.js [data-reveal]{opacity:0;transform:translateY(28px);transition:opacity 1s ease var(--d,0s),transform 1.1s cubic-bezier(.2,.7,.2,1) var(--d,0s)}
+.js [data-reveal].in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.js [data-reveal]{opacity:1;transform:none}}
+</style>
+<script>document.documentElement.classList.add('js')</script>
+</head>
+<body>
+
+<!-- 1 ПЕРВЫЙ ЭКРАН: градиент v2, слово по буквам на всю ширину -->
+<section id="top">
+  <img class="bgimg" src="../media/studentka.jpg" alt="">
+  <div class="shade"></div><div class="ov"></div>
+  <div class="tbar">
+    <a class="logo" href="#top" aria-label="SternMeister">SternMeister</a>
+    <nav class="tnav mono" aria-label="Меню"><a href="#learn">Обучение</a><a href="#reviews">Отзывы</a><a href="#program">Программы</a><a href="#webinar">Вебинар</a><a href="#blog">Блог</a><a href="#contact">Контакты</a><span><b>RU</b> · DE · UA</span></nav>
+    <a class="btn lt" href="#form">Консультация</a>
+  </div>
+  <div class="hmid" id="learn">
+    <h1>Начните карьеру в&nbsp;Германии</h1>
+  </div>
+  <div class="hbot">
+    <a class="gr" href="#reviews" aria-label="Google Reviews 5,0"><svg width="18" height="18" viewBox="0 0 48 48" aria-hidden="true"><path fill="#EA4335" d="M24 9.5c3.5 0 6.6 1.2 9.1 3.6l6.8-6.8C35.8 2.4 30.3 0 24 0 14.6 0 6.6 5.4 2.7 13.3l7.9 6.1C12.5 13.6 17.8 9.5 24 9.5z"/><path fill="#4285F4" d="M46.1 24.5c0-1.6-.1-3.1-.4-4.5H24v9h12.4c-.5 2.9-2.2 5.3-4.6 6.9l7.7 6c4.5-4.2 6.6-10.3 6.6-17.4z"/><path fill="#FBBC05" d="M10.5 28.6c-.5-1.4-.8-3-.8-4.6s.3-3.2.8-4.6l-7.9-6.1C1 16.6 0 20.2 0 24s1 7.4 2.7 10.7l7.8-6.1z"/><path fill="#34A853" d="M24 48c6.5 0 11.9-2.1 15.9-5.8l-7.7-6c-2.2 1.5-5 2.3-8.2 2.3-6.2 0-11.5-4.2-13.4-9.9l-7.9 6.1C6.6 42.6 14.6 48 24 48z"/></svg><span>Reviews ↗</span><b>5,0</b><span class="st" aria-hidden="true">★★★★★</span></a>
+    <p><span class="hl">Освойте профессию бухгалтера или администратора клиники</span> <span class="hl">за 4-7 месяцев. Помогаем с трудоустройством,</span> <span class="hl">опыт работы не требуется.</span></p>
+    <img class="dekra" src="../media/dekra-azav.png" alt="Trägerzulassung gemäß AZAV — DEKRA geprüft">
+  </div>
+</section>
+
+<!-- 2 ОТСЧЁТ И ФОРМА: «вступление» v2 -->
+<section class="light" id="consult">
+  <div class="mono" data-reveal style="margin-bottom:18px;">Старт потока · 26.10.2026</div>
+  <div class="count" data-reveal>
+    <div>
+      <div class="mono" style="margin-bottom:18px;">До старта осталось:</div>
+      <div class="n" id="cd" data-to="2026-10-26T08:00:00Z">
+        <div><strong data-k="d">06</strong><span class="mono">дней</span></div>
+        <div><strong><span data-k="h">01</span>:<span data-k="m">58</span>:<span data-k="s">35</span></strong><span class="mono">часов</span></div>
+      </div>
+    </div>
+    <div class="arrow" aria-hidden="true">↘</div>
+  </div>
+  <div class="cols" data-reveal style="margin-top:clamp(40px,5vw,80px);">
+    <h2 class="h2">Запишитесь на бесплатную консультацию — расскажем о программе и подберем оптимальный для вас формат</h2>
+    <form class="form" data-form>
+      <input type="tel" name="phone" placeholder="Контактный телефон" autocomplete="tel" aria-label="Контактный телефон" required>
+      <input type="text" name="name" placeholder="Имя" autocomplete="name" aria-label="Имя">
+      <input type="email" name="email" placeholder="E-mail" autocomplete="email" aria-label="E-mail">
+      <label class="chk"><input type="checkbox" required><span>Отправляя заявку, вы соглашаетесь с <a href="#contact">политикой обработки персональных данных</a></span></label>
+      <button class="btn" type="submit">Оставить заявку</button>
+    </form>
+  </div>
+</section>
+
+<!-- 3 AZAV -->
+<section class="paper">
+  <div class="cols">
+    <div data-reveal style="display:flex;flex-direction:column;gap:24px;">
+      <h2 class="h2 azh"><span>SternMeister —</span> <span>образовательный центр</span> <span>с&nbsp;допуском AZAV</span></h2>
+      <p class="big" style="margin:0;">Мы поможем подготовить документы для вашего консультанта, и если вам одобрят Bildungsgutschein, обучение оплатит Jobcenter или Agentur für Arbeit.</p>
+    </div>
+    <div class="serts" data-reveal><img src="../media/sert-1.png" alt="Сертификат AZAV"><img src="../media/sert-2.png" alt="Приложение к сертификату AZAV"></div>
+  </div>
+</section>
+
+<!-- 6 ДВЕ ПРОГРАММЫ: «что такое форсайт-игра» v2 -->
+<section class="light" id="program">
+  <div class="head" data-reveal>
+    <div><h2 class="h2">Обучение на русском языке +&nbsp;150 часов профильной лексики</h2></div>
+  </div>
+  <div class="grid2">
+    <article class="prog" data-reveal>
+      <div class="pic"><img src="../media/buhgalter.jpg" alt="" style="object-position:62% 50%;"><div class="ov"></div>
+        <div class="corners"><div><span>Программа · 7 месяцев</span></div><div style="flex-direction:column;align-items:flex-start;gap:8px;"><strong>от 3 500 €/мес</strong><span style="text-transform:none;letter-spacing:.02em;max-width:460px;line-height:1.5;">Зарплата после обучения — от 3 500 €, с ростом до 4 500 € на позиции Bilanzbuchhalter</span></div></div></div>
+      <div class="body">
+        <h3>Курс «Бухгалтер в Германии» <span class="de">Finanzbuchhalter:in</span></h3>
+        <p>Вы разберётесь в учёте и научитесь работать в профессиональных программах. Начнем с основ, постепенно перейдем к практике и разберемся в требованиях немецкого рынка труда. Персональный куратор поможет во время учёбы и поддержит в трудный момент.</p>
+        <div class="kv"><div><span>Длительность</span><span>7 месяцев</span></div><div><span>Формат</span><span>Онлайн</span></div><div><span>Сертификат</span><span>DEKRA · Weiterbildung</span></div><div><span>Финансирование</span><span>Bildungsgutschein</span></div></div>
+        <div class="ticks"><p><span>01</span>Практика в DATEV и Lexware</p><p><span>02</span>Бухгалтерские документы</p><p><span>03</span>Налоговая отчетность</p><p><span>04</span>150 часов профильного немецкого</p><p><span>05</span>AI-тренажёр собеседований</p></div>
+        <p>Для тех, кто хочет освоить новую профессию или применить свой опыт на новом рынке</p>
+        <a class="btn" href="#form">Программа курса →</a>
+      </div>
+    </article>
+    <article class="prog" data-reveal>
+      <div class="pic"><img src="../media/klinika.jpg" alt="" style="object-position:50% 45%;"><div class="ov"></div>
+        <div class="corners"><div><span>Программа · 6 месяцев</span></div><div style="flex-direction:column;align-items:flex-start;gap:8px;"><strong>от 3 000 €/мес</strong><span style="text-transform:none;letter-spacing:.02em;max-width:460px;line-height:1.5;">Зарплата медицинского администратора в Германии после обучения— с возможностью карьерного роста и роста дохода</span></div></div></div>
+      <div class="body">
+        <h3>Курс «Администратор медицинской практики» <span class="de">Mitarbeiter:in für die Rezeption und Praxisempfang</span></h3>
+        <p>Научитесь организовывать приём в медицинском праксисе: записывать пациентов, вести документы и помогать команде с повседневными задачами. Медицинское образование для начала обучения не требуется.</p>
+        <div class="kv"><div><span>Длительность</span><span>6 месяцев</span></div><div><span>Формат</span><span>Онлайн</span></div><div><span>Сертификат</span><span>DEKRA · Weiterbildung</span></div><div><span>Финансирование</span><span>Bildungsgutschein</span></div></div>
+        <div class="ticks"><p><span>01</span>Работа с медицинскими документами и цифровыми сервисами</p><p><span>02</span>Организация приёма и общение с пациентами</p><p><span>03</span>Основы расчётов, защиты данных и управления качеством в медицинской практике</p><p><span>04</span>Профессиональный немецкий</p><p><span>05</span>Подготовка к собеседованию</p></div>
+        <p>Подойдёт тем, кто хочет помогать людям и работать в стабильной сфере здравоохранения.</p>
+        <a class="btn" href="#form">Программа курса →</a>
+      </div>
+    </article>
+  </div>
+  <div class="inset" data-reveal style="margin-top:clamp(56px,7vw,128px);">
+    <div class="mono">Не знаете, какой курс выбрать?</div>
+    <p>Запишитесь на 15-минутную консультацию: поможем разобраться, что подходит именно вам.</p>
+    <a class="btn lt" href="#form">ОСТАВИТЬ ЗАЯВКУ</a>
+  </div>
+</section>
+
+<!-- 4 ОТЗЫВЫ -->
+<section class="paper" id="reviews">
+  <div class="head" data-reveal><div><h2 class="h2">Отзывы студентов</h2></div>
+    <div class="arr"><button type="button" data-v="-1" data-t="revs" aria-label="Назад">←</button><button type="button" data-v="1" data-t="revs" aria-label="Вперёд">→</button></div></div>
+  <div class="track revs" id="revs">
+<div data-reveal class="rv"><div class="rv-h"><img class="rv-av" src="../media/reviews/gyulnara.jpg" alt="Гюльнара" loading="lazy"><b>Гюльнара</b><span class="lbl">Студентка SternMeister</span></div><p>Меня зовут Гюльнара, и за моими плечами — путь, полный испытаний, но и важных открытий. Я мама двух замечательных двойняшек, я та которая никогда не сдаётся, даже когда кажется, что всё против неё. В Украине у меня была насыщенная профессиональная жизнь: высшее образование бухгалтера, работа бухгалтером, потом кассир-контролер, потом менеджером по продажам в Metro Cash &amp; Carry, а потом — собственный бизнес мой салон красоты в который было вложено ВСЕ!!! силы средства и душа. Но пандемия, а затем война перечеркнули всё...</p><div class="rv-more" hidden><p>Ради безопасности сыновей пришлось уехать в Германию. Первые месяцы были тяжёлыми: языковой барьер, тоска, ощущение, что жизнь остановилась. Чтобы выжить, устроилась на книжный склад — собирала заказы, хотя внутри понимала: так не может продолжаться вечно. Мои амбиции, образование и опыт твердили: «Ты способна на большее!» И тогда я подумала вернуться к истокам — бухгалтерии. Только подумала но не стала сразу искать курсы. Спустя пару часов открыла Instagram листая ленту мне попадается первой же реклама школы SternMeier. Сказала себе: «Это знак!» — и я записалась. И ни капли не жалею! Что меня вдохновляет в учёбе?</p><p>🔥 Подача материала — всё объясняют доступно, структурированно, без «воды».</p><p>💙 Преподаватели— неравнодушные, поддерживают, верят в студентов.</p><p>Правда, немецкий язык даётся пока сложнее всего — термины, документы, но я упорно работаю над этим. Сейчас я учусь, адаптирую украинский опыт под немецкие реалии и чувствую, как понемногу возвращаю себе уверенность. Впереди еще очень много всего, но я знаю что это новая глава моей жизни. Этот путь научил меня главному: даже после самых тяжёлых потерь можно начать заново. Главное — не бояться сделать первый шаг.</p></div><button type="button" class="rv-btn lnk">Прочитать отзыв полностью</button></div>
+<div data-reveal class="rv"><div class="rv-h"><img class="rv-av" src="../media/reviews/viktoriya.jpg" alt="Виктория" loading="lazy"><b>Виктория</b><span class="lbl">Студентка SternMeister</span></div><p>Привет! Меня зовут Виктория, мне 45 лет. Я мама двух детей и приехала в Германию из Украины в 2022 году. До этого более 20 лет я работала главным бухгалтером в разных компаниях — занималась всем: от повседневной бухгалтерии до подготовки годовой отчётности и налогов. После переезда я поначалу немного подрабатывала, но поняла, что очень хочу снова заниматься тем, что люблю и умею — бухгалтерией. Я начала искать курсы, которые могли бы помочь мне адаптировать мой опыт к немецкой системе. Очень важно было, чтобы обучение было понятным, с поддержкой, на русском языке, и...</p><div class="rv-more" hidden><p>…в то же время с ориентацией на реальные требования работодателей. Так я и нашла Штернмейстер — и почувствовала, что это то, что нужно. Больше всего мне нравится в обучении практическая направленность, а ещё то, как поддерживают преподаватели. Конечно, иногда бывает трудно, особенно с языком и новой терминологией — но это нормально. Главное — я снова чувствую, что двигаюсь к своей профессии.</p><p>Очень жду возможности применить знания в немецкой компании и снова стать уверенным специалистом — уже здесь, в Германии.</p></div><button type="button" class="rv-btn lnk">Прочитать отзыв полностью</button></div>
+<div data-reveal class="rv"><div class="rv-h"><img class="rv-av" src="../media/reviews/lyudmila.jpg" alt="Людмила" loading="lazy"><b>Людмила</b><span class="lbl">Студентка SternMeister</span></div><p>Курс от Sternmeister стал для меня настоящей поддержкой. Он вернул мне надежду и уверенность в своих силах. Здесь обучение идёт на русском языке, но с упором на немецкую бухгалтерскую лексику. Отдельно есть уроки немецкого, где мы учимся понимать бухгалтерские документы и уверенно говорить на профессиональные темы — это очень помогает. А ещё — мы реально работаем в бухгалтерских программах Lexware и DATEV, не просто читаем теорию, а делаем, как в жизни. Я очень благодарна за этот курс. Он стал для меня первым шагом назад к любимому делу — и вперёд к новой жизни в Германии.</p></div>
+<div data-reveal class="rv"><div class="rv-h"><img class="rv-av" src="../media/reviews/natalya.jpg" alt="Наталья" loading="lazy"><b>Наталья</b><span class="lbl">Студентка SternMeister</span></div><p>Очень понравился преподавательский состав, реальные эксперты с немецких компаний, сразу понятно к чему готовится на реальной работе, отвечают даже в телеграме, если что непонятно.</p></div>
+<div data-reveal class="rv"><div class="rv-h"><img class="rv-av" src="../media/reviews/diana.jpg" alt="Диана" loading="lazy"><b>Диана</b><span class="lbl">Студентка SternMeister</span></div><p>Переехали в Германию с семьей, первое время работала в клининге долгое время, очень сложно совмещать детей и работу, решила обучится на бухглатеров, так как очень много открытых вакансий. Сейчас прохожу программу по бухгалтерии. Преподаватели сильные, я начала с нуля.</p></div>
+<div data-reveal class="rv"><div class="rv-h"><img class="rv-av" src="../media/reviews/irina.jpg" alt="Ирина" loading="lazy"><b>Ирина</b><span class="lbl">Студентка SternMeister</span></div><p>Я закончила экономический, работала бухгалтером 6 лет. Когда переехали в Германию, я была уверена, что смогу найти работу, но много есть подводных камней, работу найти не получалось, нужно знание програм и опыт на немецком рынке. Учусь уже пару месяцев и это именно то, что мне было нужно.</p></div>
+<div data-reveal class="rv"><div class="rv-h"><img class="rv-av" src="../media/reviews/anna.jpg" alt="Анна" loading="lazy"><b>Анна</b><span class="lbl">Студентка SternMeister</span></div><p>Обучаюсь уже несколько месяцев на курсе бухгалтерии, изначально переживала из-за немецкого (он у меня А2), но Sternmeister помогает и в этом плане: есть разговорный клуб, уроки по лексике и грамматике, здорово помогает. Сильные преподаватели, все очень на высоком качестве.</p></div>
+  </div>
+</section>
+
+<!-- 5 ВИДЕОИНТЕРВЬЮ -->
+<section class="deep">
+  <div class="cols" data-reveal style="margin-bottom:clamp(40px,5vw,80px);align-items:end;">
+    <div style="display:flex;flex-direction:column;gap:20px;"><h2 class="h2">Видеоинтервью с выпускниками</h2></div>
+    <div style="display:flex;flex-direction:column;gap:28px;">
+      <p style="margin:0;">Живые истории про опыт учебы и работы в Германии</p>
+      <div style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:20px;"><a class="btn lt" href="#reviews">Больше отзывов</a>
+        <div class="arr"><button type="button" data-v="-1" data-t="vtrack" aria-label="Назад">←</button><button type="button" data-v="1" data-t="vtrack" aria-label="Вперёд">→</button></div></div>
+    </div>
+  </div>
+  <div class="track vtrack" id="vtrack" data-reveal>
+<div class="vc"><button type="button" class="vc-ph" data-vimeo="1224541757" aria-label="Смотреть: Марианна: всю жизнь в торговле, теперь осваивает профессию бухгалтера."><img src="../media/video/1224541757.jpg" alt="" loading="lazy"><span class="vc-play" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 4.5 L20 12 L7 19.5 Z"/></svg></span></button><div class="vc-t"><b>Марианна:</b> всю жизнь в торговле, теперь осваивает профессию бухгалтера.</div><p>Интервью · 6 мин</p></div>
+<div class="vc"><button type="button" class="vc-ph" data-vimeo="1236550217" aria-label="Смотреть: Елена: как переучиться с главбуха в Одессе на бухгалтера в Германии"><img src="../media/video/1236550217.jpg" alt="" loading="lazy"><span class="vc-play" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 4.5 L20 12 L7 19.5 Z"/></svg></span></button><div class="vc-t"><b>Елена:</b> как переучиться с главбуха в Одессе на бухгалтера в Германии</div><p>Интервью · 11 мин</p></div>
+<div class="vc"><button type="button" class="vc-ph" data-vimeo="1237279364" aria-label="Смотреть: Наталья: из доставки Amazon в бухгалтерию"><img src="../media/video/1237279364.jpg" alt="" loading="lazy"><span class="vc-play" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 4.5 L20 12 L7 19.5 Z"/></svg></span></button><div class="vc-t"><b>Наталья:</b> из доставки Amazon в бухгалтерию</div><p>Интервью · 4 мин</p></div>
+<div class="vc"><button type="button" class="vc-ph" data-vimeo="1236547058" aria-label="Смотреть: Елена: как аналитический ум привел в бухгалтерию"><img src="../media/video/1236547058.jpg" alt="" loading="lazy"><span class="vc-play" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 4.5 L20 12 L7 19.5 Z"/></svg></span></button><div class="vc-t"><b>Елена:</b> как аналитический ум привел в бухгалтерию</div><p>Интервью · 5 мин</p></div>
+<div class="vc"><button type="button" class="vc-ph" data-vimeo="1236545494" aria-label="Смотреть: Наиля: экономист из Кыргызстана осваивает немецкую систему"><img src="../media/video/1236545494.jpg" alt="" loading="lazy"><span class="vc-play" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 4.5 L20 12 L7 19.5 Z"/></svg></span></button><div class="vc-t"><b>Наиля:</b> экономист из Кыргызстана осваивает немецкую систему</div><p>Интервью · 9 мин</p></div>
+<div class="vc"><button type="button" class="vc-ph" data-vimeo="1236544919" aria-label="Смотреть: Елена: из филолога в бухгалтеры"><img src="../media/video/1236544919.jpg" alt="" loading="lazy"><span class="vc-play" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 4.5 L20 12 L7 19.5 Z"/></svg></span></button><div class="vc-t"><b>Елена:</b> из филолога в бухгалтеры</div><p>Интервью · 10 мин</p></div>
+<div class="vc"><button type="button" class="vc-ph" data-vimeo="1236544506" aria-label="Смотреть: Яна: выбирала курс по табличке в Excel — и не прогадала"><img src="../media/video/1236544506.jpg" alt="" loading="lazy"><span class="vc-play" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 4.5 L20 12 L7 19.5 Z"/></svg></span></button><div class="vc-t"><b>Яна:</b> выбирала курс по табличке в Excel — и не прогадала</div><p>Интервью · 5 мин</p></div>
+<div class="vc"><button type="button" class="vc-ph" data-vimeo="1236544326" aria-label="Смотреть: Олёна: опытный бухгалтер из Украины возвращается в профессию"><img src="../media/video/1236544326.jpg" alt="" loading="lazy"><span class="vc-play" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 4.5 L20 12 L7 19.5 Z"/></svg></span></button><div class="vc-t"><b>Олёна:</b> опытный бухгалтер из Украины возвращается в профессию</div><p>Интервью · 8 мин</p></div>
+<div class="vc"><button type="button" class="vc-ph" data-vimeo="1236543062" aria-label="Смотреть: Ирина: ресторан и недвижимость — учится вести бухгалтерию сама"><img src="../media/video/1236543062.jpg" alt="" loading="lazy"><span class="vc-play" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 4.5 L20 12 L7 19.5 Z"/></svg></span></button><div class="vc-t"><b>Ирина:</b> ресторан и недвижимость — учится вести бухгалтерию сама</div><p>Интервью · 4 мин</p></div>
+<div class="vc"><button type="button" class="vc-ph" data-vimeo="1221109436" aria-label="Смотреть: Карина: открыла своё дело и осваивает немецкую бухгалтерию"><img src="../media/video/1221109436.jpg" alt="" loading="lazy"><span class="vc-play" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 4.5 L20 12 L7 19.5 Z"/></svg></span></button><div class="vc-t"><b>Карина:</b> открыла своё дело и осваивает немецкую бухгалтерию</div><p>Интервью · 7 мин</p></div>
+<div class="vc"><button type="button" class="vc-ph" data-vimeo="1221109178" aria-label="Смотреть: Диана: из коммерческого директора в бухгалтеры"><img src="../media/video/1221109178.jpg" alt="" loading="lazy"><span class="vc-play" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 4.5 L20 12 L7 19.5 Z"/></svg></span></button><div class="vc-t"><b>Диана:</b> из коммерческого директора в бухгалтеры</div><p>Интервью · 13 мин</p></div>
+<div class="vc"><button type="button" class="vc-ph" data-vimeo="1221108778" aria-label="Смотреть: Юлия: из директора магазина в Buchhalterin"><img src="../media/video/1221108778.jpg" alt="" loading="lazy"><span class="vc-play" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 4.5 L20 12 L7 19.5 Z"/></svg></span></button><div class="vc-t"><b>Юлия:</b> из директора магазина в Buchhalterin</div><p>Интервью · 13 мин</p></div>
+<div class="vc"><button type="button" class="vc-ph" data-vimeo="1221108626" aria-label="Смотреть: Дарья: с кухни в отеле обратно в бухгалтерию"><img src="../media/video/1221108626.jpg" alt="" loading="lazy"><span class="vc-play" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 4.5 L20 12 L7 19.5 Z"/></svg></span></button><div class="vc-t"><b>Дарья:</b> с кухни в отеле обратно в бухгалтерию</div><p>Интервью · 11 мин</p></div>
+<div class="vc"><button type="button" class="vc-ph" data-vimeo="1221108604" aria-label="Смотреть: Элеонора: возвращается в бухгалтерию после декрета"><img src="../media/video/1221108604.jpg" alt="" loading="lazy"><span class="vc-play" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 4.5 L20 12 L7 19.5 Z"/></svg></span></button><div class="vc-t"><b>Элеонора:</b> возвращается в бухгалтерию после декрета</div><p>Интервью · 10 мин</p></div>
+<div class="vc"><button type="button" class="vc-ph" data-vimeo="1221107988" aria-label="Смотреть: Инна: из бухгалтера в Украине в Buchhalterin"><img src="../media/video/1221107988.jpg" alt="" loading="lazy"><span class="vc-play" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 4.5 L20 12 L7 19.5 Z"/></svg></span></button><div class="vc-t"><b>Инна:</b> из бухгалтера в Украине в Buchhalterin</div><p>Интервью · 5 мин</p></div>
+<div class="vc"><button type="button" class="vc-ph" data-vimeo="1224448274" aria-label="Смотреть: Олёна: 17 лет опыта — и заново в профессию в Германии"><img src="../media/video/1224448274.jpg" alt="" loading="lazy"><span class="vc-play" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 4.5 L20 12 L7 19.5 Z"/></svg></span></button><div class="vc-t"><b>Олёна:</b> 17 лет опыта — и заново в профессию в Германии</div><p>Интервью · 5 мин</p></div>
+<div class="vc"><button type="button" class="vc-ph" data-vimeo="1224448487" aria-label="Смотреть: Татьяна: от работы не по специальности к Buchhalterin"><img src="../media/video/1224448487.jpg" alt="" loading="lazy"><span class="vc-play" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 4.5 L20 12 L7 19.5 Z"/></svg></span></button><div class="vc-t"><b>Татьяна:</b> от работы не по специальности к Buchhalterin</div><p>Интервью · 16 мин</p></div>
+<div class="vc"><button type="button" class="vc-ph" data-vimeo="1221107987" aria-label="Смотреть: Татьяна: осваивает бухгалтерию с нуля"><img src="../media/video/1221107987.jpg" alt="" loading="lazy"><span class="vc-play" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 4.5 L20 12 L7 19.5 Z"/></svg></span></button><div class="vc-t"><b>Татьяна:</b> осваивает бухгалтерию с нуля</div><p>Интервью · 8 мин</p></div>
+<div class="vc"><button type="button" class="vc-ph" data-vimeo="1225931037" aria-label="Смотреть: Елена: в 51 год — бухгалтерия с нуля"><img src="../media/video/1225931037.jpg" alt="" loading="lazy"><span class="vc-play" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 4.5 L20 12 L7 19.5 Z"/></svg></span></button><div class="vc-t"><b>Елена:</b> в 51 год — бухгалтерия с нуля</div><p>Интервью · 4 мин</p></div>
+<div class="vc"><button type="button" class="vc-ph" data-vimeo="1227753795" aria-label="Смотреть: Юлия: предприниматель осваивает бухгалтерию для своего бизнеса"><img src="../media/video/1227753795.jpg" alt="" loading="lazy"><span class="vc-play" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 4.5 L20 12 L7 19.5 Z"/></svg></span></button><div class="vc-t"><b>Юлия:</b> предприниматель осваивает бухгалтерию для своего бизнеса</div><p>Интервью · 10 мин</p></div>
+<div class="vc"><button type="button" class="vc-ph" data-vimeo="1225931039" aria-label="Смотреть: Александр: из электрика в бухгалтеры"><img src="../media/video/1225931039.jpg" alt="" loading="lazy"><span class="vc-play" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 4.5 L20 12 L7 19.5 Z"/></svg></span></button><div class="vc-t"><b>Александр:</b> из электрика в бухгалтеры</div><p>Интервью · 10 мин</p></div>
+<div class="vc"><button type="button" class="vc-ph" data-vimeo="1226615342" aria-label="Смотреть: Алеся: из юриста в бухгалтеры"><img src="../media/video/1226615342.jpg" alt="" loading="lazy"><span class="vc-play" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 4.5 L20 12 L7 19.5 Z"/></svg></span></button><div class="vc-t"><b>Алеся:</b> из юриста в бухгалтеры</div><p>Интервью · 8 мин</p></div>
+<div class="vc"><button type="button" class="vc-ph" data-vimeo="1227749983" aria-label="Смотреть: Яна: год искала работу впустую — и устроилась бухгалтером после курса"><img src="../media/video/1227749983.jpg" alt="" loading="lazy"><span class="vc-play" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 4.5 L20 12 L7 19.5 Z"/></svg></span></button><div class="vc-t"><b>Яна:</b> год искала работу впустую — и устроилась бухгалтером после курса</div><p>Интервью · 15 мин</p></div>
+<div class="vc"><button type="button" class="vc-ph" data-vimeo="1226955393" aria-label="Смотреть: Татьяна: из банка в бухгалтерию за стабильностью"><img src="../media/video/1226955393.jpg" alt="" loading="lazy"><span class="vc-play" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 4.5 L20 12 L7 19.5 Z"/></svg></span></button><div class="vc-t"><b>Татьяна:</b> из банка в бухгалтерию за стабильностью</div><p>Интервью · 5 мин</p></div>
+<div class="vc"><button type="button" class="vc-ph" data-vimeo="1226931038" aria-label="Смотреть: Марина: вышла на работу через неделю после курса"><img src="../media/video/1226931038.jpg" alt="" loading="lazy"><span class="vc-play" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 4.5 L20 12 L7 19.5 Z"/></svg></span></button><div class="vc-t"><b>Марина:</b> вышла на работу через неделю после курса</div><p>Интервью · 5 мин</p></div>
+<div class="vc"><button type="button" class="vc-ph" data-vimeo="1226507632" aria-label="Смотреть: Руслан: осваивает бухгалтерию, чтобы вести счета на своей работе"><img src="../media/video/1226507632.jpg" alt="" loading="lazy"><span class="vc-play" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 4.5 L20 12 L7 19.5 Z"/></svg></span></button><div class="vc-t"><b>Руслан:</b> осваивает бухгалтерию, чтобы вести счета на своей работе</div><p>Интервью · 5 мин</p></div>
+<div class="vc"><button type="button" class="vc-ph" data-vimeo="1225931042" aria-label="Смотреть: Леонид: из балета в бухгалтерию — работа ещё до конца курса"><img src="../media/video/1225931042.jpg" alt="" loading="lazy"><span class="vc-play" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 4.5 L20 12 L7 19.5 Z"/></svg></span></button><div class="vc-t"><b>Леонид:</b> из балета в бухгалтерию — работа ещё до конца курса</div><p>Интервью · 10 мин</p></div>
+  </div>
+</section>
+
+<!-- 7 КАК ПРОХОДИТ ОБУЧЕНИЕ: «что вы будете делать» v2 -->
+<section class="light">
+  <div class="do">
+    <div class="list">
+      <h2 class="h2" data-reveal style="margin-bottom:24px;">Как проходит обучение в SternMeister?</h2>
+      <p class="big" data-reveal style="margin:0 0 clamp(32px,4vw,64px);max-width:var(--tw);">Занятия идут онлайн на русском языке: живые уроки 3 раза в неделю по вечерам. Записи всех уроков доступны в личном кабинете 24/7.</p>
+      <div class="rows">
+        <div class="row" data-reveal><span>01</span><div><h3>Преподаватели с практическим опытом в Германии</h3><p>Показывают, как устроена работа в профессии, и разбирают задачи, с которыми можно столкнуться после курса.</p></div></div>
+        <div class="row" data-reveal><span>02</span><div><h3>Практика в DATEV и Lexware</h3><p>Для будущих администраторов клиники: практика в CGM TURBOMED, медицинская документация, организация приёма и цифровой офис.</p></div></div>
+        <div class="row" data-reveal><span>03</span><div><h3>Объясняем на русском и постепенно вводим профессиональный немецкий:</h3><p>термины, документы и рабочая коммуникация. Отдельный блок для подготовки к собеседованию на немецком языке.</p></div></div>
+        <div class="row" data-reveal><span>04</span><div><h3>Персональный куратор</h3><p>Поможет по всем вопросам и всегда поддержит</p></div></div>
+        <div class="row" data-reveal><span>05</span><div><h3>Проекты для портфолио</h3><p>Создадите собственные проекты, которые сможете показать работодателю и добавить в резюме</p></div></div>
+        <div class="row" data-reveal><span>06</span><div><h3>Реальная помощь в трудоустройстве</h3><p>Адаптируем резюме под немецкие стандарты, проведём тренировочные собеседования</p></div></div>
+      </div>
+    </div>
+    <div class="tall" data-reveal><img src="../media/ofis.jpg" alt=""><div class="ov"></div></div>
+  </div>
+  <div class="inset" data-reveal style="margin-top:clamp(56px,7vw,128px);">
+    <div class="mono"></div>
+    <p>В среднем выпускники трудоустраиваются за 2–4 месяца после окончания обучения.</p>
+  </div>
+</section>
+
+<!-- 11 ПАРТНЁРЫ -->
+<section class="paper" style="padding-top:48px;padding-bottom:48px;">
+  <div class="head" data-reveal style="margin-bottom:20px;"><div><h2 class="h2" style="font-size:clamp(26px,2.4vw,36px)">Наши партнёры</h2></div></div>
+  <div class="logos" data-reveal>
+    <img src="../media/partners/1.png" alt="Партнёр 1" loading="lazy"><img src="../media/partners/2.png" alt="Партнёр 2" loading="lazy"><img src="../media/partners/3.png" alt="Партнёр 3" loading="lazy"><img src="../media/partners/4.png" alt="Партнёр 4" loading="lazy"><img src="../media/partners/5.png" alt="Партнёр 5" loading="lazy"><img src="../media/partners/6.png" alt="Партнёр 6" loading="lazy">
+  </div>
+</section>
+
+<!-- 8 ПРЕПОДАВАТЕЛИ: «ведущий» v2 -->
+<section class="dark">
+  <div class="head" data-reveal><div><h2 class="h2x">Наши преподаватели</h2><p class="big" style="margin:0;">Практикующие бухгалтеры и финансисты с преподавательским опытом 5+ лет</p></div></div>
+  <div class="team">
+<div data-reveal class="tc"><div class="ph" style="aspect-ratio:4/5;"><img src="../media/team/01.jpg" alt="Наталья Панина-Руммель" loading="lazy"></div><b>Наталья Панина-Руммель</b><span>Dozent «Finanzbuchhaltung»</span></div>
+<div data-reveal class="tc"><div class="ph" style="aspect-ratio:4/5;"><img src="../media/team/02.jpg" alt="Алиса Нольте" loading="lazy"></div><b>Алиса Нольте</b><span>Dozent «Finanzbuchhaltung»</span></div>
+<div data-reveal class="tc"><div class="ph" style="aspect-ratio:4/5;"><img src="../media/team/03.jpg" alt="Татьяна Чернявски" loading="lazy"></div><b>Татьяна Чернявски</b><span>Dozent «Finanzbuchhaltung»</span></div>
+<div data-reveal class="tc"><div class="ph" style="aspect-ratio:4/5;"><img src="../media/team/04.jpg" alt="Ника Муквич" loading="lazy"></div><b>Ника Муквич</b><span>Dozent «Finanzbuchhaltung»</span></div>
+<div data-reveal class="tc"><div class="ph" style="aspect-ratio:4/5;"><img src="../media/team/05.jpg" alt="Зинаида Шарыпова" loading="lazy"></div><b>Зинаида Шарыпова</b><span>Dozent «Finanzbuchhaltung»</span></div>
+<div data-reveal class="tc"><div class="ph" style="aspect-ratio:4/5;"><img src="../media/team/06.jpg" alt="Станислав Янцен" loading="lazy"></div><b>Станислав Янцен</b><span>Dozent «Finanzbuchhaltung»</span></div>
+<div data-reveal class="tc"><div class="ph" style="aspect-ratio:4/5;"><img src="../media/team/07.jpg" alt="Лана Воль" loading="lazy"></div><b>Лана Воль</b><span>Verwaltung / Begleitung</span></div>
+<div data-reveal class="tc"><div class="ph" style="aspect-ratio:4/5;"><img src="../media/team/08.jpg" alt="Нелли Ефремян" loading="lazy"></div><b>Нелли Ефремян</b><span>Dozentin «Google Tabellen»</span></div>
+<div data-reveal class="tc"><div class="ph" style="aspect-ratio:4/5;"><img src="../media/team/09.jpg" alt="Владислава Мокиевец" loading="lazy"></div><b>Владислава Мокиевец</b><span>Dozentin «Berufsbezogenes Deutsch»</span></div>
+<div data-reveal class="tc"><div class="ph" style="aspect-ratio:4/5;"><img src="../media/team/10.jpg" alt="Кристина Кацарская" loading="lazy"></div><b>Кристина Кацарская</b><span>Dozentin «Berufsbezogenes Deutsch»</span></div>
+<div data-reveal class="tc"><div class="ph" style="aspect-ratio:4/5;"><img src="../media/team/11.jpg" alt="Ксения Барковская" loading="lazy"></div><b>Ксения Барковская</b><span>Dozentin «Deutsch» und «Jobsuche»</span></div>
+<div data-reveal class="tc"><div class="ph" style="aspect-ratio:4/5;"><img src="../media/team/12.jpg" alt="Екатерина Рушковская" loading="lazy"></div><b>Екатерина Рушковская</b><span>Dozentin «Finanzbuchhaltung»</span></div>
+<div data-reveal class="tc"><div class="ph" style="aspect-ratio:4/5;"><img src="../media/team/13.jpg" alt="Елена Нинштиль" loading="lazy"></div><b>Елена Нинштиль</b><span>Dozentin «Finanzbuchhaltung»</span></div>
+<div data-reveal class="tc"><div class="ph" style="aspect-ratio:4/5;"><img src="../media/team/14.jpg" alt="Ирина Капустинская" loading="lazy"></div><b>Ирина Капустинская</b><span>Dozentin «Finanzbuchhaltung»</span></div>
+<div data-reveal class="tc"><div class="ph" style="aspect-ratio:4/5;"><img src="../media/team/15.jpg" alt="Алла Борхула" loading="lazy"></div><b>Алла Борхула</b><span>Dozentin «Finanzbuchhaltung»</span></div>
+<div data-reveal class="tc"><div class="ph" style="aspect-ratio:4/5;"><img src="../media/team/16.jpg" alt="Светлана Кейер" loading="lazy"></div><b>Светлана Кейер</b><span>Dozentin «Finanzbuchhaltung»</span></div>
+  </div>
+</section>
+
+<!-- 9 НАЧНИТЕ КАРЬЕРУ: «что меняется» v2 + форма -->
+<section class="paper">
+  <div class="cols" data-reveal style="align-items:end;margin-bottom:clamp(40px,5vw,80px);">
+    <h2 class="h2">Освойте новую перспективную профессию</h2>
+    <p style="margin:0;max-width:var(--tw);"><span class="hl1">Выберите направление, которое вам ближе,</span> <span class="hl1">и узнайте, как проходит обучение</span></p>
+  </div>
+  <div class="cols">
+    <div class="wide" data-reveal style="margin-top:0;aspect-ratio:4/3;min-height:0;"><img src="../media/klinika.jpg" alt="" style="object-position:50% 45%;"><div class="ov"></div></div>
+    <form class="form frame" data-form data-reveal style="padding:clamp(24px,3vw,40px);max-width:none;">
+      <input type="tel" name="phone" placeholder="Контактный телефон" autocomplete="tel" aria-label="Контактный телефон" required>
+      <input type="text" name="name" placeholder="Имя" autocomplete="name" aria-label="Имя">
+      <input type="email" name="email" placeholder="E-mail" autocomplete="email" aria-label="E-mail">
+      <label class="chk"><input type="checkbox" required><span>Я соглашаюсь с <a href="#contact">Политикой обработки персональных данных</a></span></label>
+      <button class="btn" type="submit">Отправить</button>
+    </form>
+  </div>
+</section>
+
+<!-- 10 ТРУДОУСТРОЙСТВО: строки v2 -->
+<section class="deep">
+  <div class="cols" data-reveal style="margin-bottom:clamp(48px,6vw,96px);">
+    <h2 class="h2">Помогаем подготовиться к поиску работы: от резюме до собеседования</h2>
+    
+  </div>
+  <div class="lrows">
+    <div class="lrow" data-reveal><div class="mono">1</div><p><strong>Резюме под немецкий рынок</strong> поможем описать ваш опыт и подготовить сопроводительное письмо.</p></div>
+    <div class="lrow" data-reveal><div class="mono">2</div><p><strong>Собеседования</strong> потренируем ответы на типичные вопросы.</p></div>
+    <div class="lrow" data-reveal><div class="mono">3</div><p><strong>Практика</strong> разберём рабочие задачи на курсе.</p></div>
+    <div class="lrow" data-reveal><div class="mono">4</div><p><strong>Поиск вакансий</strong> покажем, где искать и как откликаться.</p></div>
+  </div>
+</section>
+
+<!-- 12 ВЕБИНАР: «участие» v2 -->
+<section class="light" id="webinar">
+ <div class="webbox" data-reveal>
+  <div style="display:flex;flex-direction:column;gap:20px;margin-bottom:clamp(40px,5vw,88px);">
+    <h2 class="h2" style="max-width:1000px;">Приходите на <span style="color:var(--accent)">бесплатный вебинар</span></h2>
+    <p style="margin:0;max-width:var(--tw);"><span class="wl">Два часа с реальным бухгалтером из Германии:</span> <span class="wl">расскажем, как устроена работа в немецкой компании,</span> <span class="wl">как получить Bildungsgutschein</span> <span class="wl">и разберём живые кейсы выпускников</span></p>
+  </div>
+  <div class="price">
+    <div style="flex:1 1 420px;display:flex;flex-direction:column;gap:18px;">
+      <div class="sum">19:00</div>
+      <div class="mono">сегодня</div>
+    </div>
+    <div style="flex:1 1 460px;max-width:620px;display:flex;flex-direction:column;gap:24px;">
+      <div class="tags mono"><span>БЕСПЛАТНО</span><span>ОНЛАЙН</span><span>НА РУССКОМ</span></div>
+      <p style="margin:0;font-weight:300;font-size:clamp(24px,2.4vw,34px);line-height:1.2;letter-spacing:-0.02em;">Профессия, которую не убьёт ИИ: как стать бухгалтером в Германии за 7 месяцев</p>
+      <div class="kv" style="border-color:var(--line-l);"><div style="border-color:var(--line-l);"><span>2 часа</span><span>практической пользы</span></div></div>
+      <a class="btn lt" href="#form" style="align-self:flex-start;">Зарегистрироваться</a>
+    </div>
+  </div>
+ </div>
+</section>
+
+<!-- 14 FAQ -->
+<section class="light">
+  <div class="faqw">
+    <h2 class="h2" data-reveal>Частые вопросы (FAQ)</h2>
+    <div class="qlist" data-reveal>
+      <div id="faq">
+<div class="qa"><button type="button" aria-expanded="false" aria-controls="qa0"><span>Сколько стоит обучение и есть ли рассрочка?</span><span class="pm" aria-hidden="true">+</span></button><p class="ans" id="qa0" hidden>Если вы зарегистрированы в Jobcenter или Agentur für Arbeit, обучение можно пройти бесплатно по Bildungsgutschein. Если оплачиваете самостоятельно, есть скидка за единовременный платеж. Также доступна внутренняя рассрочка SternMeister на 5–7 месяцев. Максимум подробностей — на бесплатной консультации.</p></div>
+<div class="qa"><button type="button" aria-expanded="false" aria-controls="qa1"><span>Кто может учиться бесплатно и как работает Bildungsgutschein?</span><span class="pm" aria-hidden="true">+</span></button><p class="ans" id="qa1" hidden>Bildungsgutschein — ваучер на обучение от Jobcenter или Agentur für Arbeit. Если консультант одобрит его для выбранной программы, стоимость курса оплачивается из средств ведомства. Мы подскажем, какие документы подготовить.</p></div>
+<div class="qa"><button type="button" aria-expanded="false" aria-controls="qa2"><span>Когда ближайший старт и сколько длится курс?</span><span class="pm" aria-hidden="true">+</span></button><p class="ans" id="qa2" hidden>Курс «Бухгалтер» длится 7 месяцев, «Медицинский администратор» — 6 месяцев, обучение полностью онлайн. Новые потоки стартуют регулярно; точную дату ближайшего набора и число мест в группе уточняйте на консультации.</p></div>
+<div class="qa"><button type="button" aria-expanded="false" aria-controls="qa3"><span>Как проходит обучение и можно ли совмещать с работой?</span><span class="pm" aria-hidden="true">+</span></button><p class="ans" id="qa3" hidden>Занятия идут онлайн на русском языке: живые уроки вечером, в среднем по 2 часа 3 раза в неделю, а записи всех уроков доступны в личном кабинете 24/7. Поэтому курс реально совмещать с работой — на полную ставку или Teilzeit.</p></div>
+<div class="qa"><button type="button" aria-expanded="false" aria-controls="qa4"><span>Нужен ли немецкий язык? Достаточно ли уровня A2?</span><span class="pm" aria-hidden="true">+</span></button><p class="ans" id="qa4" hidden>Достаточно уровня A2. Обучение идёт на русском языке, а профильный немецкий вынесен в отдельный блок: 150 часов бухгалтерской или медицинской лексики плюс AI-тренажёр собеседований. К выпуску вы уверенно проходите собеседование на уровне A2–B1.</p></div>
+<div class="qa"><button type="button" aria-expanded="false" aria-controls="qa5"><span>Подойдёт ли курс, если нет опыта и я не работал(а) в Excel или DATEV?</span><span class="pm" aria-hidden="true">+</span></button><p class="ans" id="qa5" hidden>Да. Программа рассчитана на старт с нуля: мы даём и основы бухгалтерии, и работу в программах (DATEV, Lexware, Google Tabellen) с первых занятий. Опыт в Excel или бухгалтерии не нужен — многие выпускники пришли из совершенно других сфер.</p></div>
+<div class="qa"><button type="button" aria-expanded="false" aria-controls="qa6"><span>Какие программы освою и идёт ли обучение DATEV на русском?</span><span class="pm" aria-hidden="true">+</span></button><p class="ans" id="qa6" hidden>На курсе вы работаете в DATEV и Lexware — программах, в которых ведут учёт немецкие компании, а также в Google Tabellen и AI-инструментах. Занятия и задания объясняем на русском языке, практика идёт на образовательных версиях (мы — партнёр DATEV и Lexware), сами программы на немецком — так вы сразу привыкаете к рабочей среде.</p></div>
+<div class="qa"><button type="button" aria-expanded="false" aria-controls="qa7"><span>Какой сертификат я получу и признают ли его работодатели?</span><span class="pm" aria-hidden="true">+</span></button><p class="ans" id="qa7" hidden>После курса вы получаете сертификат Weiterbildung от DEKRA — он действителен по всей Германии, и его ценят работодатели. Для работы бухгалтером экзамен IHK необязателен; при желании к нему можно готовиться отдельно после курса.</p></div>
+<div class="qa"><button type="button" aria-expanded="false" aria-controls="qa8"><span>Помогаете ли с трудоустройством после курса?</span><span class="pm" aria-hidden="true">+</span></button><p class="ans" id="qa8" hidden>Да. Карьерный центр адаптирует резюме под немецкие стандарты, проводит тренировочные собеседования и остаётся на связи, пока вы не найдёте работу. В среднем выпускники трудоустраиваются за 2–4 месяца после окончания обучения.</p></div>
+<div class="qa"><button type="button" aria-expanded="false" aria-controls="qa9"><span>Подойдёт ли курс украинцам со статусом §24?</span><span class="pm" aria-hidden="true">+</span></button><p class="ans" id="qa9" hidden>Да, у нас учится много украинцев. Обучение на русском снимает языковой барьер на старте, а оплатить курс через Bildungsgutschein можно и со статусом §24.</p></div>
+<div class="qa"><button type="button" aria-expanded="false" aria-controls="qa10"><span>Смогу ли после курса вести бухгалтерию своего Gewerbe самостоятельно?</span><span class="pm" aria-hidden="true">+</span></button><p class="ans" id="qa10" hidden>Да, вы сможете вести повседневную бухгалтерию Gewerbe или Kleinunternehmen: выставлять счета, готовить данные и работать в DATEV Unternehmen Online, передавая отчётность своему Steuerberater. Частые ситуации (Kleinunternehmerregelung, НДС) разбираем в <a class="lnk" href="#">блоге</a>.</p></div>
+<div class="qa"><button type="button" aria-expanded="false" aria-controls="qa11"><span>Что делать, если будет сложно учиться?</span><span class="pm" aria-hidden="true">+</span></button><p class="ans" id="qa11" hidden>У каждого студента есть персональный куратор и группа поддержки — вы не останетесь одни. Записи всех уроков доступны в кабинете, поэтому материал можно пересматривать в своём темпе.</p></div>
+      </div>
+          </div>
+  </div>
+</section>
+
+<!-- 15 БЛОГ: тонкая полоса -->
+<section class="blogbar" id="blog"><a class="bl-l" href="#">Kleinunternehmerregelung, бухгалтерия Gewerbe, зарплаты и другие важные вопросы, с которыми сталкиваются бухгалтеры в Германии — <u>читайте в блоге</u>.</a></section>
+
+<!-- 16 ЗАЯВКА И КОНТАКТЫ -->
+<section class="paper" id="form">
+  <div data-reveal style="display:flex;flex-direction:column;gap:20px;margin-bottom:clamp(40px,5vw,88px);">
+    <h2 class="h2" style="max-width:1000px;">Оставьте заявку на обучение в SternMeister</h2>
+    <p style="margin:0;max-width:var(--tw);">специалист ответит на вопросы о программе и поступлении</p>
+  </div>
+  <div class="price">
+    <div id="contact" data-reveal style="flex:1 1 420px;max-width:620px;">
+      <div class="mono" style="margin-bottom:12px;">Контакты:</div>
+      <div class="kv">
+        <div style="grid-template-columns:1fr;"><a href="mailto:hello@sternmeister.de">hello@sternmeister.de</a></div>
+        <div style="grid-template-columns:1fr;"><a href="tel:+4915209560138">+49 152 0956 0138</a></div>
+        <div style="grid-template-columns:1fr;"><a href="https://t.me/sternmeister_bot" target="_blank" rel="noopener">@sternmeister_bot</a></div>
+        <div style="grid-template-columns:1fr;"><span style="font-family:var(--f-sans);font-size:var(--fs);letter-spacing:0;text-transform:none;padding:0;">Rankestraße 26<br>10789 Berlin, Germany</span></div>
+      </div>
+    </div>
+    <form class="form" data-form data-reveal style="flex:1 1 460px;">
+      <input type="tel" name="phone" placeholder="Телефон" autocomplete="tel" aria-label="Телефон" required>
+      <input type="text" name="name" placeholder="Имя" autocomplete="name" aria-label="Имя">
+      <input type="email" name="email" placeholder="E-mail" autocomplete="email" aria-label="E-mail">
+      <label class="chk"><input type="checkbox" required><span>Я соглашаюсь с <a href="#contact">Политикой обработки персональных данных</a></span></label>
+      <button class="btn" type="submit">Записаться и получить тестовый модуль в подарок</button>
+    </form>
+  </div>
+</section>
+
+<!-- 17 ФИНАЛ: мотивационный экран без кнопки -->
+<section id="final">
+  <img src="../media/ofis.jpg" alt="">
+  <div class="shade"></div><div class="ov"></div>
+  <div class="in2" data-reveal>
+    <h2>SternMeister GmbH — образовательный центр, аккредитованный DEKRA</h2>
+  </div>
+</section>
+
+<footer>
+  <div class="meta">
+    <span>По всем вопросам · <a href="mailto:hello@sternmeister.de">hello@sternmeister.de</a> · <a href="tel:+4915209560138">+4915209560138</a> · <a href="https://t.me/sternmeister_bot">@sternmeister_bot</a></span>
+    <span>Datenschutzerklärung · Impressum · Allgemeine Geschäftsbedingungen (AGB) · Блог SternMeister</span>
+  </div>
+  <div class="giant" aria-hidden="true">SternMeister</div>
+</footer>
+
+<script>
+// отсчёт до старта потока
+(() => {
+  const box = document.getElementById('cd'); if (!box) return;
+  const to = Date.parse(box.dataset.to), el = k => box.querySelector('[data-k="' + k + '"]');
+  const p = n => String(n).padStart(2, '0');
+  const tick = () => {
+    let s = Math.max(0, Math.floor((to - Date.now()) / 1000));
+    el('d').textContent = p(Math.floor(s / 86400)); s %= 86400;
+    el('h').textContent = p(Math.floor(s / 3600)); s %= 3600;
+    el('m').textContent = p(Math.floor(s / 60)); el('s').textContent = p(s % 60);
+  };
+  tick(); setInterval(tick, 1000);
+})();
+
+// отзывы: «Прочитать отзыв полностью»
+document.querySelectorAll('.rv-btn').forEach(b => b.addEventListener('click', () => {
+  const m = b.previousElementSibling; m.hidden = false; b.remove();
+}));
+
+// видео: лента со стрелками, плеер Vimeo по клику
+const vt = document.getElementById('vtrack');
+document.querySelectorAll('[data-v]').forEach(b => b.addEventListener('click', () => { const t = document.getElementById(b.dataset.t); t.scrollBy({ left: Number(b.dataset.v) * t.clientWidth, behavior: 'smooth' }); }));
+vt.addEventListener('click', e => {
+  const ph = e.target.closest('.vc-ph'); if (!ph || ph.querySelector('iframe')) return;
+  ph.innerHTML = '<iframe src="https://player.vimeo.com/video/' + ph.dataset.vimeo + '?autoplay=1" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="Видеоинтервью"></iframe>';
+});
+
+// FAQ: одновременно открыт один ответ
+const faqBox = document.getElementById('faq');
+faqBox.addEventListener('click', e => {
+  const btn = e.target.closest('button'); if (!btn) return;
+  const open = btn.getAttribute('aria-expanded') !== 'true';
+  faqBox.querySelectorAll('.qa').forEach(it => {
+    const b = it.querySelector('button'), on = open && b === btn;
+    b.setAttribute('aria-expanded', on); b.querySelector('.pm').textContent = on ? '−' : '+';
+    it.querySelector('.ans').hidden = !on;
+  });
+});
+
+// формы — демо: заявка уходит письмом на hello@sternmeister.de
+document.querySelectorAll('[data-form]').forEach(f => f.addEventListener('submit', e => {
+  e.preventDefault();
+  if (!f.reportValidity()) return;
+  const v = n => (f.elements[n] || {}).value || '';
+  const body = 'Телефон: ' + v('phone') + '\nИмя: ' + v('name') + '\nE-mail: ' + v('email');
+  location.href = 'mailto:hello@sternmeister.de?subject=' + encodeURIComponent('Заявка') + '&body=' + encodeURIComponent(body);
+}));
+
+// появление блоков при прокрутке; соседи — с небольшой задержкой
+const io = 'IntersectionObserver' in window ? new IntersectionObserver(es => es.forEach(e => {
+  if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+}), { threshold: 0.08, rootMargin: '0px 0px -40px 0px' }) : null;
+document.querySelectorAll('[data-reveal]').forEach(el => {
+  const sib = [...el.parentElement.children].filter(x => x.hasAttribute('data-reveal'));
+  el.style.setProperty('--d', Math.min(sib.indexOf(el), 4) * 0.08 + 's');
+  io ? io.observe(el) : el.classList.add('in');
+});
+</script>
+</body>
+</html>
