@@ -235,6 +235,20 @@ footer .credits{opacity:.6;font-size:12px;max-width:70ch}
 .vc-t b{font-weight:600}
 @media (min-width:900px){.hl1{display:block;white-space:nowrap}}
 @media (min-width:900px){.nw900{white-space:nowrap}}
+.prog .photo .ph-t .de{display:block;margin-top:8px;font:300 italic clamp(17px,1.5vw,22px)/1.3 var(--serif);letter-spacing:0;color:rgba(255,255,255,.88)}
+mark.demo{background:#ffe45c;color:#111;padding:.05em .3em;-webkit-box-decoration-break:clone;box-decoration-break:clone}
+.webcard2{border-radius:var(--r);background:var(--pine);padding:clamp(28px,4vw,64px) clamp(24px,4vw,64px) 0;overflow:hidden;color:#fff}
+.webcard2 .web-l{padding-bottom:clamp(28px,4vw,64px)}
+.webcard2 .lead{max-width:none}
+.webcard2 .h2{font-size:clamp(30px,3.4vw,52px)}
+@media (min-width:1100px){.webcard2 .wl{white-space:nowrap}}
+.webcard2 .web-ph{min-height:460px}
+@media (min-width:1100px){.webcard2 .wl{display:block}}
+.blogbar{padding:22px var(--padX);border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:#fff}
+.bl-l{display:block;text-decoration:none;font:300 clamp(16px,1.3vw,19px)/1.5 var(--serif);color:var(--muted)}
+.bl-l u{text-decoration-color:var(--acc);text-underline-offset:4px;color:var(--ink)}
+.bl-l:hover u{color:var(--acc)}
+#register h2{max-width:24ch}
 .azsplit{grid-template-columns:1.35fr .65fr}
 .azsplit .lead{max-width:none}
 .azh span{display:block;white-space:nowrap}
@@ -465,7 +479,7 @@ footer{padding-bottom:calc(84px + env(safe-area-inset-bottom,0px))}
     <div class="head" data-reveal><h2 class="h2">Обучение на русском языке +&nbsp;150 часов профильной лексики</h2></div>
     <div class="progs">
     <article class="prog" data-reveal>
-      <div class="photo"><img src="../media/buhgalter.jpg" alt="" style="object-position:62% 50%;"><h3 class="ph-t">Курс «Бухгалтер в Германии» · Finanzbuchhalter:in</h3><div class="sal"><span>Зарплата после обучения</span><b>от 3 500 €/мес</b></div></div>
+      <div class="photo"><img src="../media/buhgalter.jpg" alt="" style="object-position:62% 50%;"><h3 class="ph-t">Курс «Бухгалтер в Германии» <span class="de">Finanzbuchhalter:in</span></h3><div class="sal"><span>Зарплата после обучения</span><b>от 3 500 €/мес</b></div></div>
         <p class="p">Вы разберётесь в немецком учёте и научитесь работать в профессиональных программах. Начнем с основ, постепенно перейдем к практике и разберемся в требованиях немецкого рынка труда. Персональный куратор поможет во время учёбы и поддержит в трудный момент.</p>
         <div class="plines"><div class="pl"><span>Длительность</span><span>7 месяцев</span></div><div class="pl"><span>Формат</span><span>Онлайн</span></div><div class="pl"><span>Сертификат</span><span>DEKRA · Weiterbildung</span></div><div class="pl"><span>Финансирование</span><span>Bildungsgutschein</span></div></div>
         <div class="tags"><span>Практика в DATEV и Lexware</span><span>Бухгалтерские документы</span><span>Налоговая отчетность</span><span>150 часов профильного немецкого</span><span>AI-тренажёр собеседований</span></div>
@@ -473,7 +487,7 @@ footer{padding-bottom:calc(84px + env(safe-area-inset-bottom,0px))}
         <a class="pill dark" href="#form">Программа курса →</a>
     </article>
     <article class="prog" data-reveal>
-      <div class="photo"><img src="../media/klinika.jpg" alt="" style="object-position:50% 45%;"><h3 class="ph-t">Курс «Администратор медицинской практики» / Mitarbeiter: in für die Rezeption und Praxisempfang</h3><div class="sal"><span>Зарплата после обучения</span><b>от 3 000 €/мес</b></div></div>
+      <div class="photo"><img src="../media/klinika.jpg" alt="" style="object-position:50% 45%;"><h3 class="ph-t">Курс «Администратор медицинской практики» <span class="de">Mitarbeiter:in für die Rezeption und Praxisempfang</span></h3><div class="sal"><span>Зарплата после обучения</span><b>от 3 000 €/мес</b></div></div>
         <p class="p">Научитесь организовывать приём в медицинском праксисе: записывать пациентов, вести документы и помогать команде с повседневными задачами. Медицинское образование для начала обучения не требуется.</p>
         <div class="plines"><div class="pl"><span>Длительность</span><span>6 месяцев</span></div><div class="pl"><span>Формат</span><span>Онлайн</span></div><div class="pl"><span>Сертификат</span><span>DEKRA · Weiterbildung</span></div><div class="pl"><span>Финансирование</span><span>Bildungsgutschein</span></div></div>
         <div class="tags"><span>Работа с медицинскими документами и цифровыми сервисами</span><span>Организация приёма и общение с пациентами</span><span>Основы расчётов, защиты данных и управления качеством в медицинской практике</span><span>Профессиональный немецкий</span><span>Подготовка к собеседованию</span></div>
@@ -497,7 +511,7 @@ footer{padding-bottom:calc(84px + env(safe-area-inset-bottom,0px))}
 <!-- 4 ОТЗЫВЫ: карточки v1 лентой -->
 <section class="sec" id="reviews">
   <div class="wrap stack">
-    <div class="head" data-reveal><h2 class="h2">Отзывы студентов и выпускников</h2></div>
+    <div class="head" data-reveal><h2 class="h2">Отзывы студентов</h2></div>
     <div class="slider">
     <div class="track revs" id="revs">
 <div data-reveal class="rv"><div class="rv-h"><img class="rv-av" src="../media/reviews/gyulnara.jpg" alt="Гюльнара" loading="lazy"><b>Гюльнара</b><span class="lbl">Студентка SternMeister</span></div><p>Меня зовут Гюльнара, и за моими плечами — путь, полный испытаний, но и важных открытий. Я мама двух замечательных двойняшек, я та которая никогда не сдаётся, даже когда кажется, что всё против неё. В Украине у меня была насыщенная профессиональная жизнь: высшее образование бухгалтера, работа бухгалтером, потом кассир-контролер, потом менеджером по продажам в Metro Cash &amp; Carry, а потом — собственный бизнес мой салон красоты в который было вложено ВСЕ!!! силы средства и душа. Но пандемия, а затем война перечеркнули всё...</p><div class="rv-more" hidden><p>Ради безопасности сыновей пришлось уехать в Германию. Первые месяцы были тяжёлыми: языковой барьер, тоска, ощущение, что жизнь остановилась. Чтобы выжить, устроилась на книжный склад — собирала заказы, хотя внутри понимала: так не может продолжаться вечно. Мои амбиции, образование и опыт твердили: «Ты способна на большее!» И тогда я подумала вернуться к истокам — бухгалтерии. Только подумала но не стала сразу искать курсы. Спустя пару часов открыла Instagram листая ленту мне попадается первой же реклама школы SternMeier. Сказала себе: «Это знак!» — и я записалась. И ни капли не жалею! Что меня вдохновляет в учёбе?</p><p>🔥 Подача материала — всё объясняют доступно, структурированно, без «воды».</p><p>💙 Преподаватели— неравнодушные, поддерживают, верят в студентов.</p><p>Правда, немецкий язык даётся пока сложнее всего — термины, документы, но я упорно работаю над этим. Сейчас я учусь, адаптирую украинский опыт под немецкие реалии и чувствую, как понемногу возвращаю себе уверенность. Впереди еще очень много всего, но я знаю что это новая глава моей жизни. Этот путь научил меня главному: даже после самых тяжёлых потерь можно начать заново. Главное — не бояться сделать первый шаг.</p></div><button type="button" class="rv-btn lnk">Прочитать отзыв полностью</button></div>
@@ -575,7 +589,7 @@ footer{padding-bottom:calc(84px + env(safe-area-inset-bottom,0px))}
 <!-- 12 ПАРТНЁРЫ -->
 <section class="sec" style="background:var(--warm)">
   <div class="wrap stack">
-    <div class="head" data-reveal><h2 class="h2">Наши партнёры</h2></div>
+    <div class="head" data-reveal><h2 class="h2">Наши партнёры</h2><p class="lead" style="max-width:none"><mark class="demo">В чем-то это очень важно для вас</mark></p></div>
     <div class="logos" data-reveal>
       <img src="../media/partners/1.png" alt="Партнёр 1" loading="lazy"><img src="../media/partners/2.png" alt="Партнёр 2" loading="lazy"><img src="../media/partners/3.png" alt="Партнёр 3" loading="lazy"><img src="../media/partners/4.png" alt="Партнёр 4" loading="lazy"><img src="../media/partners/5.png" alt="Партнёр 5" loading="lazy"><img src="../media/partners/6.png" alt="Партнёр 6" loading="lazy">
     </div>
@@ -629,7 +643,7 @@ footer{padding-bottom:calc(84px + env(safe-area-inset-bottom,0px))}
 <!-- 11 ТРУДОУСТРОЙСТВО: строки v1 «Что нового» -->
 <section class="sec pine on-dark">
   <div class="wrap stack">
-    <div class="head" data-reveal><h2 class="h2">Помогаем подготовиться к поиску работы: от резюме до собеседования</h2><p class="lead" style="max-width:none"><span class="nw900">Сопровождаем и поддерживаем до выхода на работу</span></p></div>
+    <div class="head" data-reveal><h2 class="h2">Помогаем подготовиться к поиску работы: от резюме до собеседования</h2></div>
     <div class="list">
       <div class="row" data-reveal><span class="n">1</span><div><h3>Резюме под немецкий рынок</h3><p>поможем описать ваш опыт и подготовить сопроводительное письмо.</p></div></div>
       <div class="row" data-reveal><span class="n">2</span><div><h3>Собеседования</h3><p>потренируем ответы на типичные вопросы.</p></div></div>
@@ -640,27 +654,22 @@ footer{padding-bottom:calc(84px + env(safe-area-inset-bottom,0px))}
   </div>
 </section>
 
-<!-- 13 ВЕБИНАР: тёмный, акценты оранжевым, ведущая на зелёном круге — как на оригинале -->
-<section class="sec pine on-dark" id="webinar">
-  <div class="wrap web2">
-    <div class="web-l" data-reveal>
-      <div class="eyebrow">Бесплатно · онлайн</div>
-      <h2 class="h2">Ближайший вебинар — <span class="acc">регистрируйтесь</span></h2>
-      <p class="lead">Два часа с реальным бухгалтером из Германии: расскажем, как устроена работа в немецкой компании, как получить Bildungsgutschein и разберём живые кейсы выпускников</p>
+<!-- 13 ВЕБИНАР: вставка-бонус — тёмная карточка на светлом фоне -->
+<section class="sec" id="webinar" style="background:var(--warm)">
+  <div class="wrap">
+  <div class="webcard2 on-dark" data-reveal>
+    <div class="web2">
+    <div class="web-l">
+      <h2 class="h2">Приходите на <span class="acc">бесплатный вебинар</span></h2>
+      <p class="lead"><span class="wl">Два часа с реальным бухгалтером из Германии:</span> <span class="wl">расскажем, как устроена работа в немецкой компании,</span> <span class="wl">как получить Bildungsgutschein</span> <span class="wl">и разберём живые кейсы выпускников</span></p>
       <div class="dots"><span>БЕСПЛАТНО</span><span>ОНЛАЙН</span><span>НА РУССКОМ</span></div>
       <p class="wt">Профессия, которую <span class="acc">не убьёт ИИ:</span> как стать бухгалтером в Германии за 7 месяцев</p>
       <div class="plines"><div class="pl"><span>19:00</span><span>сегодня</span></div><div class="pl"><span>2 часа</span><span>практической пользы</span></div></div>
       <a class="pill" href="#form">Зарегистрироваться</a>
     </div>
-    <div class="web-ph" data-reveal><div class="circ"></div><img src="../media/webinar.png" alt=""></div>
+    <div class="web-ph"><div class="circ"></div><img src="../media/webinar.png" alt=""></div>
+    </div>
   </div>
-</section>
-
-<!-- 14 КТО МЫ: блок «С чем приезжать» v1 -->
-<section class="sec">
-  <div class="wrap bring">
-    <div class="stack" style="gap:22px" data-reveal><div class="eyebrow">Как устроено обучение?</div><h2 class="h2">Кто мы</h2><blockquote>SternMeister — онлайн-академия для русскоязычных в Германии. Мы обучаем двум перспективным офисным профессиям: бухгалтер (Finanzbuchhalter) и медицинский администратор (Praxismanager).</blockquote></div>
-    <div class="photo" data-reveal><img src="../media/buhgalter.jpg" alt="" style="object-position:62% 50%;"></div>
   </div>
 </section>
 
@@ -670,7 +679,7 @@ footer{padding-bottom:calc(84px + env(safe-area-inset-bottom,0px))}
     <div class="head faqh" data-reveal><h2 class="h2">Частые вопросы (FAQ)</h2></div>
     <div>
     <div class="faq" id="faqList" data-reveal>
-<div class="fq"><button class="fq-h" aria-expanded="false">Сколько стоит обучение и есть ли рассрочка?<i></i></button><div class="fq-b">Стоимость обучения зависит от выбранной программы и формата — подробно расскажем на бесплатной консультации. Если вы зарегистрированы в Jobcenter или Agentur für Arbeit, обучение можно пройти бесплатно по Bildungsgutschein. При самостоятельной оплате действует скидка за единовременный платёж, а также доступна внутренняя рассрочка SternMeister на 5–7 месяцев.</div></div>
+<div class="fq"><button class="fq-h" aria-expanded="false">Сколько стоит обучение и есть ли рассрочка?<i></i></button><div class="fq-b">Если вы зарегистрированы в Jobcenter или Agentur für Arbeit, обучение можно пройти бесплатно по Bildungsgutschein. Если оплачиваете самостоятельно, есть скидка за единовременный платеж. Также доступна внутренняя рассрочка SternMeister на 5–7 месяцев. Максимум подробностей — на бесплатной консультации.</div></div>
 <div class="fq"><button class="fq-h" aria-expanded="false">Кто может учиться бесплатно и как работает Bildungsgutschein?<i></i></button><div class="fq-b">Bildungsgutschein — ваучер на обучение от Jobcenter или Agentur für Arbeit. Если консультант одобрит его для выбранной программы, стоимость курса оплачивается из средств ведомства. Мы подскажем, какие документы подготовить.</div></div>
 <div class="fq"><button class="fq-h" aria-expanded="false">Когда ближайший старт и сколько длится курс?<i></i></button><div class="fq-b">Курс «Бухгалтер» длится 7 месяцев, «Медицинский администратор» — 6 месяцев, обучение полностью онлайн. Новые потоки стартуют регулярно; точную дату ближайшего набора и число мест в группе уточняйте на консультации.</div></div>
 <div class="fq"><button class="fq-h" aria-expanded="false">Как проходит обучение и можно ли совмещать с работой?<i></i></button><div class="fq-b">Занятия идут онлайн на русском языке: живые уроки вечером, в среднем по 2 часа 3 раза в неделю, а записи всех уроков доступны в личном кабинете 24/7. Поэтому курс реально совмещать с работой — на полную ставку или Teilzeit.</div></div>
@@ -680,17 +689,15 @@ footer{padding-bottom:calc(84px + env(safe-area-inset-bottom,0px))}
 <div class="fq"><button class="fq-h" aria-expanded="false">Какой сертификат я получу и признают ли его работодатели?<i></i></button><div class="fq-b">После курса вы получаете сертификат Weiterbildung от DEKRA — он действителен по всей Германии, и его ценят работодатели. Для работы бухгалтером экзамен IHK необязателен; при желании к нему можно готовиться отдельно после курса.</div></div>
 <div class="fq"><button class="fq-h" aria-expanded="false">Помогаете ли с трудоустройством после курса?<i></i></button><div class="fq-b">Да. Карьерный центр адаптирует резюме под немецкие стандарты, проводит тренировочные собеседования и остаётся на связи, пока вы не найдёте работу. В среднем выпускники трудоустраиваются за 2–4 месяца после окончания обучения.</div></div>
 <div class="fq"><button class="fq-h" aria-expanded="false">Подойдёт ли курс украинцам со статусом §24?<i></i></button><div class="fq-b">Да, у нас учится много украинцев. Обучение на русском снимает языковой барьер на старте, а оплатить курс через Bildungsgutschein можно и со статусом §24.</div></div>
-<div class="fq"><button class="fq-h" aria-expanded="false">Смогу ли после курса вести бухгалтерию своего Gewerbe самостоятельно?<i></i></button><div class="fq-b">Да — вы сможете вести повседневную бухгалтерию Gewerbe или Kleinunternehmen: выставлять счета, готовить данные и работать в DATEV Unternehmen Online, передавая отчётность своему Steuerberater. Частые ситуации (Kleinunternehmerregelung, НДС) разбираем в блоге.</div></div>
+<div class="fq"><button class="fq-h" aria-expanded="false">Смогу ли после курса вести бухгалтерию своего Gewerbe самостоятельно?<i></i></button><div class="fq-b">Да, вы сможете вести повседневную бухгалтерию Gewerbe или Kleinunternehmen: выставлять счета, готовить данные и работать в DATEV Unternehmen Online, передавая отчётность своему Steuerberater. Частые ситуации (Kleinunternehmerregelung, НДС) разбираем в <a class="lnk" href="#">блоге</a>.</div></div>
 <div class="fq"><button class="fq-h" aria-expanded="false">Что делать, если будет сложно учиться?<i></i></button><div class="fq-b">У каждого студента есть персональный куратор и группа поддержки — вы не останетесь одни. Записи всех уроков доступны в кабинете, поэтому материал можно пересматривать в своём темпе.</div></div>
     </div>
-    <div class="blogp" id="blog" data-reveal>
-      <p><b>Обучение бухгалтерии с нуля</b> идёт на русском языке<br>от основ немецкого учёта и практики в DATEV и Lexware до готового резюме и первой работы в Германии</p>
-      <p><b>Программы аккредитованы по AZAV</b><br>сам курс можно оплатить ваучером Bildungsgutschein</p>
-      <p>Ситуации, с которыми сталкиваются бухгалтеры в Германии, разбираем в блоге: Kleinunternehmerregelung, бухгалтерия Gewerbe, зарплаты и другие важные вопросы</p>
-    </div>
-    </div>
+        </div>
   </div>
 </section>
+
+<!-- 16 БЛОГ: тонкая полоса -->
+<section class="blogbar" id="blog"><div class="wrap"><a class="bl-l" href="#">Kleinunternehmerregelung, бухгалтерия Gewerbe, зарплаты и другие важные вопросы, с которыми сталкиваются бухгалтеры в Германии — <u>читайте в блоге</u>.</a></div></section>
 
 <!-- 17 ЗАЯВКА И КОНТАКТЫ -->
 <section class="sec pine on-dark" id="form">
@@ -716,14 +723,12 @@ footer{padding-bottom:calc(84px + env(safe-area-inset-bottom,0px))}
   </div>
 </section>
 
-<!-- 18 ГОТОВЫ НАЧАТЬ: финал v1 -->
+<!-- 18 ФИНАЛ: мотивационный экран без кнопки -->
 <section id="register">
   <img class="bg" src="../media/ofis.jpg" alt="">
   <div class="shade"></div>
   <div class="inner">
-    <h2 data-reveal>Готовы начать?</h2>
-    <p data-reveal>Бесплатно проконсультируем и подберём оптимальный формат обучения специально для вас</p>
-    <a class="pill" href="#form" data-reveal>Оставить заявку</a>
+    <h2 data-reveal>SternMeister GmbH — образовательный центр, аккредитованный DEKRA</h2>
   </div>
 </section>
 
