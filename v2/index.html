@@ -279,8 +279,8 @@ footer .credits{opacity:.6;font-size:12px;max-width:70ch}
 .chk input{flex:none;width:20px;height:20px;margin:2px 0 0;accent-color:var(--slate)}
 .chk a{color:#c25400;text-decoration:underline;text-decoration-color:var(--acc);text-underline-offset:3px}
 .formcard .pill{justify-content:center;width:100%;text-align:center}
-.serts{display:grid;grid-template-columns:1fr 1fr;gap:16px;padding:clamp(18px,2vw,28px);aspect-ratio:auto!important;max-height:none!important}
-.serts img{width:100%;height:auto;border-radius:10px}
+.serts{display:grid;grid-template-columns:1fr 1fr;gap:16px;align-items:start}
+.serts img{width:100%;height:auto;border-radius:10px;box-shadow:0 10px 30px rgba(41,44,41,.12)}
 .headrow{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:24px}
 .arr{display:flex;gap:10px}
 .arr button{width:52px;height:52px;display:flex;align-items:center;justify-content:center;border-radius:50%;border:1px solid currentColor;background:transparent;font:400 20px var(--sans);cursor:pointer;transition:background .2s,color .2s}
@@ -318,7 +318,8 @@ footer .credits{opacity:.6;font-size:12px;max-width:70ch}
 .prog .photo::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(28,30,28,0) 40%,rgba(28,30,28,.82) 100%)}
 .prog .photo .sal{position:absolute;z-index:1;left:clamp(18px,2vw,28px);right:clamp(18px,2vw,28px);bottom:clamp(16px,2vw,26px);margin:0;padding:0;border:0;color:#fff}
 .prog .photo .sal span{color:rgba(255,255,255,.9)}
-.prog .pill{align-self:end;justify-self:start}
+.prog .pill{align-self:end;justify-self:start;grid-row:7}
+@media (max-width:980px){.prog .pill{grid-row:auto}}
 .prog .eyebrow{display:block;margin-bottom:12px}
 .prog h3{margin:0;font:500 clamp(24px,2.4vw,34px)/1.12 var(--sans);letter-spacing:-.03em}
 .prog .p{margin:0;font:300 18px/1.55 var(--serif);color:var(--muted)}
@@ -326,8 +327,11 @@ footer .credits{opacity:.6;font-size:12px;max-width:70ch}
 .sal b{font:500 clamp(30px,3vw,44px)/1.05 var(--sans);letter-spacing:-.03em}
 .sal span{font:300 16px/1.45 var(--serif);color:var(--muted)}
 .prog .plines{margin:0}
-.prog .pl{border-top:1px solid var(--line)}
-.prog .pl span:first-child{color:var(--muted)}
+.prog .plines{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.prog .pl{display:flex;flex-direction:column;gap:6px;padding:14px 18px;border:1px solid var(--line);border-radius:14px;background:var(--warm)}
+.prog .pl span:last-child{font:500 18px/1.3 var(--sans);letter-spacing:-.01em;color:var(--ink)}
+@media (max-width:420px){.prog .plines,.prog .tags{grid-template-columns:1fr}}
+.prog .pl span:first-child{font:500 11px/1.4 var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
 .prog .tags{margin:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;align-content:start}
 .prog .tags span{display:flex;align-items:center;font:400 14px/1.35 var(--sans);padding:10px 16px;border-radius:16px}
 .team{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:30px 18px}
@@ -432,32 +436,31 @@ footer{padding-bottom:calc(84px + env(safe-area-inset-bottom,0px))}
 <section class="sec" style="background:var(--warm)">
   <div class="wrap split">
     <div class="txt" data-reveal><h2 class="h2">SternMeister — образовательный центр с допуском AZAV</h2><p class="lead">Мы поможем подготовить документы для вашего консультанта, и если вам одобрят Bildungsgutschein, обучение оплатит Jobcenter или Agentur für Arbeit.</p></div>
-    <div class="photo serts" data-reveal><img src="../media/sert-1.png" alt="Сертификат AZAV"><img src="../media/sert-2.png" alt="Приложение к сертификату AZAV"></div>
+    <div class="serts" data-reveal><img src="../media/sert-1.png" alt="Сертификат AZAV"><img src="../media/sert-2.png" alt="Приложение к сертификату AZAV"></div>
   </div>
 </section>
 
 <!-- 6 ДВЕ ПРОГРАММЫ -->
 <section class="sec" id="program">
   <div class="wrap stack">
-    <div class="head" data-reveal><h2 class="h2">Обучение на русском языке + 150 часов профильной лексики</h2></div>
+    <div class="head" data-reveal><h2 class="h2">Обучение на русском языке +&nbsp;150 часов профильной лексики</h2></div>
     <div class="progs">
     <article class="prog" data-reveal>
-      <div class="photo"><img src="../media/buhgalter.jpg" alt="" style="object-position:62% 50%;"><div class="sal"><span>Зарплата после обучения</span><b>от 3 500 €/мес</b></div></div>
         <h3>Курс «Бухгалтер в Германии» · Finanzbuchhalter:in</h3>
-        <p class="p">Бухгалтерия в Германии — для тех, кто хочет освоить новую профессию или применить прежний опыт после переезда. На курсе вы разберётесь в немецком учёте и потренируетесь работать с документами и профессиональными программами.</p>
+      <div class="photo"><img src="../media/buhgalter.jpg" alt="" style="object-position:62% 50%;"><div class="sal"><span>Зарплата после обучения</span><b>от 3 500 €/мес</b></div></div>
+        <p class="p">Вы разберётесь в немецком учёте и потренируетесь работать с документами и профессиональными программами. Начнем с основ, постепенно перейдем к практике и разберемся в требованиях немецкого рынка труда. Персональный куратор поможет во время учёбы и поддержит в трудный момент.</p>
         <div class="plines"><div class="pl"><span>Длительность</span><span>7 месяцев</span></div><div class="pl"><span>Формат</span><span>Онлайн</span></div><div class="pl"><span>Сертификат</span><span>DEKRA · Weiterbildung</span></div><div class="pl"><span>Финансирование</span><span>Bildungsgutschein</span></div></div>
-        <div class="tags"><span>Практика в DATEV и Lexware</span><span>бухгалтерские документы и налоговая отчетность</span><span>Возможность Home Office после первого года</span><span>150 часов профильного немецкого + AI-тренажёр собеседований</span></div>
-        <p class="p">Начать можно и без опыта работы в офисе. Мы объясняем основы, постепенно переходим к практике и помогаем разобраться в требованиях немецкого рынка труда.</p>
-        <a class="pill dark" href="#form">Программа курса бухгалтера →</a>
+        <div class="tags"><span>Практика в DATEV и Lexware</span><span>Бухгалтерские документы</span><span>Налоговая отчетность</span><span>Возможность Home Office после первого года</span><span>150 часов профильного немецкого + AI-тренажёр собеседований</span></div>
+        <a class="pill dark" href="#form">Программа курса →</a>
     </article>
     <article class="prog" data-reveal>
-      <div class="photo"><img src="../media/klinika.jpg" alt="" style="object-position:50% 45%;"><div class="sal"><span>Зарплата после обучения</span><b>от 3 000 €/мес</b></div></div>
         <h3>Курс «Администратор медицинской практики» / Mitarbeiter: in für die Rezeption und Praxisempfang</h3>
+      <div class="photo"><img src="../media/klinika.jpg" alt="" style="object-position:50% 45%;"><div class="sal"><span>Зарплата после обучения</span><b>от 3 000 €/мес</b></div></div>
         <p class="p">Научитесь организовывать приём в медицинском праксисе: записывать пациентов, вести документы и помогать команде с повседневными задачами. Медицинское образование для начала обучения не требуется.</p>
         <div class="plines"><div class="pl"><span>Длительность</span><span>6 месяцев</span></div><div class="pl"><span>Формат</span><span>Онлайн</span></div><div class="pl"><span>Сертификат</span><span>DEKRA · Weiterbildung</span></div><div class="pl"><span>Финансирование</span><span>Bildungsgutschein</span></div></div>
         <div class="tags"><span>Работа с медицинскими документами и цифровыми сервисами</span><span>Организация приёма и общение с пациентами</span><span>Основы расчётов, защиты данных и управления качеством в медицинской практике</span><span>Профессиональный немецкий и подготовка к собеседованию</span></div>
         <p class="p">Подойдёт тем, кому нравится общаться с людьми, помогать пациентам и хочется работать в стабильной сфере здравоохранения.</p>
-        <a class="pill dark" href="#form">Программа курса администратора →</a>
+        <a class="pill dark" href="#form">Программа курса →</a>
     </article>
     </div>
   </div>
