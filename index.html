@@ -94,11 +94,6 @@ button,input{font:inherit}
 .gr-t{display:flex;align-items:center;gap:8px;font-size:19px;font-weight:700}
 .gr-r{display:flex;align-items:center;gap:10px;font-size:24px;font-weight:800}
 .gr-r span{color:#f6c343;font-size:17px;letter-spacing:2px}
-.gr-big{justify-self:end;gap:12px;padding:clamp(20px,2.2vw,32px) clamp(24px,2.6vw,40px)}
-.gr-big .gr-t{gap:14px;font-size:clamp(24px,2.2vw,34px)}
-.gr-big .gr-r{gap:14px;font-size:clamp(34px,3.4vw,52px)}
-.gr-big .gr-r span{font-size:clamp(22px,2vw,30px)}
-@media (max-width:900px){.gr-big{justify-self:start}}
 /* второй экран: фото, значок DEKRA, отсчёт и отзывы поверх фото, форма рядом */
 .shot{display:grid;grid-template-columns:minmax(0,1.75fr) minmax(0,1fr);gap:var(--gap);align-items:stretch}
 .shot-ph{position:relative;min-height:600px;overflow:hidden;background:var(--c-ink)}
@@ -249,12 +244,35 @@ button,input{font:inherit}
 .tape-track{animation:tape 160s linear infinite}
 }
 @media (prefers-reduced-motion:reduce){.js [data-reveal]{opacity:1;transform:none;transition:none}}
+/* первый экран целиком: слева текст и форма, справа фото */
+.hero{min-height:100vh;min-height:100svh;gap:clamp(20px,2.4vw,36px);padding-bottom:clamp(24px,2.6vw,40px)}
+.hx{flex:1;display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:clamp(24px,3vw,48px);align-items:stretch}
+.hx-l{display:flex;flex-direction:column;gap:clamp(20px,2.2vw,32px);container-type:inline-size}
+.hx .hero-h{font-size:8.4cqi;text-wrap:wrap}
+.hx .hero-h .bar{width:clamp(60px,8vw,150px)}
+.hx-lead{max-width:640px;font-size:clamp(22px,2.2vw,34px)}
+.hx-f{margin-top:auto;padding:clamp(20px,2.2vw,32px);gap:14px}
+.hx-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.hx-grid .chk{grid-column:1 / -1;order:9}
+.hx-grid .btn{padding:16px 20px;font-size:17px}
+.hx .shot-ph{min-height:520px}
+.gr-ph{position:absolute;top:clamp(16px,2vw,28px);right:clamp(16px,2vw,28px);box-shadow:0 10px 30px rgba(0,0,0,.14)}
+@media (max-width:1100px){
+ .hero{min-height:0}
+ .hx{grid-template-columns:minmax(0,1fr)}
+ .hx-l{display:contents}
+ .hx .hero-h{order:1;font-size:min(7.6vw,84px)}.hx-lead{order:2}.hx .shot-ph{order:3;min-height:0;aspect-ratio:16/10}.hx-f{order:4;margin-top:0}}
+@media (max-width:760px){
+ .hx .hero-h{font-size:9.7vw}
+ .hx .shot-ph{aspect-ratio:3/4}
+ .hx-grid{grid-template-columns:minmax(0,1fr)}.hx-grid .chk{order:0}.hx-lead{font-size:20px}
+ .gr-ph{top:12px;right:12px;padding:8px 12px;gap:2px}.gr-ph .gr-t{font-size:14px;gap:6px}.gr-ph .gr-t svg{width:18px;height:18px}.gr-ph .gr-r{font-size:18px;gap:6px}.gr-ph .gr-r span{font-size:12px;letter-spacing:1px}}
 </style>
 <script>document.documentElement.classList.add('js')</script>
 </head>
 <body>
 
-<!-- 1 ГЛАВНЫЙ: заголовок и подзаголовок -->
+<!-- 1 ГЛАВНЫЙ: заголовок, подзаголовок, форма; справа фото с DEKRA, отзывами Google и отсчётом -->
 <section class="hero" id="learn" data-screen-label="01 Главный">
   <div class="top h-in">
     <a class="brand" href="./" aria-label="SternMeister"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 1.5l2.6 7.1 7.4.3-5.8 4.6 2 7.3L12 16.6l-6.2 4.2 2-7.3L2 8.9l7.4-.3z"/></svg>SternMeister</a>
@@ -264,22 +282,28 @@ button,input{font:inherit}
       <span class="lang"><b>RU</b> · DE · UA</span>
     </nav>
   </div>
-  <h1 class="hero-h h-in">онлайн-академия для русскоязычных <em>в&nbsp;Германии</em><span class="bar" aria-hidden="true"><i></i><i></i></span></h1>
-  <div class="g12 h-in2" style="align-items:end;">
-    <p class="lead-s s-1-7" style="max-width:640px;">Освойте профессию бухгалтера или администратора клиники за 4-7 месяцев. Помогаем с трудоустройством, опыт работы не требуется.</p>
-    <a class="gr gr-big s-8" href="#reviews" aria-label="Google Reviews 5,0">
-      <span class="gr-t"><svg width="40" height="40" viewBox="0 0 48 48" aria-hidden="true"><path fill="#EA4335" d="M24 9.5c3.5 0 6.6 1.2 9.1 3.6l6.8-6.8C35.8 2.4 30.3 0 24 0 14.6 0 6.6 5.4 2.7 13.3l7.9 6.1C12.5 13.6 17.8 9.5 24 9.5z"/><path fill="#4285F4" d="M46.1 24.5c0-1.6-.1-3.1-.4-4.5H24v9h12.4c-.5 2.9-2.2 5.3-4.6 6.9l7.7 6c4.5-4.2 6.6-10.3 6.6-17.4z"/><path fill="#FBBC05" d="M10.5 28.6c-.5-1.4-.8-3-.8-4.6s.3-3.2.8-4.6l-7.9-6.1C1 16.6 0 20.2 0 24s1 7.4 2.7 10.7l7.8-6.1z"/><path fill="#34A853" d="M24 48c6.5 0 11.9-2.1 15.9-5.8l-7.7-6c-2.2 1.5-5 2.3-8.2 2.3-6.2 0-11.5-4.2-13.4-9.9l-7.9 6.1C6.6 42.6 14.6 48 24 48z"/></svg>Reviews ↗</span>
-      <span class="gr-r">5,0 <span aria-hidden="true">★★★★★</span></span>
-    </a>
-  </div>
-</section>
-
-<!-- 2 ФОТО + ОТСЧЁТ + ФОРМА -->
-<section class="sec cream" id="consult" data-screen-label="02 Консультация" style="padding-top:0;">
-  <div class="shot">
-    <div class="shot-ph" data-reveal>
+  <div class="hx">
+    <div class="hx-l h-in">
+      <h1 class="hero-h">онлайн-академия для русскоязычных <em>в&nbsp;Германии</em><span class="bar" aria-hidden="true"><i></i><i></i></span></h1>
+      <p class="lead hx-lead">Освойте профессию бухгалтера или администратора клиники за 4-7 месяцев. Помогаем с трудоустройством, опыт работы не требуется.</p>
+      <form class="form hx-f" id="consult" data-form>
+        <p class="shot-sub">Запишитесь на бесплатную консультацию — расскажем о программе, формате и финансировании</p>
+        <div class="hx-grid">
+          <input type="tel" name="phone" placeholder="Контактный телефон" autocomplete="tel" aria-label="Контактный телефон" required>
+          <input type="text" name="name" placeholder="Имя" autocomplete="name" aria-label="Имя">
+          <input type="email" name="email" placeholder="E-mail" autocomplete="email" aria-label="E-mail">
+          <label class="chk"><input type="checkbox" required><span>Отправляя заявку, вы соглашаетесь с <a href="#contact">политикой обработки персональных данных</a></span></label>
+          <button class="btn ink wide" type="submit">Оставить заявку</button>
+        </div>
+      </form>
+    </div>
+    <div class="shot-ph h-in2">
       <img class="shot-img" src="media/studentka.jpg" alt="" style="object-position:50% 30%;">
       <img class="shot-badge" src="media/dekra-azav.png" alt="Trägerzulassung gemäß AZAV — DEKRA geprüft">
+      <a class="gr gr-ph" href="#reviews" aria-label="Google Reviews 5,0">
+        <span class="gr-t"><svg width="28" height="28" viewBox="0 0 48 48" aria-hidden="true"><path fill="#EA4335" d="M24 9.5c3.5 0 6.6 1.2 9.1 3.6l6.8-6.8C35.8 2.4 30.3 0 24 0 14.6 0 6.6 5.4 2.7 13.3l7.9 6.1C12.5 13.6 17.8 9.5 24 9.5z"/><path fill="#4285F4" d="M46.1 24.5c0-1.6-.1-3.1-.4-4.5H24v9h12.4c-.5 2.9-2.2 5.3-4.6 6.9l7.7 6c4.5-4.2 6.6-10.3 6.6-17.4z"/><path fill="#FBBC05" d="M10.5 28.6c-.5-1.4-.8-3-.8-4.6s.3-3.2.8-4.6l-7.9-6.1C1 16.6 0 20.2 0 24s1 7.4 2.7 10.7l7.8-6.1z"/><path fill="#34A853" d="M24 48c6.5 0 11.9-2.1 15.9-5.8l-7.7-6c-2.2 1.5-5 2.3-8.2 2.3-6.2 0-11.5-4.2-13.4-9.9l-7.9 6.1C6.6 42.6 14.6 48 24 48z"/></svg>Reviews ↗</span>
+        <span class="gr-r">5,0 <span aria-hidden="true">★★★★★</span></span>
+      </a>
       <div class="shot-ov">
         <div class="cd">
           <div class="cd-h"><span>Старт потока</span><b>26.10.2026</b></div>
@@ -293,14 +317,6 @@ button,input{font:inherit}
         </div>
       </div>
     </div>
-    <form class="form shot-f" data-form>
-      <p class="shot-sub">Запишитесь на бесплатную консультацию — расскажем о программе, формате и финансировании</p>
-      <input type="tel" name="phone" placeholder="Контактный телефон" autocomplete="tel" aria-label="Контактный телефон" required>
-      <input type="text" name="name" placeholder="Имя" autocomplete="name" aria-label="Имя">
-      <input type="email" name="email" placeholder="E-mail" autocomplete="email" aria-label="E-mail">
-      <label class="chk"><input type="checkbox" required><span>Отправляя заявку, вы соглашаетесь с <a href="#contact">политикой обработки персональных данных</a></span></label>
-      <button class="btn ink wide" type="submit">Оставить заявку</button>
-    </form>
   </div>
 </section>
 
