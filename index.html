@@ -60,17 +60,18 @@ p{text-wrap:pretty}
 .tnav span{opacity:.6}.tnav b{font-weight:500}
 @media (max-width:1100px){.tnav{display:none}}
 .hmid{position:relative;flex:1;display:flex;flex-direction:column;justify-content:center;padding:56px var(--side)}
-.hmid h1{margin:0;display:flex;justify-content:space-between;font-weight:200;font-size:min(140px,9.4vw);line-height:1;letter-spacing:0}
-.hsub{margin-top:.3em;text-align:center;font-weight:300;font-size:calc(min(140px,9.4vw) * .34);line-height:1.1;letter-spacing:.01em}
+.hmid h1{margin:0;text-align:center;font-weight:200;font-size:clamp(48px,8.6vw,156px);line-height:.95;letter-spacing:-0.045em;text-wrap:balance}
+.logo{flex:none;padding-top:16px;font-family:var(--f-mono);font-size:13px;font-weight:500;letter-spacing:.42em;text-transform:uppercase;text-decoration:none}
+.dekra{justify-self:end;width:clamp(72px,6vw,96px);height:auto}
+@media (max-width:420px){.logo{font-size:11px;letter-spacing:.24em}.tbar .btn{padding:14px 16px;font-size:11px}}
 .hbot{position:relative;display:grid;grid-template-columns:1fr minmax(0,1.4fr) 1fr;align-items:end;gap:24px 40px;padding:0 var(--side) 84px}
 .hbot p{margin:0;text-align:center;font-size:calc(var(--fs) * .95);line-height:1.5;font-weight:300;text-wrap:balance}
 .gr{display:inline-flex;align-items:center;gap:10px;justify-self:start;text-decoration:none;font-family:var(--f-mono);font-size:12px;letter-spacing:.08em}
 .gr .st{color:#f6c343;letter-spacing:2px}
-@media (max-width:760px){.hbot{grid-template-columns:1fr;padding-bottom:96px}.hbot p{text-align:left}.hsub{font-size:24px;text-align:left}.hmid h1{font-size:9vw}}
+@media (max-width:760px){.hbot{grid-template-columns:1fr;padding-bottom:96px}.hbot p{text-align:left}.hmid h1{font-size:12.5vw;text-align:left}.dekra{justify-self:start;width:72px}}
 @media (prefers-reduced-motion:no-preference){
 @keyframes rise{from{opacity:0;transform:translateY(.35em)}to{opacity:1;transform:none}}
-.hmid h1 span{display:inline-block;animation:rise .9s cubic-bezier(.2,.7,.2,1) both}
-.hsub{animation:rise .9s cubic-bezier(.2,.7,.2,1) .6s both}
+.hmid h1{animation:rise .9s cubic-bezier(.2,.7,.2,1) both}
 .hbot{animation:rise .9s cubic-bezier(.2,.7,.2,1) .8s both}
 }
 
@@ -255,18 +256,17 @@ footer .giant{margin:clamp(24px,4vw,64px) 0 -0.2em -0.06em;font-weight:200;font-
   <img class="bgimg" src="media/studentka.jpg" alt="">
   <div class="shade"></div><div class="ov"></div>
   <div class="tbar">
-    <img src="media/dekra-azav.png" alt="Trägerzulassung gemäß AZAV — DEKRA geprüft">
+    <a class="logo" href="#top" aria-label="SternMeister">SternMeister</a>
     <nav class="tnav mono" aria-label="Меню"><a href="#learn">Обучение</a><a href="#reviews">Отзывы</a><a href="#program">Программы</a><a href="#webinar">Вебинар</a><a href="#blog">Блог</a><a href="#contact">Контакты</a><span><b>RU</b> · DE · UA</span></nav>
     <a class="btn lt" href="#form">Консультация</a>
   </div>
   <div class="hmid" id="learn">
-    <h1 aria-label="SternMeister"><span aria-hidden="true">S</span><span aria-hidden="true">T</span><span aria-hidden="true">E</span><span aria-hidden="true">R</span><span aria-hidden="true">N</span><span aria-hidden="true">M</span><span aria-hidden="true">E</span><span aria-hidden="true">I</span><span aria-hidden="true">S</span><span aria-hidden="true">T</span><span aria-hidden="true">E</span><span aria-hidden="true">R</span></h1>
-    <div class="hsub">Начните карьеру в Германии</div>
+    <h1>Начните карьеру в&nbsp;Германии</h1>
   </div>
   <div class="hbot">
     <a class="gr" href="#reviews" aria-label="Google Reviews 5,0"><svg width="18" height="18" viewBox="0 0 48 48" aria-hidden="true"><path fill="#EA4335" d="M24 9.5c3.5 0 6.6 1.2 9.1 3.6l6.8-6.8C35.8 2.4 30.3 0 24 0 14.6 0 6.6 5.4 2.7 13.3l7.9 6.1C12.5 13.6 17.8 9.5 24 9.5z"/><path fill="#4285F4" d="M46.1 24.5c0-1.6-.1-3.1-.4-4.5H24v9h12.4c-.5 2.9-2.2 5.3-4.6 6.9l7.7 6c4.5-4.2 6.6-10.3 6.6-17.4z"/><path fill="#FBBC05" d="M10.5 28.6c-.5-1.4-.8-3-.8-4.6s.3-3.2.8-4.6l-7.9-6.1C1 16.6 0 20.2 0 24s1 7.4 2.7 10.7l7.8-6.1z"/><path fill="#34A853" d="M24 48c6.5 0 11.9-2.1 15.9-5.8l-7.7-6c-2.2 1.5-5 2.3-8.2 2.3-6.2 0-11.5-4.2-13.4-9.9l-7.9 6.1C6.6 42.6 14.6 48 24 48z"/></svg><span>Reviews ↗</span><b>5,0</b><span class="st" aria-hidden="true">★★★★★</span></a>
     <p>Освойте профессию бухгалтера или администратора клиники за 4-7 месяцев. Помогаем с трудоустройством, опыт работы не требуется.</p>
-    <span></span>
+    <img class="dekra" src="media/dekra-azav.png" alt="Trägerzulassung gemäß AZAV — DEKRA geprüft">
   </div>
 </section>
 
