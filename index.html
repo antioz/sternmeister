@@ -34,6 +34,9 @@ section{padding:var(--sec) var(--side)}
 .muted{color:var(--muted)}
 .h2{margin:0;font-weight:300;font-size:clamp(36px,4.6vw,68px);line-height:1.02;letter-spacing:-0.03em;text-wrap:balance}
 .h2x{margin:0;font-weight:200;font-size:clamp(52px,8vw,140px);line-height:.92;letter-spacing:-0.045em;text-wrap:balance}
+.azh span{display:block;white-space:nowrap}
+.h2.azh{font-size:clamp(32px,3.9vw,56px)}
+@media (max-width:760px){.azh span{white-space:normal}}
 .big{font-size:calc(var(--fs) * 1.2);line-height:1.5;font-weight:300}
 @media (max-width:600px){.h2x{font-size:11vw}}
 @media (max-width:400px){.h2{font-size:30px}}
@@ -271,7 +274,7 @@ footer .giant{margin:clamp(24px,4vw,64px) 0 -0.2em -0.06em;font-weight:200;font-
   </div>
   <div class="hbot">
     <a class="gr" href="#reviews" aria-label="Google Reviews 5,0"><svg width="18" height="18" viewBox="0 0 48 48" aria-hidden="true"><path fill="#EA4335" d="M24 9.5c3.5 0 6.6 1.2 9.1 3.6l6.8-6.8C35.8 2.4 30.3 0 24 0 14.6 0 6.6 5.4 2.7 13.3l7.9 6.1C12.5 13.6 17.8 9.5 24 9.5z"/><path fill="#4285F4" d="M46.1 24.5c0-1.6-.1-3.1-.4-4.5H24v9h12.4c-.5 2.9-2.2 5.3-4.6 6.9l7.7 6c4.5-4.2 6.6-10.3 6.6-17.4z"/><path fill="#FBBC05" d="M10.5 28.6c-.5-1.4-.8-3-.8-4.6s.3-3.2.8-4.6l-7.9-6.1C1 16.6 0 20.2 0 24s1 7.4 2.7 10.7l7.8-6.1z"/><path fill="#34A853" d="M24 48c6.5 0 11.9-2.1 15.9-5.8l-7.7-6c-2.2 1.5-5 2.3-8.2 2.3-6.2 0-11.5-4.2-13.4-9.9l-7.9 6.1C6.6 42.6 14.6 48 24 48z"/></svg><span>Reviews ↗</span><b>5,0</b><span class="st" aria-hidden="true">★★★★★</span></a>
-    <p>Освойте профессию бухгалтера или администратора клиники за <span style="white-space:nowrap">4-7 месяцев</span>. Помогаем с трудоустройством, опыт работы не требуется.</p>
+    <p>Освойте профессию бухгалтера или администратора клиники <span style="white-space:nowrap">за 4-7 месяцев</span>. Помогаем с трудоустройством, опыт работы не требуется.</p>
     <img class="dekra" src="media/dekra-azav.png" alt="Trägerzulassung gemäß AZAV — DEKRA geprüft">
   </div>
 </section>
@@ -305,7 +308,7 @@ footer .giant{margin:clamp(24px,4vw,64px) 0 -0.2em -0.06em;font-weight:200;font-
 <section class="paper">
   <div class="cols">
     <div data-reveal style="display:flex;flex-direction:column;gap:24px;">
-      <h2 class="h2">SternMeister — образовательный центр с допуском AZAV</h2>
+      <h2 class="h2 azh"><span>SternMeister —</span> <span>образовательный центр</span> <span>с&nbsp;допуском AZAV</span></h2>
       <p class="big" style="margin:0;">Мы поможем подготовить документы для вашего консультанта, и если вам одобрят Bildungsgutschein, обучение оплатит Jobcenter или Agentur für Arbeit.</p>
     </div>
     <div class="serts" data-reveal><img src="media/sert-1.png" alt="Сертификат AZAV"><img src="media/sert-2.png" alt="Приложение к сертификату AZAV"></div>
@@ -325,7 +328,7 @@ footer .giant{margin:clamp(24px,4vw,64px) 0 -0.2em -0.06em;font-weight:200;font-
         <h3>Курс «Бухгалтер в Германии» · Finanzbuchhalter:in</h3>
         <p>Вы разберётесь в немецком учёте и потренируетесь работать с документами и профессиональными программами. Начнем с основ, постепенно перейдем к практике и разберемся в требованиях немецкого рынка труда. Персональный куратор поможет во время учёбы и поддержит в трудный момент.</p>
         <div class="kv"><div><span>Длительность</span><span>7 месяцев</span></div><div><span>Формат</span><span>Онлайн</span></div><div><span>Сертификат</span><span>DEKRA · Weiterbildung</span></div><div><span>Финансирование</span><span>Bildungsgutschein</span></div></div>
-        <div class="ticks"><p><span>01</span>Практика в DATEV и Lexware</p><p><span>02</span>Бухгалтерские документы</p><p><span>03</span>Налоговая отчетность</p><p><span>04</span>Возможность Home Office после первого года</p><p><span>05</span>150 часов профильного немецкого + AI-тренажёр собеседований</p></div>
+        <div class="ticks"><p><span>01</span>Практика в DATEV и Lexware</p><p><span>02</span>Бухгалтерские документы</p><p><span>03</span>Налоговая отчетность</p><p><span>04</span>150 часов профильного немецкого</p><p><span>05</span>AI-тренажёр собеседований</p></div>
         <a class="btn" href="#form">Программа курса →</a>
       </div>
     </article>
@@ -412,12 +415,12 @@ footer .giant{margin:clamp(24px,4vw,64px) 0 -0.2em -0.06em;font-weight:200;font-
       <h2 class="h2" data-reveal style="margin-bottom:24px;">Как проходит обучение в SternMeister?</h2>
       <p class="big" data-reveal style="margin:0 0 clamp(32px,4vw,64px);max-width:var(--tw);">На занятиях вы разбираете теорию и сразу применяете её на практике. Преподаватели и кураторы помогают дойти до конца программы и подготовиться к поиску работы.</p>
       <div class="rows">
-        <div class="row" data-reveal><span>01</span><div><h3>Преподаватели с практическим опытом в Германии</h3><p>Они показывают, как устроена работа в профессии, и разбирают задачи, с которыми можно столкнуться после курса.</p></div></div>
-        <div class="row" data-reveal><span>02</span><div><h3>Для будущих бухгалтеров: практика в DATEV и Lexware</h3><p>Для будущих администраторов клиники: практика в CGM TURBOMED, медицинская документация, организация приёма и цифровой офис.</p></div></div>
-        <div class="row" data-reveal><span>03</span><div><h3>Реальная помощь в трудоустройстве</h3><p>Адаптируем резюме под немецкие стандарты, проведём тренировочные собеседования</p></div></div>
-        <div class="row" data-reveal><span>04</span><div><h3>Объясняем материал на русском и постепенно вводим профессиональный немецкий:</h3><p>термины, документы и рабочая коммуникация. Отдельный блок для подготовки к собеседованию на немецком языке.</p></div></div>
-        <div class="row" data-reveal><span>05</span><div><h3>Персональный куратор</h3><p>Поможет с организационными вопросами во время учёбы и поддержит в трудный момент</p></div></div>
-        <div class="row" data-reveal><span>06</span><div><h3>Проекты для портфолио</h3><p>Создадите собственные проекты, которые сможете показать работодателю и добавить в резюме</p></div></div>
+        <div class="row" data-reveal><span>01</span><div><h3>Преподаватели с практическим опытом в Германии</h3><p>Показывают, как устроена работа в профессии, и разбирают задачи, с которыми можно столкнуться после курса.</p></div></div>
+        <div class="row" data-reveal><span>02</span><div><h3>Практика в DATEV и Lexware</h3><p>Для будущих администраторов клиники: практика в CGM TURBOMED, медицинская документация, организация приёма и цифровой офис.</p></div></div>
+        <div class="row" data-reveal><span>03</span><div><h3>Объясняем материал на русском и постепенно вводим профессиональный немецкий:</h3><p>термины, документы и рабочая коммуникация. Отдельный блок для подготовки к собеседованию на немецком языке.</p></div></div>
+        <div class="row" data-reveal><span>04</span><div><h3>Персональный куратор</h3><p>Поможет с организационными вопросами во время учёбы и поддержит в трудный момент</p></div></div>
+        <div class="row" data-reveal><span>05</span><div><h3>Проекты для портфолио</h3><p>Создадите собственные проекты, которые сможете показать работодателю и добавить в резюме</p></div></div>
+        <div class="row" data-reveal><span>06</span><div><h3>Реальная помощь в трудоустройстве</h3><p>Адаптируем резюме под немецкие стандарты, проведём тренировочные собеседования</p></div></div>
       </div>
     </div>
     <div class="tall" data-reveal><img src="media/ofis.jpg" alt=""><div class="ov"></div></div>
