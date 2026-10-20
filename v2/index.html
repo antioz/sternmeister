@@ -232,7 +232,7 @@ footer .credits{opacity:.6;font-size:12px;max-width:70ch}
 .formcard{display:flex;flex-direction:column;gap:12px;padding:clamp(24px,3vw,40px);border-radius:var(--r);background:var(--cream);color:var(--ink)}
 .warmbg{background:var(--warm)}
 @media (min-width:1100px){.hsub{max-width:none}.hsub .hl{display:block;white-space:nowrap}}
-.vc-t b{font-weight:600}
+.vc-t b{font-weight:500}
 @media (min-width:900px){.hl1{display:block;white-space:nowrap}}
 @media (min-width:900px){.nw900{white-space:nowrap}}
 .prog .photo .ph-t .de{display:block;margin-top:8px;font:300 italic clamp(17px,1.5vw,22px)/1.3 var(--serif);letter-spacing:0;color:rgba(255,255,255,.88)}
@@ -240,7 +240,6 @@ mark.demo{background:#ffe45c;color:#111;padding:.05em .3em;-webkit-box-decoratio
 .webcard2{border-radius:var(--r);background:var(--pine);padding:clamp(28px,4vw,64px) clamp(24px,4vw,64px) 0;overflow:hidden;color:#fff}
 .webcard2 .web-l{padding-bottom:clamp(28px,4vw,64px)}
 .webcard2 .lead{max-width:none}
-.webcard2 .h2{font-size:clamp(30px,3.4vw,52px)}
 @media (min-width:1100px){.webcard2 .wl{white-space:nowrap}}
 .webcard2 .web-ph{min-height:460px}
 @media (min-width:1100px){.webcard2 .wl{display:block}}
@@ -254,14 +253,13 @@ mark.demo{background:#ffe45c;color:#111;padding:.05em .3em;-webkit-box-decoratio
 .fmeta a{color:#fff}
 .partners.sec{padding-top:clamp(36px,4vw,56px);padding-bottom:clamp(36px,4vw,56px)}
 .partners .stack{gap:20px}
-.partners .h2{font-size:clamp(24px,2.2vw,34px)}
-.partners .logos{max-width:980px}
+.partners .logos{gap:clamp(16px,3vw,48px)}
 #register .inner{padding-bottom:120px}
 /* таймер */
 .cd2{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
 .cd2>div{display:flex;flex-direction:column;gap:10px;padding:24px 0}
 .cd2>div+div{padding-left:clamp(20px,4vw,48px);border-left:1px solid var(--line)}
-.cd2 b{font:500 clamp(34px,4vw,60px)/1 var(--sans);letter-spacing:-.03em;font-variant-numeric:tabular-nums;white-space:nowrap}
+ .cd2 b{font:500 clamp(26px,2.6vw,40px)/1.05 var(--sans);letter-spacing:-.03em;font-variant-numeric:tabular-nums;white-space:nowrap}
 .cd2 small{font:300 italic .5em var(--serif);letter-spacing:0;margin:0 .35em 0 .12em;color:var(--muted)}
 /* «прилипание» фото — только на десктопе */
 @media (max-width:980px){#do .do .photo,.prog .photo{position:relative!important;top:auto!important}}
@@ -277,7 +275,8 @@ mark.demo{background:#ffe45c;color:#111;padding:.05em .3em;-webkit-box-decoratio
   .cd2>div+div{padding-left:0;border-left:0;border-top:1px solid var(--line)}
   .cd2 .eyebrow{font-size:11px;letter-spacing:.12em}
   .cd2 b{font-size:clamp(24px,7.4vw,32px)}
-  .azsplit{grid-template-columns:1fr!important}
+  #hdr nav .lang b{font-weight:500}
+.azsplit{grid-template-columns:1fr!important}
   .h2.azh{font-size:9vw}
   .serts{max-width:420px}
 }
@@ -312,7 +311,7 @@ mark.demo{background:#ffe45c;color:#111;padding:.05em .3em;-webkit-box-decoratio
 .web-l .h2{max-width:none}
 .dots{display:flex;flex-wrap:wrap;gap:10px 24px;margin-top:10px;font:500 13px var(--sans);letter-spacing:.12em}
 .dots span::before{content:"";display:inline-block;width:8px;height:8px;margin-right:9px;border-radius:50%;background:var(--acc);vertical-align:1px}
-.wt{margin:0;font:500 clamp(26px,2.6vw,38px)/1.15 var(--sans);letter-spacing:-.03em}
+.wt{margin:0;font:500 clamp(26px,2.6vw,40px)/1.15 var(--sans);letter-spacing:-.03em}
 .web2 .plines{max-width:560px}
 .web2 .pl span:first-child{font:500 26px/1 var(--sans);letter-spacing:-.02em;text-transform:none;color:#fff}
 .web2 .pill{align-self:flex-start}
@@ -328,9 +327,9 @@ mark.demo{background:#ffe45c;color:#111;padding:.05em .3em;-webkit-box-decoratio
 .faqgrid .blogp{margin-top:48px}
 @media (max-width:900px){.faqgrid{grid-template-columns:1fr}.faqh{position:static}}
 .ctacard{display:flex;align-items:center;justify-content:space-between;gap:28px 64px;padding:clamp(28px,4vw,56px) clamp(28px,4.5vw,64px);border-radius:var(--r);background:var(--slate);color:#fff}
-.ctacard h2{margin:0 0 16px;font:500 clamp(26px,2.8vw,42px)/1.1 var(--sans);letter-spacing:-.03em}
+.ctacard h2{margin:0 0 16px}
 .ctacard>div{flex:1;min-width:0}
-.ctacard p{margin:0;max-width:none;text-wrap:pretty;font:300 clamp(17px,1.4vw,20px)/1.5 var(--serif);color:rgba(255,255,255,.88)}
+.ctacard p{margin:0;max-width:none;text-wrap:pretty;font:300 clamp(19px,1.5vw,23px)/1.5 var(--serif);color:rgba(255,255,255,.88)}
 .ctacard .pill{flex:none;padding:18px 22px 18px 32px;gap:16px}
 .pill-ar{flex:none}
 @media (max-width:760px){.ctacard{flex-direction:column;align-items:flex-start}}
@@ -380,7 +379,7 @@ mark.demo{background:#ffe45c;color:#111;padding:.05em .3em;-webkit-box-decoratio
 .prog>*{min-width:0}
 .prog .photo{position:relative;aspect-ratio:4/3;max-height:none}
 .prog .photo::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(28,30,28,.85) 0%,rgba(28,30,28,.35) 30%,rgba(28,30,28,0) 48%,rgba(28,30,28,0) 50%,rgba(28,30,28,.82) 100%)}
-.prog .photo .ph-t{position:absolute;z-index:1;left:clamp(20px,2.2vw,32px);right:clamp(20px,2.2vw,32px);top:clamp(20px,2.2vw,30px);margin:0;color:#fff;font:600 clamp(24px,2.5vw,36px)/1.12 var(--sans);letter-spacing:-.025em;text-shadow:0 2px 18px rgba(0,0,0,.35)}
+.prog .photo .ph-t{position:absolute;z-index:1;left:clamp(20px,2.2vw,32px);right:clamp(20px,2.2vw,32px);top:clamp(20px,2.2vw,30px);margin:0;color:#fff;font:500 clamp(24px,2.5vw,36px)/1.12 var(--sans);letter-spacing:-.025em;text-shadow:0 2px 18px rgba(0,0,0,.35)}
 .prog .photo .sal{position:absolute;z-index:1;left:clamp(18px,2vw,28px);right:clamp(18px,2vw,28px);bottom:clamp(16px,2vw,26px);margin:0;padding:0;border:0;color:#fff}
 .prog .photo .sal span{color:rgba(255,255,255,.9)}
 .prog .pill{align-self:end;justify-self:start;grid-row:6}
@@ -389,7 +388,7 @@ mark.demo{background:#ffe45c;color:#111;padding:.05em .3em;-webkit-box-decoratio
 .prog h3{margin:0;font:500 clamp(24px,2.4vw,34px)/1.12 var(--sans);letter-spacing:-.03em}
 .prog .p{margin:0;font:300 18px/1.55 var(--serif);color:var(--muted)}
 .sal{display:flex;flex-direction:column;gap:6px;padding:22px 0;margin:22px 0 0;border-top:1px solid var(--line)}
-.sal b{font:500 clamp(30px,3vw,44px)/1.05 var(--sans);letter-spacing:-.03em}
+.sal b{font:500 clamp(26px,2.6vw,40px)/1.05 var(--sans);letter-spacing:-.03em}
 .sal span{font:300 16px/1.45 var(--serif);color:var(--muted)}
 .prog .plines{margin:0}
 .prog .plines{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
@@ -450,6 +449,10 @@ footer{padding-bottom:calc(84px + env(safe-area-inset-bottom,0px))}
   .cd-facts .fact:nth-child(3){padding-left:18px;border-left:1px solid var(--line)}
 }
 @media (max-width:400px){.logo{font-size:16px}#hdr .pill{padding:8px 12px;font-size:12px}}
+.cd2.cdv{grid-template-columns:1fr}
+.cd2.cdv>div{padding:28px 0}
+.cd2.cdv>div+div{padding-left:0;border-left:0;border-top:1px solid var(--line)}
+@media (min-width:761px){.cd2.cdv b{font-size:clamp(40px,4.4vw,64px)}}
 </style>
 <script>document.documentElement.classList.add('js')</script>
 </head>
@@ -478,12 +481,14 @@ footer{padding-bottom:calc(84px + env(safe-area-inset-bottom,0px))}
 <!-- 2 ОТСЧЁТ И ФОРМА -->
 <section class="sec" id="consult">
   <div class="wrap stack">
-    <div class="cd2" id="cd" data-to="2026-10-26T08:00:00Z" data-reveal>
+    <h2 class="h2" data-reveal style="max-width:none">Запишитесь на бесплатную консультацию — расскажем о программе и подберем оптимальный для вас формат</h2>
+    <div class="split" style="align-items:start">
+      <div class="cdcol" data-reveal>
+        <div class="cd2 cdv" id="cd" data-to="2026-10-26T08:00:00Z">
       <div><span class="eyebrow">Старт потока</span><b>26.10.2026</b></div>
       <div><span class="eyebrow">До старта осталось</span><b><span data-k="d">06</span><small>дн</small> <span data-k="h">01</span>:<span data-k="m">58</span>:<span data-k="s">35</span></b></div>
     </div>
-    <div class="split">
-      <div class="txt" data-reveal><h2 class="h2 h2-s">Запишитесь на бесплатную консультацию — расскажем о программе и подберем оптимальный для вас формат</h2></div>
+      </div>
       <form class="formcard warmbg" data-form data-reveal>
         <input type="tel" name="phone" placeholder="Контактный телефон" autocomplete="tel" aria-label="Контактный телефон" required>
         <input type="text" name="name" placeholder="Имя" autocomplete="name" aria-label="Имя">
@@ -532,7 +537,7 @@ footer{padding-bottom:calc(84px + env(safe-area-inset-bottom,0px))}
 <section class="sec" style="background:var(--warm);padding-top:clamp(48px,6vw,88px);padding-bottom:clamp(48px,6vw,88px)">
   <div class="wrap">
     <div class="ctacard" data-reveal>
-      <div><h2>Не знаете, какой курс выбрать?</h2><p>Запишитесь на 15-минутную консультацию: поможем разобраться, что подходит именно вам.</p></div>
+      <div><h2 class="h2">Не знаете, какой курс выбрать?</h2><p>Запишитесь на 15-минутную консультацию: поможем разобраться, что подходит именно вам.</p></div>
       <a class="pill dark" href="#form">ОСТАВИТЬ ЗАЯВКУ <svg class="pill-ar" width="26" height="26" viewBox="0 0 26 26" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="13" cy="13" r="11.5"/><path d="M8 13h10M14 9l4 4-4 4"/></svg></a>
     </div>
   </div>
