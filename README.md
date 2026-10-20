@@ -1,13 +1,11 @@
 # SternMeister
 
-Лендинг SternMeister: цвета и тексты — с [sternmeister.de](https://sternmeister.de/), вёрстка — с [praxeology-pokaz v9](https://antioz.github.io/praxeology-pokaz/v9/).
+Лендинг SternMeister: тексты — с [sternmeister.de](https://sternmeister.de/) (с правками заказчика), цвета — палитра SternMeister. Две версии с переключателем внизу страницы.
 
-- Сайт: https://antioz.github.io/sternmeister/
-- Всё в одном `index.html`: стили, разметка, скрипт внизу. Тексты — дословно с оригинала (снято 20.10.2026), в его порядке; правятся прямо в разметке, FAQ тоже.
-- Отсчёт на первом экране — до `data-to` у `#cd` (2026-10-26 09:00 Berlin). Формы — демо: заявка открывает письмо на hello@sternmeister.de.
-- Видео — Vimeo по клику, превью в `media/video/<id>.jpg`; преподаватели — `media/team/01–16.jpg` по порядку на странице.
-- Картинки — `media/`, сняты с оригинала.
-- Палитра (в `:root`): `#292c29` тёмный · `#ffffff` · `#f3ebde` кремовый · `#4e684c` зелёный · `#a2b698` шалфей · `#ff7000` оранжевый. Шрифт Mulish.
-- Классы фона секций: без класса — белый, `.cream`, `.green`, `.sage`, `.dark`.
+- **Версия 1** — https://antioz.github.io/sternmeister/ (`index.html`): дизайн [praxeology-pokaz v2](https://antioz.github.io/praxeology-pokaz/v2/) «Будущее» — Inter Tight + JetBrains Mono, прямые углы, тонкие рамки, моно-метки, слово по буквам на первом экране.
+- **Версия 2** — https://antioz.github.io/sternmeister/v2/ (`v2/index.html`): дизайн [praxeology-pokaz v1](https://antioz.github.io/praxeology-pokaz/v1/) «Балтика» — CSS v1 перенесён построчно, заменены только цвета; шрифты v1 (Geist + Spectral) лежат в `v2/assets/`.
+- Тексты обеих версий одинаковые. Картинки — общая `media/` (сняты с оригинала; превью видео — `media/video/<vimeo id>.jpg`, преподаватели — `media/team/01–16.jpg` по порядку на странице).
+- Палитра: `#292c29` тёмный · `#f3ebde` кремовый · `#4e684c` зелёный · `#26331f` тёмно-зелёный · `#a2b698` шалфей · `#ff7000` оранжевый.
+- Отсчёт до старта — до `data-to` у `#cd` (2026-10-26 09:00 Berlin). Формы — демо: заявка открывает письмо на hello@sternmeister.de.
+- Сняты 20.10.2026: первая версия на вёрстке pokaz v9 (есть в истории git).
 - Запуск: `python3 -m http.server`, открыть `index.html`.
-- Версия 2 — `v2/` (https://antioz.github.io/sternmeister/v2/): тексты те же, что в версии 1; дизайн pokaz v2 «Будущее» (Inter Tight + JetBrains Mono, прямые углы, рамки, моно-метки, слово по буквам на первом экране), цвета SternMeister. Картинки из общей `media/`. Внизу обеих страниц переключатель «Версия 1 / Версия 2». Прежняя версия 2 в дизайне pokaz v1 снята 20.10.2026.
