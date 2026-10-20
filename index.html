@@ -121,6 +121,8 @@ p{text-wrap:pretty}
 .rv p{margin:0;font-size:16px;line-height:1.6;font-weight:300}
 .rv-h{position:relative;padding-right:76px;min-height:60px}
 .rv-av{position:absolute;right:0;top:0;width:60px;height:60px;border-radius:50%;object-fit:cover}
+.light .rv,.paper .rv{border-color:var(--line-d)}
+.light .frame,.paper .frame{border-color:var(--line-d)}
 .rv-more{display:flex;flex-direction:column;gap:12px}
 .rv-more[hidden]{display:none}
 .rv-btn{align-self:flex-start;margin-top:auto;padding:0;border:0;background:none;cursor:pointer;font-family:var(--f-mono);font-size:12px;letter-spacing:var(--tr);text-transform:uppercase;text-decoration:underline;text-decoration-color:var(--accent);text-underline-offset:5px}
@@ -310,8 +312,46 @@ footer .giant{margin:clamp(24px,4vw,64px) 0 -0.2em -0.06em;font-weight:200;font-
   </div>
 </section>
 
+<!-- 6 ДВЕ ПРОГРАММЫ: «что такое форсайт-игра» v2 -->
+<section class="light" id="program">
+  <div class="head" data-reveal>
+    <div><h2 class="h2">Обучение на русском языке + 150 часов профильной лексики</h2></div>
+  </div>
+  <div class="grid2">
+    <article class="prog" data-reveal>
+      <div class="pic"><img src="media/buhgalter.jpg" alt="" style="object-position:62% 50%;"><div class="ov"></div>
+        <div class="corners"><div><span>Программа · 7 месяцев</span></div><div style="flex-direction:column;align-items:flex-start;gap:8px;"><strong>от 3 500 €/мес</strong><span style="text-transform:none;letter-spacing:.02em;max-width:460px;line-height:1.5;">Зарплата после обучения — от 3 500 €, с ростом до 4 500 € на позиции Bilanzbuchhalter</span></div></div></div>
+      <div class="body">
+        <h3>Курс «Бухгалтер в Германии» · Finanzbuchhalter:in</h3>
+        <p>Бухгалтерия в Германии — для тех, кто хочет освоить новую профессию или применить прежний опыт после переезда. На курсе вы разберётесь в немецком учёте и потренируетесь работать с документами и профессиональными программами.</p>
+        <div class="kv"><div><span>Длительность</span><span>7 месяцев</span></div><div><span>Формат</span><span>Онлайн</span></div><div><span>Сертификат</span><span>DEKRA · Weiterbildung</span></div><div><span>Финансирование</span><span>Bildungsgutschein</span></div></div>
+        <div class="ticks"><p><span>01</span>Практика в DATEV и Lexware</p><p><span>02</span>бухгалтерские документы и налоговая отчетность</p><p><span>03</span>Возможность Home Office после первого года</p><p><span>04</span>150 часов профильного немецкого + AI-тренажёр собеседований</p></div>
+        <p>Начать можно и без опыта работы в офисе. Мы объясняем основы, постепенно переходим к практике и помогаем разобраться в требованиях немецкого рынка труда.</p>
+        <a class="btn" href="#form">Программа курса бухгалтера →</a>
+      </div>
+    </article>
+    <article class="prog" data-reveal>
+      <div class="pic"><img src="media/klinika.jpg" alt="" style="object-position:50% 45%;"><div class="ov"></div>
+        <div class="corners"><div><span>Программа · 6 месяцев</span></div><div style="flex-direction:column;align-items:flex-start;gap:8px;"><strong>от 3 000 €/мес</strong><span style="text-transform:none;letter-spacing:.02em;max-width:460px;line-height:1.5;">Зарплата медицинского администратора в Германии после обучения— с возможностью карьерного роста и роста дохода</span></div></div></div>
+      <div class="body">
+        <h3>Курс «Администратор медицинской практики» / Mitarbeiter: in für die Rezeption und Praxisempfang</h3>
+        <p>Научитесь организовывать приём в медицинском праксисе: записывать пациентов, вести документы и помогать команде с повседневными задачами. Медицинское образование для начала обучения не требуется.</p>
+        <div class="kv"><div><span>Длительность</span><span>6 месяцев</span></div><div><span>Формат</span><span>Онлайн</span></div><div><span>Сертификат</span><span>DEKRA · Weiterbildung</span></div><div><span>Финансирование</span><span>Bildungsgutschein</span></div></div>
+        <div class="ticks"><p><span>01</span>Работа с медицинскими документами и цифровыми сервисами</p><p><span>02</span>Организация приёма и общение с пациентами</p><p><span>03</span>Основы расчётов, защиты данных и управления качеством в медицинской практике</p><p><span>04</span>Профессиональный немецкий и подготовка к собеседованию</p></div>
+        <p>Подойдёт тем, кому нравится общаться с людьми, помогать пациентам и хочется работать в стабильной сфере здравоохранения.</p>
+        <a class="btn" href="#form">Программа курса администратора →</a>
+      </div>
+    </article>
+  </div>
+  <div class="inset" data-reveal style="margin-top:clamp(56px,7vw,128px);">
+    <div class="mono">Не знаете, какой курс выбрать?</div>
+    <p>Запишитесь на 15-минутную консультацию: специалист расскажет о программах, формате обучения и финансировании и поможет разобраться, что подходит вам.</p>
+    <a class="btn lt" href="#form">ОСТАВИТЬ ЗАЯВКУ</a>
+  </div>
+</section>
+
 <!-- 4 ОТЗЫВЫ -->
-<section class="dark" id="reviews">
+<section class="paper" id="reviews">
   <div class="head" data-reveal><div><h2 class="h2">Отзывы студентов и выпускников</h2></div>
     <div class="arr"><button type="button" data-v="-1" data-t="revs" aria-label="Назад">←</button><button type="button" data-v="1" data-t="revs" aria-label="Вперёд">→</button></div></div>
   <div class="track revs" id="revs">
@@ -366,44 +406,6 @@ footer .giant{margin:clamp(24px,4vw,64px) 0 -0.2em -0.06em;font-weight:200;font-
   </div>
 </section>
 
-<!-- 6 ДВЕ ПРОГРАММЫ: «что такое форсайт-игра» v2 -->
-<section class="paper" id="program">
-  <div class="head" data-reveal>
-    <div><h2 class="h2">Обучение на русском языке + 150 часов профильной лексики</h2></div>
-  </div>
-  <div class="grid2">
-    <article class="prog" data-reveal>
-      <div class="pic"><img src="media/buhgalter.jpg" alt="" style="object-position:62% 50%;"><div class="ov"></div>
-        <div class="corners"><div><span>Программа · 7 месяцев</span></div><div style="flex-direction:column;align-items:flex-start;gap:8px;"><strong>от 3 500 €/мес</strong><span style="text-transform:none;letter-spacing:.02em;max-width:460px;line-height:1.5;">Зарплата после обучения — от 3 500 €, с ростом до 4 500 € на позиции Bilanzbuchhalter</span></div></div></div>
-      <div class="body">
-        <h3>Курс «Бухгалтер в Германии» · Finanzbuchhalter:in</h3>
-        <p>Бухгалтерия в Германии — для тех, кто хочет освоить новую профессию или применить прежний опыт после переезда. На курсе вы разберётесь в немецком учёте и потренируетесь работать с документами и профессиональными программами.</p>
-        <div class="kv"><div><span>Длительность</span><span>7 месяцев</span></div><div><span>Формат</span><span>Онлайн</span></div><div><span>Сертификат</span><span>DEKRA · Weiterbildung</span></div><div><span>Финансирование</span><span>Bildungsgutschein</span></div></div>
-        <div class="ticks"><p><span>01</span>Практика в DATEV и Lexware</p><p><span>02</span>бухгалтерские документы и налоговая отчетность</p><p><span>03</span>Возможность Home Office после первого года</p><p><span>04</span>150 часов профильного немецкого + AI-тренажёр собеседований</p></div>
-        <p>Начать можно и без опыта работы в офисе. Мы объясняем основы, постепенно переходим к практике и помогаем разобраться в требованиях немецкого рынка труда.</p>
-        <a class="btn" href="#form">Программа курса бухгалтера →</a>
-      </div>
-    </article>
-    <article class="prog" data-reveal>
-      <div class="pic"><img src="media/klinika.jpg" alt="" style="object-position:50% 45%;"><div class="ov"></div>
-        <div class="corners"><div><span>Программа · 6 месяцев</span></div><div style="flex-direction:column;align-items:flex-start;gap:8px;"><strong>от 3 000 €/мес</strong><span style="text-transform:none;letter-spacing:.02em;max-width:460px;line-height:1.5;">Зарплата медицинского администратора в Германии после обучения— с возможностью карьерного роста и роста дохода</span></div></div></div>
-      <div class="body">
-        <h3>Курс «Администратор медицинской практики» / Mitarbeiter: in für die Rezeption und Praxisempfang</h3>
-        <p>Научитесь организовывать приём в медицинском праксисе: записывать пациентов, вести документы и помогать команде с повседневными задачами. Медицинское образование для начала обучения не требуется.</p>
-        <div class="kv"><div><span>Длительность</span><span>6 месяцев</span></div><div><span>Формат</span><span>Онлайн</span></div><div><span>Сертификат</span><span>DEKRA · Weiterbildung</span></div><div><span>Финансирование</span><span>Bildungsgutschein</span></div></div>
-        <div class="ticks"><p><span>01</span>Работа с медицинскими документами и цифровыми сервисами</p><p><span>02</span>Организация приёма и общение с пациентами</p><p><span>03</span>Основы расчётов, защиты данных и управления качеством в медицинской практике</p><p><span>04</span>Профессиональный немецкий и подготовка к собеседованию</p></div>
-        <p>Подойдёт тем, кому нравится общаться с людьми, помогать пациентам и хочется работать в стабильной сфере здравоохранения.</p>
-        <a class="btn" href="#form">Программа курса администратора →</a>
-      </div>
-    </article>
-  </div>
-  <div class="inset" data-reveal style="margin-top:clamp(56px,7vw,128px);">
-    <div class="mono">Не знаете, какой курс выбрать?</div>
-    <p>Запишитесь на 15-минутную консультацию: специалист расскажет о программах, формате обучения и финансировании и поможет разобраться, что подходит вам.</p>
-    <a class="btn lt" href="#form">ОСТАВИТЬ ЗАЯВКУ</a>
-  </div>
-</section>
-
 <!-- 7 КАК ПРОХОДИТ ОБУЧЕНИЕ: «что вы будете делать» v2 -->
 <section class="light">
   <div class="do">
@@ -451,7 +453,7 @@ footer .giant{margin:clamp(24px,4vw,64px) 0 -0.2em -0.06em;font-weight:200;font-
 </section>
 
 <!-- 9 НАЧНИТЕ КАРЬЕРУ: «что меняется» v2 + форма -->
-<section class="deep">
+<section class="paper">
   <div class="cols" data-reveal style="align-items:end;margin-bottom:clamp(40px,5vw,80px);">
     <h2 class="h2x">Начните карьеру в Германии</h2>
     <p style="margin:0;max-width:var(--tw);">Выберите направление, которое вам ближе, и узнайте, как проходит обучение</p>
@@ -463,13 +465,13 @@ footer .giant{margin:clamp(24px,4vw,64px) 0 -0.2em -0.06em;font-weight:200;font-
       <input type="text" name="name" placeholder="Имя" autocomplete="name" aria-label="Имя">
       <input type="email" name="email" placeholder="E-mail" autocomplete="email" aria-label="E-mail">
       <label class="chk"><input type="checkbox" required><span>Я соглашаюсь с <a href="#contact">Политикой обработки персональных данных</a></span></label>
-      <button class="btn lt" type="submit">Отправить</button>
+      <button class="btn" type="submit">Отправить</button>
     </form>
   </div>
 </section>
 
 <!-- 10 ТРУДОУСТРОЙСТВО: строки v2 -->
-<section class="paper">
+<section class="deep">
   <div class="cols" data-reveal style="margin-bottom:clamp(48px,6vw,96px);">
     <h2 class="h2">Помогаем подготовиться к поиску работы: от резюме до собеседования</h2>
     <p class="big" style="margin:0;">Сопровождаем до выхода на работу в Германии</p>
@@ -484,7 +486,7 @@ footer .giant{margin:clamp(24px,4vw,64px) 0 -0.2em -0.06em;font-weight:200;font-
 </section>
 
 <!-- 11 ПАРТНЁРЫ -->
-<section class="light" style="padding-top:0;">
+<section class="light">
   <div class="head" data-reveal style="margin-bottom:32px;"><div><h2 class="h2">Наши партнёры</h2></div></div>
   <div class="logos" data-reveal>
     <img src="media/partners/1.png" alt="Партнёр 1" loading="lazy"><img src="media/partners/2.png" alt="Партнёр 2" loading="lazy"><img src="media/partners/3.png" alt="Партнёр 3" loading="lazy"><img src="media/partners/4.png" alt="Партнёр 4" loading="lazy"><img src="media/partners/5.png" alt="Партнёр 5" loading="lazy"><img src="media/partners/6.png" alt="Партнёр 6" loading="lazy">
